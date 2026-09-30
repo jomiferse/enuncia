@@ -1,0 +1,839 @@
+[
+  {
+    "id": "enu-for-001",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "basica",
+    "title": "Dos acciones",
+    "statement": "Estudio la teoría y resuelvo ejercicios.",
+    "atoms": {
+      "P": "Estudio la teoría",
+      "Q": "Resuelvo ejercicios",
+      "R": "Apruebo el examen",
+      "S": "Estoy concentrado"
+    },
+    "solution": "P ∧ Q",
+    "tags": ["conjunción"],
+    "hints": [
+      "Las dos acciones se afirman a la vez.",
+      "Une P y Q con una conjunción."
+    ],
+    "explanation": "«Y» exige que ambas proposiciones sean verdaderas: P ∧ Q."
+  },
+  {
+    "id": "enu-for-002",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "basica",
+    "title": "Otra posibilidad",
+    "statement": "Llueve o hace frío, o ambas cosas.",
+    "atoms": {
+      "P": "Llueve",
+      "Q": "Hace frío",
+      "R": "Salgo a caminar",
+      "S": "Llevo abrigo"
+    },
+    "solution": "P ∨ Q",
+    "tags": ["disyunción"],
+    "hints": [
+      "El enunciado admite las dos posibilidades simultáneas.",
+      "La disyunción es inclusiva."
+    ],
+    "explanation": "La conectiva ∨ permite que se cumpla una proposición o las dos."
+  },
+  {
+    "id": "enu-for-003",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "basica",
+    "title": "No salir",
+    "statement": "No salgo a caminar.",
+    "atoms": {
+      "P": "Llueve",
+      "Q": "Hace frío",
+      "R": "Salgo a caminar",
+      "S": "Llevo abrigo"
+    },
+    "solution": "¬R",
+    "tags": ["negación"],
+    "hints": [
+      "Niega únicamente la acción de salir.",
+      "El átomo que debes negar es R."
+    ],
+    "explanation": "La negación afecta a R: ¬R."
+  },
+  {
+    "id": "enu-for-004",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "basica",
+    "title": "Una consecuencia",
+    "statement": "Si estudio la teoría, apruebo el examen.",
+    "atoms": {
+      "P": "Estudio la teoría",
+      "Q": "Resuelvo ejercicios",
+      "R": "Apruebo el examen",
+      "S": "Estoy concentrado"
+    },
+    "solution": "P → R",
+    "tags": ["condición suficiente"],
+    "hints": [
+      "Identifica qué condición introduce «si».",
+      "Estudiar es el antecedente; aprobar es el consecuente."
+    ],
+    "explanation": "La frase afirma que P es suficiente para R, por lo que P → R."
+  },
+  {
+    "id": "enu-for-005",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "basica",
+    "title": "Siempre que",
+    "statement": "Resuelvo ejercicios siempre que estoy concentrado.",
+    "atoms": {
+      "P": "Estudio la teoría",
+      "Q": "Resuelvo ejercicios",
+      "R": "Apruebo el examen",
+      "S": "Estoy concentrado"
+    },
+    "solution": "S → Q",
+    "tags": ["siempre que"],
+    "hints": [
+      "«Siempre que» introduce la condición que activa la otra acción.",
+      "Estar concentrado va a la izquierda de la flecha."
+    ],
+    "explanation": "S es suficiente para Q. El orden de las palabras no cambia la dirección: S → Q."
+  },
+  {
+    "id": "enu-for-006",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "basica",
+    "title": "Solo si",
+    "statement": "Salgo a caminar solo si llevo abrigo.",
+    "atoms": {
+      "P": "Llueve",
+      "Q": "Hace frío",
+      "R": "Salgo a caminar",
+      "S": "Llevo abrigo"
+    },
+    "solution": "R → S",
+    "tags": ["condición necesaria"],
+    "hints": [
+      "El abrigo es un requisito para salir.",
+      "«A solo si B» se traduce A → B."
+    ],
+    "explanation": "S es necesario para R: si salgo, llevo abrigo. R → S no afirma que llevar abrigo me obligue a salir."
+  },
+  {
+    "id": "enu-for-007",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "basica",
+    "title": "Ni una ni otra",
+    "statement": "Ni llueve ni hace frío.",
+    "atoms": {
+      "P": "Llueve",
+      "Q": "Hace frío",
+      "R": "Salgo a caminar",
+      "S": "Llevo abrigo"
+    },
+    "solution": "¬P ∧ ¬Q",
+    "tags": ["negación", "conjunción"],
+    "hints": ["Debes negar cada fenómeno.", "Une las dos negaciones con «y»."],
+    "explanation": "Se niegan ambas proposiciones: ¬P ∧ ¬Q. También equivale a ¬(P ∨ Q)."
+  },
+  {
+    "id": "enu-for-008",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "basica",
+    "title": "No las dos",
+    "statement": "No es cierto que estudie la teoría y resuelva ejercicios.",
+    "atoms": {
+      "P": "Estudio la teoría",
+      "Q": "Resuelvo ejercicios",
+      "R": "Apruebo el examen",
+      "S": "Estoy concentrado"
+    },
+    "solution": "¬(P ∧ Q)",
+    "tags": ["alcance de negación"],
+    "hints": [
+      "La negación afecta a la afirmación conjunta.",
+      "Coloca P ∧ Q dentro de los paréntesis de la negación."
+    ],
+    "explanation": "¬(P ∧ Q) permite que haga una de las acciones; solo excluye que haga ambas."
+  },
+  {
+    "id": "enu-for-009",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "basica",
+    "title": "Condición doble",
+    "statement": "Cuando llueve y hace frío, llevo abrigo.",
+    "atoms": {
+      "P": "Llueve",
+      "Q": "Hace frío",
+      "R": "Salgo a caminar",
+      "S": "Llevo abrigo"
+    },
+    "solution": "(P ∧ Q) → S",
+    "tags": ["cuando", "conjunción"],
+    "hints": [
+      "Las dos condiciones forman un único antecedente.",
+      "Agrupa P ∧ Q antes de la flecha."
+    ],
+    "explanation": "La combinación P ∧ Q es suficiente para S: (P ∧ Q) → S."
+  },
+  {
+    "id": "enu-for-010",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "basica",
+    "title": "Elección al estudiar",
+    "statement": "Cuando estoy concentrado, estudio la teoría o resuelvo ejercicios, o ambas cosas.",
+    "atoms": {
+      "P": "Estudio la teoría",
+      "Q": "Resuelvo ejercicios",
+      "R": "Apruebo el examen",
+      "S": "Estoy concentrado"
+    },
+    "solution": "S → (P ∨ Q)",
+    "tags": ["cuando", "disyunción"],
+    "hints": [
+      "La elección pertenece a la consecuencia.",
+      "El consecuente debe contener P ∨ Q."
+    ],
+    "explanation": "S activa una disyunción inclusiva: S → (P ∨ Q)."
+  },
+  {
+    "id": "enu-for-011",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "basica",
+    "title": "En ambos sentidos",
+    "statement": "Apruebo el examen si y solo si resuelvo ejercicios.",
+    "atoms": {
+      "P": "Estudio la teoría",
+      "Q": "Resuelvo ejercicios",
+      "R": "Apruebo el examen",
+      "S": "Estoy concentrado"
+    },
+    "solution": "R ↔ Q",
+    "tags": ["bicondicional"],
+    "hints": [
+      "Se establecen dos direcciones de implicación.",
+      "Puedes usar ↔ o unir R → Q y Q → R."
+    ],
+    "explanation": "El bicondicional equivale a (R → Q) ∧ (Q → R)."
+  },
+  {
+    "id": "enu-for-012",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "basica",
+    "title": "Una excepción",
+    "statement": "Llevo abrigo a menos que no haga frío.",
+    "atoms": {
+      "P": "Llueve",
+      "Q": "Hace frío",
+      "R": "Salgo a caminar",
+      "S": "Llevo abrigo"
+    },
+    "solution": "Q → S",
+    "tags": ["a menos que"],
+    "hints": [
+      "«A a menos que B» exige A cuando B no ocurre.",
+      "La excepción es ¬Q; su negación es Q."
+    ],
+    "explanation": "Cuando no ocurre ¬Q, es decir, cuando hace frío, llevo abrigo: Q → S. No se afirma qué sucede cuando no hace frío."
+  },
+  {
+    "id": "enu-for-013",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "media",
+    "title": "Caminar con buen tiempo",
+    "statement": "Cuando ni llueve ni hace frío, salgo a caminar.",
+    "atoms": {
+      "P": "Llueve",
+      "Q": "Hace frío",
+      "R": "Salgo a caminar",
+      "S": "Llevo abrigo"
+    },
+    "solution": "(¬P ∧ ¬Q) → R",
+    "tags": ["cuando", "negación"],
+    "hints": [
+      "Las dos negaciones son parte de la condición.",
+      "El antecedente es ¬P ∧ ¬Q."
+    ],
+    "explanation": "Que no llueva y no haga frío es suficiente para salir: (¬P ∧ ¬Q) → R."
+  },
+  {
+    "id": "enu-for-014",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "media",
+    "title": "Concentración y estudio",
+    "statement": "Cuando estudio la teoría, resuelvo ejercicios siempre que estoy concentrado.",
+    "atoms": {
+      "P": "Estudio la teoría",
+      "Q": "Resuelvo ejercicios",
+      "R": "Apruebo el examen",
+      "S": "Estoy concentrado"
+    },
+    "solution": "P → (S → Q)",
+    "tags": ["condicional anidado", "siempre que"],
+    "hints": [
+      "Hay una condición exterior y otra dentro de ella.",
+      "«Cuando estudio» envuelve «si estoy concentrado, resuelvo»."
+    ],
+    "explanation": "P → (S → Q) es equivalente a (P ∧ S) → Q; P y S juntas garantizan Q."
+  },
+  {
+    "id": "enu-for-015",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "media",
+    "title": "Frase reordenada",
+    "statement": "Resuelvo ejercicios cuando estoy concentrado, siempre que estudio la teoría.",
+    "atoms": {
+      "P": "Estudio la teoría",
+      "Q": "Resuelvo ejercicios",
+      "R": "Apruebo el examen",
+      "S": "Estoy concentrado"
+    },
+    "solution": "P → (S → Q)",
+    "tags": ["condicional anidado", "orden de condiciones"],
+    "hints": [
+      "La condición final afecta a toda la relación anterior.",
+      "Formaliza primero «cuando estoy concentrado, resuelvo»."
+    ],
+    "explanation": "La condición P envuelve S → Q. El resultado P → (S → Q) equivale a (P ∧ S) → Q."
+  },
+  {
+    "id": "enu-for-016",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "media",
+    "title": "Dos consecuencias",
+    "statement": "Si llueve, no salgo a caminar; si no llueve, salgo a caminar.",
+    "atoms": {
+      "P": "Llueve",
+      "Q": "Hace frío",
+      "R": "Salgo a caminar",
+      "S": "Llevo abrigo"
+    },
+    "solution": "(P → ¬R) ∧ (¬P → R)",
+    "tags": ["conjunción", "condicional"],
+    "hints": [
+      "Son dos afirmaciones condicionales que deben cumplirse.",
+      "Formaliza cada mitad y únelas con ∧."
+    ],
+    "explanation": "La primera mitad es P → ¬R y la segunda ¬P → R. El «y» implícito entre ambas exige su conjunción."
+  },
+  {
+    "id": "enu-for-017",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "media",
+    "title": "Requisito para viajar",
+    "statement": "Debo tener dinero para viajar.",
+    "atoms": {
+      "D": "Tengo dinero",
+      "T": "Tengo tiempo libre",
+      "V": "Viajo",
+      "S": "Tengo salud"
+    },
+    "solution": "V → D",
+    "tags": ["condición necesaria"],
+    "hints": [
+      "El dinero es necesario, no se presenta como suficiente.",
+      "Viajar es el antecedente y tener dinero el consecuente."
+    ],
+    "explanation": "«Debo tener D para V» expresa que V requiere D: V → D."
+  },
+  {
+    "id": "enu-for-018",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "media",
+    "title": "Dos requisitos separados",
+    "statement": "Debo tener dinero para viajar y debo tener tiempo libre para tener salud.",
+    "atoms": {
+      "D": "Tengo dinero",
+      "T": "Tengo tiempo libre",
+      "V": "Viajo",
+      "S": "Tengo salud"
+    },
+    "solution": "(V → D) ∧ (S → T)",
+    "tags": ["condición necesaria", "conjunción"],
+    "hints": [
+      "Cada «para» introduce una relación de requisito.",
+      "Obtén V → D y S → T antes de unirlas."
+    ],
+    "explanation": "Son dos necesidades independientes: (V → D) ∧ (S → T)."
+  },
+  {
+    "id": "enu-for-019",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "media",
+    "title": "Requisito combinado",
+    "statement": "Es necesario tener dinero y salud para viajar.",
+    "atoms": {
+      "D": "Tengo dinero",
+      "T": "Tengo tiempo libre",
+      "V": "Viajo",
+      "S": "Tengo salud"
+    },
+    "solution": "V → (D ∧ S)",
+    "tags": ["condición necesaria", "conjunción"],
+    "hints": [
+      "Viajar requiere las dos cosas a la vez.",
+      "Coloca la conjunción de requisitos a la derecha de la flecha."
+    ],
+    "explanation": "D ∧ S es necesario para V, por eso V → (D ∧ S)."
+  },
+  {
+    "id": "enu-for-020",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "media",
+    "title": "Basta con una condición",
+    "statement": "Tener dinero o tiempo libre, o ambas cosas, es suficiente para viajar.",
+    "atoms": {
+      "D": "Tengo dinero",
+      "T": "Tengo tiempo libre",
+      "V": "Viajo",
+      "S": "Tengo salud"
+    },
+    "solution": "(D ∨ T) → V",
+    "tags": ["condición suficiente", "disyunción"],
+    "hints": [
+      "La condición suficiente completa es una disyunción.",
+      "La disyunción va en el antecedente."
+    ],
+    "explanation": "Si se cumple D ∨ T, se garantiza V: (D ∨ T) → V."
+  },
+  {
+    "id": "enu-for-021",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "media",
+    "title": "Aprobar solo si",
+    "statement": "Apruebo el examen solo si estudio la teoría y resuelvo ejercicios.",
+    "atoms": {
+      "P": "Estudio la teoría",
+      "Q": "Resuelvo ejercicios",
+      "R": "Apruebo el examen",
+      "S": "Estoy concentrado"
+    },
+    "solution": "R → (P ∧ Q)",
+    "tags": ["solo si", "condición necesaria"],
+    "hints": [
+      "Estudiar y resolver son requisitos para aprobar.",
+      "Aprobar va a la izquierda de la flecha."
+    ],
+    "explanation": "R exige P ∧ Q: R → (P ∧ Q). El enunciado no asegura que esos requisitos basten."
+  },
+  {
+    "id": "enu-for-022",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "media",
+    "title": "Una negación exterior",
+    "statement": "No es cierto que, si llueve, salga a caminar.",
+    "atoms": {
+      "P": "Llueve",
+      "Q": "Hace frío",
+      "R": "Salgo a caminar",
+      "S": "Llevo abrigo"
+    },
+    "solution": "¬(P → R)",
+    "tags": ["alcance de negación", "condicional"],
+    "hints": [
+      "Se niega la relación condicional completa.",
+      "Primero construye P → R y después niégala."
+    ],
+    "explanation": "¬(P → R) equivale a P ∧ ¬R: llueve y no salgo. No equivale a P → ¬R."
+  },
+  {
+    "id": "enu-for-023",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "media",
+    "title": "Dos alternativas excluyentes",
+    "statement": "O estudio la teoría o resuelvo ejercicios, pero no ambas cosas.",
+    "atoms": {
+      "P": "Estudio la teoría",
+      "Q": "Resuelvo ejercicios",
+      "R": "Apruebo el examen",
+      "S": "Estoy concentrado"
+    },
+    "solution": "(P ∨ Q) ∧ ¬(P ∧ Q)",
+    "tags": ["disyunción exclusiva"],
+    "hints": [
+      "Necesitas al menos una acción y excluir que ocurran ambas.",
+      "Combina una disyunción con la negación de una conjunción."
+    ],
+    "explanation": "La exclusión se expresa como (P ∨ Q) ∧ ¬(P ∧ Q), no con ∨ solamente."
+  },
+  {
+    "id": "enu-for-024",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "media",
+    "title": "Salud y disponibilidad",
+    "statement": "Viajo si y solo si tengo salud y tiempo libre.",
+    "atoms": {
+      "D": "Tengo dinero",
+      "T": "Tengo tiempo libre",
+      "V": "Viajo",
+      "S": "Tengo salud"
+    },
+    "solution": "V ↔ (S ∧ T)",
+    "tags": ["bicondicional", "conjunción"],
+    "hints": [
+      "La combinación completa se relaciona en ambos sentidos con viajar.",
+      "Agrupa S ∧ T como un lado del bicondicional."
+    ],
+    "explanation": "V ↔ (S ∧ T) establece necesidad y suficiencia de la combinación."
+  },
+  {
+    "id": "enu-for-025",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "media",
+    "title": "Excepción al paseo",
+    "statement": "Salgo a caminar a menos que llueva o haga frío.",
+    "atoms": {
+      "P": "Llueve",
+      "Q": "Hace frío",
+      "R": "Salgo a caminar",
+      "S": "Llevo abrigo"
+    },
+    "solution": "¬(P ∨ Q) → R",
+    "tags": ["a menos que", "negación"],
+    "hints": [
+      "La excepción es la disyunción de los dos fenómenos.",
+      "Niega P ∨ Q para obtener la condición de salir."
+    ],
+    "explanation": "Cuando no ocurre la excepción, salgo: ¬(P ∨ Q) → R. Equivale a (¬P ∧ ¬Q) → R."
+  },
+  {
+    "id": "enu-for-026",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "media",
+    "title": "Falta de recursos",
+    "statement": "Si no tengo dinero, no viajo, y si no tengo salud, tampoco viajo.",
+    "atoms": {
+      "D": "Tengo dinero",
+      "T": "Tengo tiempo libre",
+      "V": "Viajo",
+      "S": "Tengo salud"
+    },
+    "solution": "(¬D → ¬V) ∧ (¬S → ¬V)",
+    "tags": ["negación", "conjunción"],
+    "hints": [
+      "Son dos prohibiciones condicionales distintas.",
+      "En cada una, niega antecedente y consecuente."
+    ],
+    "explanation": "(¬D → ¬V) ∧ (¬S → ¬V) equivale a V → (D ∧ S): dinero y salud son necesarios."
+  },
+  {
+    "id": "enu-for-027",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "media",
+    "title": "Condición de un requisito",
+    "statement": "Cuando tengo tiempo libre, debo tener dinero para viajar.",
+    "atoms": {
+      "D": "Tengo dinero",
+      "T": "Tengo tiempo libre",
+      "V": "Viajo",
+      "S": "Tengo salud"
+    },
+    "solution": "T → (V → D)",
+    "tags": ["condicional anidado", "condición necesaria"],
+    "hints": [
+      "El requisito para viajar solo se afirma bajo la condición exterior.",
+      "Formaliza «debo tener dinero para viajar» como V → D."
+    ],
+    "explanation": "T envuelve la necesidad V → D: T → (V → D), equivalente a (T ∧ V) → D."
+  },
+  {
+    "id": "enu-for-028",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "media",
+    "title": "Estudiar sin distracción",
+    "statement": "Cuando estudio y no estoy concentrado, no resuelvo ejercicios ni apruebo el examen.",
+    "atoms": {
+      "P": "Estudio la teoría",
+      "Q": "Resuelvo ejercicios",
+      "R": "Apruebo el examen",
+      "S": "Estoy concentrado"
+    },
+    "solution": "(P ∧ ¬S) → (¬Q ∧ ¬R)",
+    "tags": ["negación", "conjunción"],
+    "hints": [
+      "Hay una conjunción en cada lado de la flecha.",
+      "«Ni resuelvo ni apruebo» es ¬Q ∧ ¬R."
+    ],
+    "explanation": "La condición P ∧ ¬S garantiza dos negaciones: (P ∧ ¬S) → (¬Q ∧ ¬R)."
+  },
+  {
+    "id": "enu-for-029",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "avanzada",
+    "title": "Una condición sobre otra",
+    "statement": "Cuando debo tener dinero para viajar, es necesario tener tiempo libre para tener salud.",
+    "atoms": {
+      "D": "Tengo dinero",
+      "T": "Tengo tiempo libre",
+      "V": "Viajo",
+      "S": "Tengo salud"
+    },
+    "solution": "(V → D) → (S → T)",
+    "tags": ["condicional anidado", "condición necesaria"],
+    "hints": [
+      "Tanto el antecedente como el consecuente son relaciones de necesidad.",
+      "La primera relación es V → D; la segunda es S → T."
+    ],
+    "explanation": "«Cuando» conecta dos condicionales completos: (V → D) → (S → T). No es una conjunción de requisitos."
+  },
+  {
+    "id": "enu-for-030",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "avanzada",
+    "title": "Requisitos bajo condición",
+    "statement": "Cuando tengo tiempo libre, es necesario tener dinero y salud para viajar.",
+    "atoms": {
+      "D": "Tengo dinero",
+      "T": "Tengo tiempo libre",
+      "V": "Viajo",
+      "S": "Tengo salud"
+    },
+    "solution": "T → (V → (D ∧ S))",
+    "tags": ["condicional anidado", "condición necesaria"],
+    "hints": [
+      "Distingue la condición exterior de los requisitos interiores.",
+      "El requisito interior es V → (D ∧ S)."
+    ],
+    "explanation": "T activa la relación de necesidad: T → (V → (D ∧ S)). Equivale a (T ∧ V) → (D ∧ S)."
+  },
+  {
+    "id": "enu-for-031",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "avanzada",
+    "title": "Requisito al final",
+    "statement": "Es necesario tener dinero y salud para viajar cuando tengo tiempo libre.",
+    "atoms": {
+      "D": "Tengo dinero",
+      "T": "Tengo tiempo libre",
+      "V": "Viajo",
+      "S": "Tengo salud"
+    },
+    "solution": "T → (V → (D ∧ S))",
+    "tags": ["orden de condiciones", "condición necesaria"],
+    "hints": [
+      "La condición temporal final afecta al requisito completo.",
+      "Pon T como condición exterior de V → (D ∧ S)."
+    ],
+    "explanation": "El orden verbal no invierte las flechas: T → (V → (D ∧ S))."
+  },
+  {
+    "id": "enu-for-032",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "avanzada",
+    "title": "Si una regla se cumple",
+    "statement": "Si cuando estudio la teoría resuelvo ejercicios, entonces, cuando estoy concentrado, apruebo el examen.",
+    "atoms": {
+      "P": "Estudio la teoría",
+      "Q": "Resuelvo ejercicios",
+      "R": "Apruebo el examen",
+      "S": "Estoy concentrado"
+    },
+    "solution": "(P → Q) → (S → R)",
+    "tags": ["condicional anidado"],
+    "hints": [
+      "El «si» exterior no se refiere solo a estudiar.",
+      "Construye dos reglas: P → Q y S → R."
+    ],
+    "explanation": "El antecedente es la regla P → Q y el consecuente la regla S → R: (P → Q) → (S → R)."
+  },
+  {
+    "id": "enu-for-033",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "avanzada",
+    "title": "Necesidad de una regla",
+    "statement": "Para que el equipo empiece, es necesario que, si el proyecto está aprobado, haya presupuesto.",
+    "atoms": {
+      "P": "El proyecto está aprobado",
+      "Q": "Hay presupuesto",
+      "R": "El equipo empieza",
+      "S": "Se cumple el plazo"
+    },
+    "solution": "R → (P → Q)",
+    "tags": ["condición necesaria", "condicional anidado"],
+    "hints": [
+      "El requisito para empezar es una implicación completa.",
+      "La regla requerida es P → Q."
+    ],
+    "explanation": "Que empiece R exige que sea verdadera la regla P → Q: R → (P → Q)."
+  },
+  {
+    "id": "enu-for-034",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "avanzada",
+    "title": "Equivalencia de reglas",
+    "statement": "El proyecto está aprobado si y solo si se cumple que, cuando hay presupuesto, el equipo empieza.",
+    "atoms": {
+      "P": "El proyecto está aprobado",
+      "Q": "Hay presupuesto",
+      "R": "El equipo empieza",
+      "S": "Se cumple el plazo"
+    },
+    "solution": "P ↔ (Q → R)",
+    "tags": ["bicondicional", "condicional anidado"],
+    "hints": [
+      "Uno de los lados del bicondicional es una regla.",
+      "Relaciona P con el condicional Q → R."
+    ],
+    "explanation": "P ↔ (Q → R) equipara la aprobación con la verdad del condicional, no con la conjunción Q ∧ R."
+  },
+  {
+    "id": "enu-for-035",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "avanzada",
+    "title": "Un requisito insuficiente",
+    "statement": "No es cierto que tener dinero y salud sea suficiente para viajar.",
+    "atoms": {
+      "D": "Tengo dinero",
+      "T": "Tengo tiempo libre",
+      "V": "Viajo",
+      "S": "Tengo salud"
+    },
+    "solution": "¬((D ∧ S) → V)",
+    "tags": ["alcance de negación", "condición suficiente"],
+    "hints": [
+      "Se niega la suficiencia de la combinación.",
+      "La negación debe envolver (D ∧ S) → V."
+    ],
+    "explanation": "¬((D ∧ S) → V) equivale a D ∧ S ∧ ¬V: ambos recursos están presentes, pero no viajo."
+  },
+  {
+    "id": "enu-for-036",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "avanzada",
+    "title": "Dos planes condicionados",
+    "statement": "Cuando estoy concentrado, si estudio la teoría apruebo el examen, y si no estudio la teoría resuelvo ejercicios.",
+    "atoms": {
+      "P": "Estudio la teoría",
+      "Q": "Resuelvo ejercicios",
+      "R": "Apruebo el examen",
+      "S": "Estoy concentrado"
+    },
+    "solution": "S → ((P → R) ∧ (¬P → Q))",
+    "tags": ["condicional anidado", "conjunción"],
+    "hints": [
+      "La concentración condiciona las dos reglas, no solo una.",
+      "Une P → R y ¬P → Q dentro del consecuente de S."
+    ],
+    "explanation": "El alcance exterior engloba las dos ramas: S → ((P → R) ∧ (¬P → Q))."
+  },
+  {
+    "id": "enu-for-037",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "avanzada",
+    "title": "Condición y excepción",
+    "statement": "Cuando el proyecto está aprobado, el equipo empieza a menos que no haya presupuesto.",
+    "atoms": {
+      "P": "El proyecto está aprobado",
+      "Q": "Hay presupuesto",
+      "R": "El equipo empieza",
+      "S": "Se cumple el plazo"
+    },
+    "solution": "P → (Q → R)",
+    "tags": ["a menos que", "condicional anidado"],
+    "hints": [
+      "Primero traduce la excepción interior; después aplica la condición exterior.",
+      "La excepción es ¬Q, así que sin excepción Q garantiza R."
+    ],
+    "explanation": "La regla interior es Q → R y la exterior P → (Q → R), equivalente a (P ∧ Q) → R."
+  },
+  {
+    "id": "enu-for-038",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "avanzada",
+    "title": "Basta con una regla",
+    "statement": "Que el equipo empiece solo si hay presupuesto es suficiente para que, cuando el proyecto está aprobado, se cumpla el plazo.",
+    "atoms": {
+      "P": "El proyecto está aprobado",
+      "Q": "Hay presupuesto",
+      "R": "El equipo empieza",
+      "S": "Se cumple el plazo"
+    },
+    "solution": "(R → Q) → (P → S)",
+    "tags": ["solo si", "condición suficiente", "condicional anidado"],
+    "hints": [
+      "La condición suficiente es toda la primera regla.",
+      "«Empieza solo si hay presupuesto» es R → Q."
+    ],
+    "explanation": "La suficiencia conecta (R → Q) con (P → S): (R → Q) → (P → S)."
+  },
+  {
+    "id": "enu-for-039",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "avanzada",
+    "title": "Dos requisitos de una regla",
+    "statement": "Para que se cumpla que, si el proyecto está aprobado, el equipo empieza, es necesario que haya presupuesto y se cumpla el plazo.",
+    "atoms": {
+      "P": "El proyecto está aprobado",
+      "Q": "Hay presupuesto",
+      "R": "El equipo empieza",
+      "S": "Se cumple el plazo"
+    },
+    "solution": "(P → R) → (Q ∧ S)",
+    "tags": ["condición necesaria", "condicional anidado"],
+    "hints": [
+      "Lo que exige recursos es la verdad de una regla completa.",
+      "El antecedente es P → R; el requisito es Q ∧ S."
+    ],
+    "explanation": "La necesidad de Q ∧ S para P → R se expresa (P → R) → (Q ∧ S)."
+  },
+  {
+    "id": "enu-for-040",
+    "blockId": "enunciados-formalizacion",
+    "type": "formalization",
+    "difficulty": "avanzada",
+    "title": "Equivalencia bajo condición",
+    "statement": "Cuando tengo salud, viajo si y solo si tengo dinero y tiempo libre.",
+    "atoms": {
+      "D": "Tengo dinero",
+      "T": "Tengo tiempo libre",
+      "V": "Viajo",
+      "S": "Tengo salud"
+    },
+    "solution": "S → (V ↔ (D ∧ T))",
+    "tags": ["bicondicional", "condicional anidado"],
+    "hints": [
+      "La salud condiciona la equivalencia completa.",
+      "Dentro de la condición S, relaciona V con D ∧ T usando ↔."
+    ],
+    "explanation": "S → (V ↔ (D ∧ T)) solo exige la equivalencia cuando S es verdadera."
+  }
+]

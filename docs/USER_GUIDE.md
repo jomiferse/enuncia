@@ -9,6 +9,7 @@ Enuncia currently teaches formalization in propositional logic, with atoms suppl
 1. Open `http://127.0.0.1:5173/` while the local server is running.
 2. Choose **Practicar** from the sidebar or **Empezar a practicar** on the home page.
 3. Choose an area: **Lógica de enunciados** or **Lógica de predicados**.
+   Predicate logic is organized into **Deducción natural**, **Resolución**, and **Fórmulas a enunciados** (formulas to natural-language statements). These blocks are currently marked **Próximamente**.
 4. Choose an available block, such as **Formalización**. Its card shows completed, incomplete, and unattempted exercises, plus pending mistakes. Cards marked **Próximamente** are placeholders without active exercises.
 5. Choose a difficulty: **Básica**, **Media**, or **Avanzada**.
 6. Select an exercise from the paginated list. Each page shows at most ten exercises. Search and review filters stay within the chosen block; selecting all difficulties does not mix blocks.

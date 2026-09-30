@@ -32,14 +32,6 @@
     "description": "Analiza valores de verdad, equivalencias y validez de argumentos."
   },
   {
-    "id": "predicados-formalizacion",
-    "areaId": "predicados",
-    "title": "Lógica de predicados",
-    "subtitle": "Formalización",
-    "type": "formalization",
-    "description": "Traduce enunciados a fórmulas e identifica el alcance de cada condición."
-  },
-  {
     "id": "predicados-deduccion-natural",
     "areaId": "predicados",
     "title": "Lógica de predicados",
@@ -54,5 +46,13 @@
     "subtitle": "Resolución",
     "type": "resolution",
     "description": "Trabaja con cláusulas y aplica la regla de resolución."
+  },
+  {
+    "id": "predicados-formulas-enunciados",
+    "areaId": "predicados",
+    "title": "Lógica de predicados",
+    "subtitle": "Fórmulas a enunciados",
+    "type": "formula-to-statement",
+    "description": "Interpreta fórmulas con predicados y cuantificadores y exprésalas en lenguaje natural."
   }
 ]

@@ -58,8 +58,8 @@ test("course structure rejects orphan blocks and duplicate areas", () => {
 test("block filtering never leaks exercises from another area, including all-level search", () => {
   const future = {
     ...exercises[0],
-    id: "pred-for-001",
-    blockId: "predicados-formalizacion",
+    id: "pred-fe-001",
+    blockId: "predicados-formulas-enunciados",
   };
   const pool = filterExercisePool([...exercises, future], [], {
     blockId: "enunciados-formalizacion",
@@ -71,7 +71,7 @@ test("block filtering never leaks exercises from another area, including all-lev
   assert.ok(!pool.some((e) => e.id === future.id));
   assert.equal(
     filterExercisePool([...exercises, future], [], {
-      blockId: "predicados-formalizacion",
+      blockId: "predicados-formulas-enunciados",
       difficulty: "all",
       query: "",
       errorsOnly: false,

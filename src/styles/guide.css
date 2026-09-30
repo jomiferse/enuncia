@@ -1,0 +1,66 @@
+.guide-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 17px;
+  text-align: left;
+}
+.guide-table th {
+  font-weight: 500;
+  font-size: 10px;
+  color: #8c997f;
+  padding: 9px 0;
+}
+.guide-table td {
+  border-top: 1px solid #e9eddf;
+  padding: 10px 0;
+  font-size: 12px;
+  color: #758769;
+}
+.guide-table td.math {
+  font-size: 21px;
+  color: #53713f;
+}
+.guide-rule {
+  padding: 14px 0;
+  border-top: 1px solid #e8eddf;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 13px;
+}
+.guide-rule b {
+  font-size: 12px;
+  font-weight: 550;
+  color: #667e51;
+}
+.guide-rule span {
+  font-size: 11px;
+  color: #94a082;
+}
+.guide-rule code {
+  font: 24px var(--serif);
+  color: #52713e;
+}
+.guide-grid .panel > p + p {
+  margin-top: 15px;
+}
+.expand-guide {
+  grid-column: 1/-1;
+}
+.expand-guide > svg {
+  color: #8fa96d;
+  float: right;
+}
+.example-request {
+  font: italic 20px/1.5 var(--serif);
+  color: #6a7f52;
+  margin: 20px 0;
+  padding: 15px 20px;
+  background: #f1f5e8;
+  border-radius: 7px;
+}

@@ -1,0 +1,27 @@
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 250px;
+  z-index: 60;
+  background: var(--green);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 7px;
+  transform: translateY(-150%);
+  font-size: 12px;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+@media (max-width: 720px) {
+  .skip-link {
+    left: 15px;
+  }
+}

@@ -1,0 +1,341 @@
+@media (max-width: 720px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: 240px;
+    visibility: hidden;
+    transition: transform 0.2s;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+  .main-shell {
+    margin-left: 0;
+  }
+  .mobile-toggle {
+    display: inline-flex;
+    padding: 0 3px 0 0;
+    color: #476444;
+  }
+  .menu-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: #142c2355;
+    z-index: 20;
+  }
+  .topbar {
+    padding: 0 20px;
+    height: 67px;
+  }
+  .breadcrumb {
+    font-size: 10px;
+    gap: 9px;
+  }
+  .breadcrumb > span {
+    display: none;
+  }
+  .topbar-right {
+    gap: 12px;
+  }
+  .topbar-local {
+    font-size: 8px;
+  }
+  .avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 22px;
+  }
+  main {
+    padding: 21px 18px 0;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .hero-copy {
+    padding: 28px 26px 24px;
+  }
+  .hero h1 {
+    font-size: 53px;
+    letter-spacing: -1.8px;
+  }
+  .hero-copy > p {
+    font-size: 12px;
+    max-width: 290px;
+  }
+  .hero-label {
+    font-size: 8px;
+  }
+  .logic-art {
+    border-top: 1px solid #dee5d2;
+    padding: 23px 26px 25px;
+    min-height: 190px;
+    display: block;
+  }
+  .art-top {
+    font-size: 7px;
+    max-width: 150px;
+  }
+  .art-phrase {
+    font-size: 19px;
+    max-width: 210px;
+    margin-top: 11px;
+  }
+  .art-line {
+    width: 130px;
+    margin: 12px 0;
+  }
+  .art-atoms {
+    font-size: 15px;
+    max-width: 220px;
+  }
+  .art-formula {
+    position: absolute;
+    right: 22px;
+    bottom: 49px;
+    font-size: 40px;
+    letter-spacing: 0;
+    margin: 0;
+  }
+  .art-formula span {
+    padding: 0 2px;
+  }
+  .art-note {
+    margin-top: 17px;
+    font-size: 7px;
+  }
+  .art-decoration {
+    font-size: 120px;
+    right: 5px;
+    bottom: -23px;
+  }
+  .metrics {
+    grid-template-columns: 1fr 1fr;
+    margin: 18px 0 30px;
+    gap: 10px;
+  }
+  .metric {
+    padding: 17px;
+  }
+  .metric-icon {
+    position: absolute;
+    right: 15px;
+    top: 19px;
+  }
+  .metric > strong {
+    font-size: 27px;
+    margin: 6px 0 11px;
+  }
+  .metric > span {
+    font-size: 10px;
+  }
+  .section-title > .muted {
+    display: none;
+  }
+  .section-title h2 {
+    font-size: 27px;
+  }
+  .learning-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .block-card,
+  .exam-card {
+    padding: 26px;
+  }
+  .exam-card h3 br {
+    display: none;
+  }
+  .exam-card h3 {
+    font-size: 30px;
+  }
+  .exam-card > p br {
+    display: none;
+  }
+  .exam-card .circle-icon {
+    float: right;
+    margin: 0;
+    align-self: flex-end;
+    position: absolute;
+  }
+  .exam-card {
+    position: relative;
+  }
+  .exam-card > .eyebrow {
+    padding-top: 10px;
+  }
+  .exam-card > h3 {
+    padding-top: 10px;
+    margin-right: 45px;
+  }
+  .tip-banner {
+    align-items: flex-start;
+  }
+  .tip-banner strong {
+    font-size: 11px;
+  }
+  .tip-banner p {
+    font-size: 10px;
+  }
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 8px;
+    padding-bottom: 20px;
+    margin-top: 27px;
+  }
+  footer > span:last-child {
+    max-width: none;
+    text-align: left;
+  }
+  .page-intro h1 {
+    font-size: 33px;
+  }
+  .page-intro > p {
+    font-size: 12px;
+  }
+  .page-intro {
+    margin-bottom: 24px;
+  }
+  .filters {
+    gap: 9px;
+  }
+  .search-field {
+    width: 100%;
+    flex-basis: 100%;
+  }
+  .filters .button {
+    font-size: 11px;
+    padding: 10px;
+  }
+  .select-label {
+    flex: 1;
+  }
+  .select-label select {
+    width: 100%;
+    font-size: 11px;
+  }
+  .exercise-list {
+    grid-template-columns: 1fr;
+    max-height: 200px;
+  }
+  .practice-layout .exercise-card {
+    padding: 22px 20px;
+  }
+  .exercise-heading > .eyebrow {
+    font-size: 8px;
+  }
+  .exercise-title {
+    font-size: 26px;
+  }
+  .exercise-card blockquote {
+    font-size: 20px;
+    padding-left: 14px;
+  }
+  .atoms dd {
+    font-size: 11px;
+  }
+  .symbol-bar {
+    gap: 5px;
+  }
+  .symbol-bar button {
+    min-width: 29px;
+    height: 31px;
+  }
+  .practice-bottom {
+    align-items: flex-start;
+  }
+  .practice-bottom .text-button {
+    font-size: 10px;
+  }
+  .formula-editor textarea {
+    font-size: 22px;
+  }
+  .progress-columns,
+  .guide-grid {
+    grid-template-columns: 1fr;
+  }
+  .expand-guide {
+    grid-column: auto;
+  }
+  .panel {
+    padding: 24px;
+  }
+  .history-row {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .history-row strong {
+    font-size: 11px;
+  }
+  .history-label {
+    font-size: 9px;
+  }
+  .history-row .text-button {
+    font-size: 10px;
+  }
+  .exam-setup {
+    padding: 26px 22px;
+  }
+  .setup-facts {
+    gap: 13px;
+    flex-direction: column;
+  }
+  .exam-setup select {
+    font-size: 11px;
+  }
+  .exam-toolbar {
+    align-items: flex-start;
+  }
+  .exam-toolbar h1 {
+    font-size: 28px;
+  }
+  .timer {
+    font-size: 13px;
+    padding: 9px;
+    gap: 5px;
+  }
+  .timer small {
+    display: none;
+  }
+  .exam-navigation {
+    gap: 6px;
+  }
+  .exam-navigation button {
+    min-width: 27px;
+    width: 27px;
+    height: 32px;
+    padding: 0;
+    font-size: 11px;
+  }
+  .exam-score {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+  }
+  .result-details > summary {
+    padding: 15px 13px;
+    gap: 9px;
+    font-size: 11px;
+  }
+  .result-details > summary .badge {
+    font-size: 8px;
+    padding: 4px;
+  }
+  .result-body {
+    padding: 20px;
+  }
+  .modal {
+    padding: 26px;
+  }
+  .notice {
+    font-size: 11px;
+  }
+  .page-intro .eyebrow {
+    font-size: 8px;
+  }
+  .exam-score strong {
+    font-size: 58px;
+  }
+}

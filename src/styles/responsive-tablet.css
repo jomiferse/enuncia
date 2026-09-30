@@ -1,0 +1,130 @@
+@media (max-width: 950px) {
+  .sidebar {
+    width: 180px;
+    padding: 28px 12px;
+  }
+  .main-shell {
+    margin-left: 180px;
+  }
+  .brand {
+    font-size: 20px;
+    gap: 10px;
+  }
+  .brand-icon {
+    width: 37px;
+  }
+  .sidebar-caption {
+    font-size: 8px;
+  }
+  .sidebar nav button {
+    font-size: 12px;
+    padding: 13px 12px;
+    gap: 10px;
+  }
+  .topbar {
+    padding: 0 22px;
+    height: 72px;
+  }
+  main {
+    padding: 24px 22px 0;
+  }
+  .hero {
+    grid-template-columns: 1fr 0.8fr;
+  }
+  .hero h1 {
+    font-size: 42px;
+  }
+  .hero-copy {
+    padding: 25px;
+  }
+  .hero-copy > p {
+    font-size: 11px;
+  }
+  .desktop-break {
+    display: none;
+  }
+  .art-top {
+    font-size: 7px;
+    letter-spacing: 1.4px;
+  }
+  .art-phrase {
+    font-size: 19px;
+  }
+  .art-line {
+    width: 140px;
+  }
+  .art-formula {
+    font-size: 44px;
+  }
+  .art-formula span {
+    padding: 0 5px;
+  }
+  .art-atoms {
+    gap: 14px;
+  }
+  .metrics {
+    gap: 9px;
+  }
+  .metric-icon {
+    position: static;
+    margin-bottom: 6px;
+  }
+  .metric > strong {
+    margin: 4px 0 8px;
+  }
+  .metric > span {
+    line-height: 1.5;
+  }
+  .practice-layout {
+    grid-template-columns: 1fr;
+  }
+  .exercise-list {
+    max-height: 210px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: start;
+  }
+  .list-heading {
+    grid-column: 1/-1;
+  }
+  .practice-layout .exercise-card {
+    padding: 28px;
+  }
+  .learning-grid {
+    grid-template-columns: 1.1fr 1fr;
+  }
+  .block-card h3 {
+    font-size: 25px;
+  }
+  .exam-card h3 {
+    font-size: 27px;
+  }
+  .tip-banner {
+    padding: 18px;
+    gap: 13px;
+  }
+  .tip-banner .text-button {
+    display: none;
+  }
+  .progress-columns,
+  .guide-grid {
+    gap: 15px;
+  }
+  .panel {
+    padding: 24px;
+  }
+  .exam-toolbar h1 {
+    font-size: 27px;
+  }
+  .exam-navigation {
+    gap: 6px;
+  }
+  .exam-navigation button {
+    min-width: 30px;
+  }
+  .exam-navigation > span {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 7px;
+  }
+}

@@ -1,0 +1,139 @@
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 21px;
+}
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: #fffefa;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 0 13px;
+  flex: 1;
+  min-width: 220px;
+  color: #8a987e;
+}
+.search-field input {
+  min-width: 0;
+  width: 100%;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  color: #344e36;
+  font-size: 12px;
+  outline-offset: 0;
+}
+.select-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  background: #fffefa;
+  padding: 0 10px;
+  border-radius: 7px;
+  color: #738368;
+}
+select {
+  background: #fffefa;
+  border: 1px solid var(--line);
+  padding: 12px;
+  border-radius: 7px;
+  color: #41593c;
+  font-size: 12px;
+  max-width: 100%;
+}
+.select-label select {
+  border: 0;
+  padding-left: 0;
+  background: transparent;
+}
+.active-filter {
+  background: #e7eedb;
+  border-color: #9bab82;
+}
+.practice-layout {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+.exercise-list {
+  background: #fffefa;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 15px 9px;
+  max-height: 830px;
+  overflow-y: auto;
+}
+.list-heading {
+  font-size: 11px;
+  padding: 4px 9px 17px;
+  color: #586f47;
+  display: flex;
+  justify-content: space-between;
+}
+.list-heading span {
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #98a08e;
+}
+.exercise-item {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  text-align: left;
+  padding: 12px 9px;
+  border-radius: 7px;
+  margin: 2px 0;
+}
+.exercise-item:hover {
+  background: #f2f5eb;
+}
+.exercise-item.selected {
+  background: #e9f0dd;
+}
+.exercise-number {
+  flex-shrink: 0;
+  width: 29px;
+  height: 30px;
+  border: 1px solid #e0e5d8;
+  background: #f7f9f1;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  font-size: 9px;
+  color: #7e8a71;
+}
+.exercise-number.done {
+  background: #dceacb;
+  color: #527e38;
+  border-color: #d0dfbd;
+}
+.exercise-number.pending {
+  background: #f7ebd3;
+  color: #a57a32;
+  border-color: #e8d9b8;
+}
+.exercise-item > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+.exercise-item strong {
+  display: block;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.exercise-item small {
+  display: block;
+  font-size: 9px;
+  color: #939c87;
+  margin-top: 4px;
+}
+.exercise-item > svg {
+  color: #95a083;
+}

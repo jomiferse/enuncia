@@ -1,0 +1,16 @@
+.practice-feedback {
+  scroll-margin-top: 24px;
+}
+
+.exercise-card {
+  scroll-margin-top: 24px;
+}
+.symbol-bar .erase-button {
+  font-family: inherit;
+  font-size: 12px;
+  padding: 0 10px;
+}
+.symbol-bar .erase-button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}

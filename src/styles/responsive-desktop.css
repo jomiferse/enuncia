@@ -1,0 +1,101 @@
+@media (min-width: 1600px) {
+  main {
+    padding-top: 48px;
+  }
+  .hero {
+    min-height: 400px;
+  }
+  .hero-copy {
+    padding-top: 40px;
+  }
+  .hero h1 {
+    font-size: 65px;
+  }
+  .hero-copy > p {
+    font-size: 14px;
+  }
+  .art-phrase {
+    font-size: 28px;
+  }
+  .art-formula {
+    font-size: 73px;
+  }
+  .metric > span {
+    font-size: 12px;
+  }
+}
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 206px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .main-shell {
+    margin-left: 206px;
+  }
+  .topbar {
+    padding: 0 28px;
+  }
+  main {
+    padding: 28px 28px 0;
+  }
+  .hero-copy {
+    padding: 28px;
+  }
+  .hero {
+    min-height: 350px;
+  }
+  .hero h1 {
+    font-size: 49px;
+  }
+  .logic-art {
+    padding-left: 22px;
+  }
+  .art-phrase {
+    font-size: 21px;
+  }
+  .art-formula {
+    font-size: 53px;
+  }
+  .metric {
+    padding: 15px;
+  }
+  .metric-icon {
+    right: 12px;
+    top: 16px;
+  }
+  .metric > strong {
+    font-size: 23px;
+  }
+  .metric > span {
+    font-size: 9px;
+  }
+  .section-title > .muted {
+    max-width: 190px;
+    text-align: right;
+  }
+  .practice-layout {
+    grid-template-columns: 225px minmax(0, 1fr);
+    gap: 15px;
+  }
+  .exercise-card {
+    padding: 24px;
+  }
+  .exercise-card blockquote {
+    font-size: 19px;
+  }
+  .learning-grid {
+    gap: 18px;
+  }
+  .block-card,
+  .exam-card {
+    padding: 25px;
+  }
+  .exam-card h3 {
+    font-size: 29px;
+  }
+  footer > span:last-child {
+    max-width: 230px;
+    text-align: right;
+  }
+}

@@ -1,17 +1,13 @@
-import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import {
-  exercisePage,
-  filterExercisePool,
-  summarizeExercises,
-  validateCourse,
-} from "../src/course.ts";
-import type { Area, Attempt, Block, Exercise } from "../src/types.ts";
+import { test } from "node:test";
+import { exercisePage, filterExercisePool, summarizeExercises } from "../src/domain/course/queries.ts";
+import { validateCourse } from "../src/domain/course/validation.ts";
+import type { Area, Attempt, Block, Exercise } from "../src/domain/models";
 const read = (name: string) =>
   JSON.parse(
     readFileSync(
-      new URL(`../src/content/${name}.json`, import.meta.url),
+      new URL(`../src/data/content/${name}.json`, import.meta.url),
       "utf8",
     ),
   );

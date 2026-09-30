@@ -133,6 +133,17 @@ function FormulaEditor({
       el?.setSelectionRange(start + symbol.length, start + symbol.length);
     });
   };
+  const erase = (all = false) => {
+    const el = input.current;
+    const start = el?.selectionStart ?? value.length;
+    const end = el?.selectionEnd ?? start;
+    const from = all ? 0 : start === end ? Math.max(0, start - 1) : start;
+    onChange(all ? "" : value.slice(0, from) + value.slice(end));
+    requestAnimationFrame(() => {
+      el?.focus({ preventScroll: true });
+      el?.setSelectionRange(from, from);
+    });
+  };
   return (
     <div className="formula-editor">
       <label htmlFor="formula-input">Tu formalización</label>
@@ -159,6 +170,26 @@ function FormulaEditor({
             {s}
           </button>
         ))}
+        <button
+          type="button"
+          className="erase-button"
+          disabled={!value}
+          onMouseDown={(e) => e.preventDefault()}
+          onClick={() => erase()}
+          title="Borrar la selección o el símbolo anterior"
+        >
+          Borrar
+        </button>
+        <button
+          type="button"
+          className="erase-button"
+          disabled={!value}
+          onMouseDown={(e) => e.preventDefault()}
+          onClick={() => erase(true)}
+          title="Vaciar la fórmula"
+        >
+          Borrar todo
+        </button>
       </div>
       <textarea
         id="formula-input"
@@ -534,7 +565,14 @@ function App() {
       filtered.length;
     setSelected(filtered[index].id);
     setPracticePage(Math.floor(index / EXERCISES_PER_PAGE));
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    requestAnimationFrame(() => {
+      document.querySelector(".exercise-card")?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "instant"
+          : "smooth",
+        block: "start",
+      });
+    });
   };
   const startExam = () => {
     const available = exercises.filter((e) => e.type in typeRegistry);

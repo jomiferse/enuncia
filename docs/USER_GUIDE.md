@@ -32,7 +32,7 @@ Atoms are case-sensitive: use exactly the letters supplied by the exercise. `P` 
 | Biconditional | `↔` | `<->` |
 | Grouping | `( )` | `( )` |
 
-You can also use the buttons above the editor. Selecting a button inserts its symbol at the current selection and returns focus to the editor.
+You can also use the buttons above the editor. **Borrar** removes the selected text or the character before the cursor; **Borrar todo** clears the formula. Both return focus to the editor. Selecting a button inserts its symbol at the current selection and returns focus to the editor.
 
 Disjunction is inclusive unless the statement explicitly says the alternatives cannot both occur. An exclusive choice can be expressed as `(P ∨ Q) ∧ ¬(P ∧ Q)`.
 
@@ -121,3 +121,5 @@ You can request more exercises focused on a particular topic or a new course blo
 > Add 15 intermediate exercises about necessary conditions, with two hints per exercise.
 
 The current app includes formalization only. New blocks and exercise types are added through project changes; there is no automatic exercise generator inside the app.
+
+Selecting **Siguiente ejercicio** automatically scrolls to the top of the next exercise card, respecting reduced-motion preferences.

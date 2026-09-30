@@ -118,8 +118,6 @@ export function AppLayout({ view, title, hasActiveExam, storageError, notice, on
           <footer>
             <span>
               {t("AppLayout.enuncia")}<span className="footer-dot">·</span> {t("AppLayout.aprendeATuRitmo")}</span>
-            <span>
-              {t("AppLayout.contenidoOriginalInspiradoEnAluraSinConexion")}</span>
           </footer>
         </main>
       </div>

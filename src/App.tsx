@@ -27,7 +27,20 @@ import {
   XCircle,
   BarChart3,
 } from "lucide-react";
-import { blocks, exercises, exerciseById, difficultyLabels } from "./catalog";
+import {
+  areas,
+  blocks,
+  exercises,
+  exerciseById,
+  difficultyLabels,
+} from "./catalog";
+import { CourseBrowser, LevelChooser } from "./CourseBrowser";
+import {
+  EXERCISES_PER_PAGE,
+  exercisePage,
+  filterExercisePool,
+  summarizeExercises,
+} from "./course";
 import { formatFormula, grade, parseFormula } from "./logic";
 import type { Grade } from "./logic";
 import {
@@ -375,7 +388,12 @@ function App() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [selected, setSelected] = useState(exercises[0].id);
   const [filter, setFilter] = useState<Difficulty | "all">("all");
-  const [blockFilter, setBlockFilter] = useState("all");
+  const [blockFilter, setBlockFilter] = useState("");
+  const [practiceArea, setPracticeArea] = useState(areas[0].id);
+  const [practiceStage, setPracticeStage] = useState<
+    "blocks" | "levels" | "exercises"
+  >("blocks");
+  const [practicePage, setPracticePage] = useState(0);
   const [search, setSearch] = useState("");
   const [onlyErrors, setOnlyErrors] = useState(false);
   const [examDifficulty, setExamDifficulty] = useState<Difficulty | "all">(
@@ -416,29 +434,93 @@ function App() {
   const complete = stats.filter((s) => s.solved).length;
   const first = stats.filter((s) => s.firstUnaided).length;
   const errors = stats.filter((s) => s.pending).length;
-  const filtered = exercises.filter(
-    (e) =>
-      (filter === "all" || e.difficulty === filter) &&
-      (blockFilter === "all" || e.blockId === blockFilter) &&
-      (!onlyErrors || exerciseStats(e.id, progress.attempts).pending) &&
-      `${e.title} ${e.statement} ${e.tags.join(" ")}`
-        .toLocaleLowerCase("es")
-        .includes(search.toLocaleLowerCase("es")),
-  );
-  const openPractice = (id?: string, errorsOnly = false) => {
-    if (id) setSelected(id);
-    setOnlyErrors(errorsOnly);
+  const selectedBlock = blocks.find((b) => b.id === blockFilter);
+  const blockPool = exercises.filter((e) => e.blockId === blockFilter);
+  const blockErrors = summarizeExercises(
+    blockPool.filter((e) => filter === "all" || e.difficulty === filter),
+    progress.attempts,
+  ).pending;
+  const filtered = filterExercisePool(exercises, progress.attempts, {
+    blockId: blockFilter,
+    difficulty: filter,
+    query: search,
+    errorsOnly: onlyErrors,
+  });
+  const pagination = exercisePage(filtered, practicePage);
+  const openArea = (id: string) => {
+    setPracticeArea(id);
+    setPracticeStage("blocks");
+    setBlockFilter("");
     setFilter("all");
-    setBlockFilter("all");
     setSearch("");
+    setPracticePage(0);
     go("practice");
   };
+  const openPractice = (id?: string, errorsOnly = false) => {
+    setOnlyErrors(errorsOnly);
+    setSearch("");
+    setPracticePage(0);
+    const exercise = id ? exerciseById[id] : undefined;
+    if (exercise) {
+      const block = blocks.find((b) => b.id === exercise.blockId)!;
+      setSelected(exercise.id);
+      setBlockFilter(block.id);
+      setPracticeArea(block.areaId);
+      setFilter(exercise.difficulty);
+      setPracticeStage("exercises");
+      const own = filterExercisePool(exercises, progress.attempts, {
+        blockId: block.id,
+        difficulty: exercise.difficulty,
+        query: "",
+        errorsOnly,
+      });
+      setPracticePage(
+        Math.max(
+          0,
+          Math.floor(
+            own.findIndex((e) => e.id === exercise.id) / EXERCISES_PER_PAGE,
+          ),
+        ),
+      );
+    } else {
+      setPracticeStage("blocks");
+      setBlockFilter("");
+      setFilter("all");
+      if (errorsOnly) {
+        const pending = exercises.find(
+          (e) => exerciseStats(e.id, progress.attempts).pending,
+        );
+        setPracticeArea(
+          blocks.find((b) => b.id === pending?.blockId)?.areaId ?? areas[0].id,
+        );
+      }
+    }
+    go("practice");
+  };
+  const openBlock = (id: string) => {
+    setBlockFilter(id);
+    setPracticeStage("levels");
+    setFilter("all");
+    setSearch("");
+    setPracticePage(0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  const openLevel = (difficulty: Difficulty) => {
+    setFilter(difficulty);
+    setPracticeStage("exercises");
+    setSearch("");
+    setPracticePage(0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   const selectedExercise =
-    filtered.find((e) => e.id === selected) ?? filtered[0];
+    pagination.items.find((e) => e.id === selected) ?? pagination.items[0];
   const next = () => {
     if (!selectedExercise) return;
-    const i = filtered.findIndex((e) => e.id === selectedExercise.id);
-    setSelected(filtered[(i + 1) % filtered.length].id);
+    const index =
+      (filtered.findIndex((e) => e.id === selectedExercise.id) + 1) %
+      filtered.length;
+    setSelected(filtered[index].id);
+    setPracticePage(Math.floor(index / EXERCISES_PER_PAGE));
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   const startExam = () => {
@@ -522,7 +604,10 @@ function App() {
   };
   const titles: Record<View, string> = {
     home: "Tu espacio de estudio",
-    practice: "Banco de ejercicios",
+    practice:
+      practiceStage === "blocks"
+        ? "Áreas y bloques"
+        : (selectedBlock?.subtitle ?? "Práctica"),
     exam: "Simulacro de examen",
     progress: "Tu progreso",
     guide: "Guía de práctica",
@@ -565,7 +650,9 @@ function App() {
             </p>
             <button
               className="button primary"
-              onClick={() => openPractice(continueId)}
+              onClick={() =>
+                openPractice(lastPracticed ? continueId : undefined)
+              }
             >
               {" "}
               {lastPracticed ? "Continuar practicando" : "Empezar a practicar"}
@@ -629,40 +716,37 @@ function App() {
             <h2>Tu ruta de aprendizaje</h2>
           </div>
           <span className="muted">
-            {blocks.length === 1
-              ? "Un bloque, muchas formas de entenderlo."
-              : `${blocks.length} bloques para seguir aprendiendo.`}
+            {areas.length} áreas para seguir aprendiendo.
           </span>
         </div>
-        <section className="learning-grid">
-          {blocks.map((block, index) => {
-            const pool = exercises.filter((e) => e.blockId === block.id);
-            const solved = pool.filter(
-              (e) => exerciseStats(e.id, progress.attempts).solved,
-            ).length;
+        <section className="learning-grid area-overview-grid">
+          {areas.map((area, index) => {
+            const areaBlocks = blocks.filter((b) => b.areaId === area.id);
+            const pool = exercises.filter((e) =>
+              areaBlocks.some((b) => b.id === e.blockId),
+            );
+            const stats = summarizeExercises(pool, progress.attempts);
             const percentage = pool.length
-              ? Math.round((solved / pool.length) * 100)
+              ? Math.round((stats.complete / pool.length) * 100)
               : 0;
             return (
-              <article className="block-card" key={block.id}>
+              <article className="block-card" key={area.id}>
                 <div className="block-top">
-                  <div className="block-icon">P → Q</div>
-                  <span className="status-pill">DISPONIBLE</span>
+                  <div className="block-icon">{area.symbol}</div>
+                  <span
+                    className={`status-pill ${!pool.length ? "planned-pill" : ""}`}
+                  >
+                    {pool.length ? "DISPONIBLE" : "EN PREPARACIÓN"}
+                  </span>
                 </div>
                 <span className="eyebrow">
-                  BLOQUE {String(index + 1).padStart(2, "0")}
+                  ÁREA {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3>{block.title}</h3>
-                <p>
-                  Aprende a traducir frases a fórmulas y a reconocer qué implica
-                  cada condición.
-                </p>
+                <h3>{area.title}</h3>
+                <p>{area.description}</p>
                 <div className="block-tags">
-                  <span>{block.subtitle}</span>
+                  <span>{areaBlocks.length} bloques</span>
                   <span>{pool.length} ejercicios</span>
-                  <span>
-                    {new Set(pool.map((e) => e.difficulty)).size} niveles
-                  </span>
                 </div>
                 <div className="progress-label">
                   <span>Tu avance</span>
@@ -673,17 +757,13 @@ function App() {
                 </div>
                 <button
                   className="button primary wide"
-                  disabled={!pool.length}
+                  aria-label={`Explorar ${area.title}`}
                   onClick={() => {
-                    openPractice(
-                      pool.find(
-                        (e) => !exerciseStats(e.id, progress.attempts).solved,
-                      )?.id ?? pool[0]?.id,
-                    );
-                    setBlockFilter(block.id);
+                    setOnlyErrors(false);
+                    openArea(area.id);
                   }}
                 >
-                  Entrar al bloque
+                  Explorar bloques
                   <ArrowRight size={17} />
                 </button>
               </article>
@@ -739,141 +819,227 @@ function App() {
       <>
         <PageIntro
           eyebrow="APRENDER HACIENDO"
-          title="Cada frase tiene una estructura."
-          text="Formaliza con los átomos dados. Usa las pistas cuando lo necesites y descubre el porqué de cada solución."
+          title={
+            practiceStage === "blocks"
+              ? "Tu asignatura, bloque a bloque."
+              : (selectedBlock?.subtitle ?? "Elige un bloque")
+          }
+          text={
+            practiceStage === "blocks"
+              ? "Elige un área y un bloque. Consulta tu avance y practica sin mezclar los temas."
+              : practiceStage === "levels"
+                ? "Escoge la dificultad con la que quieres trabajar hoy."
+                : "Formaliza con los átomos dados. La lista muestra diez ejercicios por página."
+          }
         />
-        <div className="filters">
-          <div className="search-field">
-            <Search size={18} />
-            <input
-              aria-label="Buscar ejercicios"
-              placeholder="Buscar por tema o enunciado…"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </div>
-          <label className="select-label">
-            <ListFilter size={17} />
-            <select
-              aria-label="Filtrar dificultad"
-              value={filter}
-              onChange={(e) => setFilter(e.target.value as Difficulty | "all")}
-            >
-              <option value="all">Todos los niveles</option>
-              {Object.entries(difficultyLabels).map(([id, label]) => (
-                <option key={id} value={id}>
-                  {label}
-                </option>
-              ))}
-            </select>
-          </label>
-          {blocks.length > 1 && (
-            <select
-              aria-label="Filtrar bloque"
-              value={blockFilter}
-              onChange={(e) => setBlockFilter(e.target.value)}
-            >
-              <option value="all">Todos los bloques</option>
-              {blocks.map((b) => (
-                <option value={b.id} key={b.id}>
-                  {b.title} · {b.subtitle}
-                </option>
-              ))}
-            </select>
-          )}
-          <button
-            className={`button secondary ${onlyErrors ? "active-filter" : ""}`}
-            onClick={() => setOnlyErrors(!onlyErrors)}
-            aria-pressed={onlyErrors}
-          >
-            <RotateCcw size={16} />
-            Repasar errores ({errors})
-          </button>
-        </div>
-        <div className="practice-layout">
-          <aside className="exercise-list">
-            <div className="list-heading">
-              {filtered.length} ejercicios <span>ELIGE UNO</span>
-            </div>
-            {filtered.map((e) => {
-              const s = exerciseStats(e.id, progress.attempts);
-              return (
+        {practiceStage === "blocks" ? (
+          <CourseBrowser
+            areas={areas}
+            blocks={blocks}
+            exercises={exercises}
+            attempts={progress.attempts}
+            areaId={practiceArea}
+            errorsOnly={onlyErrors}
+            onArea={openArea}
+            onBlock={openBlock}
+          />
+        ) : practiceStage === "levels" && selectedBlock ? (
+          <LevelChooser
+            block={selectedBlock}
+            pool={blockPool}
+            attempts={progress.attempts}
+            errorsOnly={onlyErrors}
+            onBack={() => openArea(practiceArea)}
+            onLevel={openLevel}
+          />
+        ) : (
+          selectedBlock && (
+            <>
+              <nav className="course-trail" aria-label="Ruta de práctica">
                 <button
-                  key={e.id}
-                  className={`exercise-item ${selectedExercise?.id === e.id ? "selected" : ""}`}
-                  onClick={() => setSelected(e.id)}
+                  className="text-button"
+                  onClick={() => openArea(practiceArea)}
                 >
-                  <span
-                    className={`exercise-number ${s.pending ? "pending" : s.solved ? "done" : ""}`}
-                  >
-                    {s.pending ? (
-                      <RotateCcw size={15} />
-                    ) : s.solved ? (
-                      <Check size={16} />
-                    ) : (
-                      e.id.split("-").at(-1)
-                    )}
-                  </span>
-                  <span>
-                    <strong>{e.title}</strong>
-                    <small>
-                      {difficultyLabels[e.difficulty]} ·{" "}
-                      {s.pending
-                        ? "Para repasar"
-                        : s.solved
-                          ? "Completado"
-                          : s.attempts
-                            ? "En práctica"
-                            : "Sin intentar"}
-                    </small>
-                  </span>
-                  <ChevronRight size={15} />
+                  <ArrowLeft size={15} />
+                  {selectedBlock.title}
                 </button>
-              );
-            })}
-            {!filtered.length && (
-              <p className="empty-mini">No hay ejercicios con estos filtros.</p>
-            )}
-          </aside>
-          {selectedExercise ? (
-            <PracticePanel
-              key={selectedExercise.id}
-              exercise={selectedExercise}
-              draft={progress.drafts[selectedExercise.id] ?? blankDraft()}
-              onDraft={(draft) =>
-                setProgress((p) => ({
-                  ...p,
-                  drafts: { ...p.drafts, [selectedExercise.id]: draft },
-                }))
-              }
-              onAttempt={(attempt) =>
-                setProgress((p) => ({
-                  ...p,
-                  attempts: [...p.attempts, attempt],
-                }))
-              }
-              onNext={next}
-            />
-          ) : (
-            <Empty
-              title={
-                onlyErrors ? "Sin errores pendientes" : "No hay coincidencias"
-              }
-              text={
-                onlyErrors
-                  ? "Cuando un intento necesite revisión, aparecerá aquí."
-                  : "Prueba otro tema o nivel."
-              }
-              action={() => {
-                setOnlyErrors(false);
-                setFilter("all");
-                setSearch("");
-                setBlockFilter("all");
-              }}
-              actionLabel="Ver todos los ejercicios"
-            />
-          )}
-        </div>
+                <ChevronRight size={14} />
+                <button
+                  className="text-button"
+                  onClick={() => setPracticeStage("levels")}
+                >
+                  {selectedBlock.subtitle}
+                </button>
+                <ChevronRight size={14} />
+                <span>
+                  {filter === "all"
+                    ? "Todos los niveles"
+                    : difficultyLabels[filter]}
+                </span>
+              </nav>
+              <div className="filters">
+                <div className="search-field">
+                  <Search size={18} />
+                  <input
+                    aria-label="Buscar ejercicios"
+                    placeholder="Buscar dentro de este bloque…"
+                    value={search}
+                    onChange={(e) => {
+                      setSearch(e.target.value);
+                      setPracticePage(0);
+                    }}
+                  />
+                </div>
+                <label className="select-label">
+                  <ListFilter size={17} />
+                  <select
+                    aria-label="Filtrar dificultad"
+                    value={filter}
+                    onChange={(e) => {
+                      setFilter(e.target.value as Difficulty | "all");
+                      setPracticePage(0);
+                    }}
+                  >
+                    <option value="all">
+                      Todos los niveles de este bloque
+                    </option>
+                    {Object.entries(difficultyLabels).map(([id, label]) => (
+                      <option value={id} key={id}>
+                        {label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <button
+                  className={`button secondary ${onlyErrors ? "active-filter" : ""}`}
+                  aria-pressed={onlyErrors}
+                  onClick={() => {
+                    setOnlyErrors(!onlyErrors);
+                    setPracticePage(0);
+                  }}
+                >
+                  <RotateCcw size={16} />
+                  Repasar errores ({blockErrors})
+                </button>
+              </div>
+              <div className="practice-layout">
+                <aside className="exercise-list">
+                  <div className="list-heading">
+                    {filtered.length} ejercicios{" "}
+                    <span>
+                      PÁGINA {pagination.page + 1} / {pagination.count}
+                    </span>
+                  </div>
+                  {pagination.items.map((e) => {
+                    const s = exerciseStats(e.id, progress.attempts);
+                    return (
+                      <button
+                        key={e.id}
+                        className={`exercise-item ${selectedExercise?.id === e.id ? "selected" : ""}`}
+                        onClick={() => setSelected(e.id)}
+                      >
+                        <span
+                          className={`exercise-number ${s.pending ? "pending" : s.solved ? "done" : ""}`}
+                        >
+                          {s.pending ? (
+                            <RotateCcw size={15} />
+                          ) : s.solved ? (
+                            <Check size={16} />
+                          ) : (
+                            e.id.split("-").at(-1)
+                          )}
+                        </span>
+                        <span>
+                          <strong>{e.title}</strong>
+                          <small>
+                            {difficultyLabels[e.difficulty]} ·{" "}
+                            {s.pending
+                              ? "Para repasar"
+                              : s.solved
+                                ? "Completado"
+                                : s.attempts
+                                  ? "En práctica"
+                                  : "Sin intentar"}
+                          </small>
+                        </span>
+                        <ChevronRight size={15} />
+                      </button>
+                    );
+                  })}
+                  {!filtered.length && (
+                    <p className="empty-mini">
+                      No hay ejercicios con estos filtros.
+                    </p>
+                  )}
+                  {pagination.count > 1 && (
+                    <nav
+                      className="exercise-pagination"
+                      aria-label="Páginas de ejercicios"
+                    >
+                      <button
+                        aria-label="Página anterior"
+                        disabled={pagination.page === 0}
+                        onClick={() => setPracticePage(pagination.page - 1)}
+                      >
+                        <ArrowLeft size={16} />
+                      </button>
+                      <span>
+                        {pagination.page + 1} / {pagination.count}
+                      </span>
+                      <button
+                        aria-label="Página siguiente"
+                        disabled={pagination.page === pagination.count - 1}
+                        onClick={() => setPracticePage(pagination.page + 1)}
+                      >
+                        <ArrowRight size={16} />
+                      </button>
+                    </nav>
+                  )}
+                </aside>
+                {selectedExercise ? (
+                  <PracticePanel
+                    key={selectedExercise.id}
+                    exercise={selectedExercise}
+                    draft={progress.drafts[selectedExercise.id] ?? blankDraft()}
+                    onDraft={(draft) =>
+                      setProgress((p) => ({
+                        ...p,
+                        drafts: { ...p.drafts, [selectedExercise.id]: draft },
+                      }))
+                    }
+                    onAttempt={(attempt) =>
+                      setProgress((p) => ({
+                        ...p,
+                        attempts: [...p.attempts, attempt],
+                      }))
+                    }
+                    onNext={next}
+                  />
+                ) : (
+                  <Empty
+                    title={
+                      onlyErrors
+                        ? "Sin errores pendientes"
+                        : "No hay coincidencias"
+                    }
+                    text={
+                      onlyErrors
+                        ? "Cuando un intento necesite revisión, aparecerá aquí."
+                        : "Prueba otro tema o nivel."
+                    }
+                    action={() => {
+                      setOnlyErrors(false);
+                      setFilter("all");
+                      setSearch("");
+                      setPracticePage(0);
+                    }}
+                    actionLabel="Quitar filtros de este bloque"
+                  />
+                )}
+              </div>
+            </>
+          )
+        )}
       </>
     );
   else if (view === "exam") {
@@ -1411,6 +1577,10 @@ function App() {
               className={view === id ? "active" : ""}
               aria-current={view === id ? "page" : undefined}
               onClick={() => {
+                if (id === "practice") {
+                  openPractice();
+                  return;
+                }
                 if (id === "exam") setReviewExam(null);
                 go(id);
               }}
@@ -1482,8 +1652,7 @@ function App() {
           {body}
           <footer>
             <span>
-              Enuncia <span className="footer-dot">·</span> Aprende a
-              tu ritmo.
+              Enuncia <span className="footer-dot">·</span> Aprende a tu ritmo.
             </span>
             <span>
               Contenido original inspirado en ALURA · Sin conexión a la UOC

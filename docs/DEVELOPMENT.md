@@ -10,9 +10,12 @@ Enuncia is a React and TypeScript application built with Vite. Its catalog is fi
 .
 ├── src/
 │   ├── content/
+│   │   ├── areas.json           # Registered course areas
 │   │   ├── blocks.json          # Registered learning blocks
 │   │   └── formalizacion.json   # Original exercise bank
 │   ├── App.tsx                 # Screens, editors, feedback, and type registry
+│   ├── CourseBrowser.tsx       # Area, block, and difficulty selection
+│   ├── course.ts               # Scoped filtering, counters, and pagination
 │   ├── catalog.ts              # Catalog loading and validation
 │   ├── logic.ts                # Formula parser, evaluator, and grader
 │   ├── progress.ts             # Validation, merging, statistics, and exam selection
@@ -31,7 +34,7 @@ The launcher prefers Homebrew's Node installation, can fall back to the bundled 
 
 ## Add an exercise
 
-Edit [`src/content/formalizacion.json`](../src/content/formalizacion.json) or add another JSON file under `src/content/`. Each exercise file must contain an array. Vite's glob import loads every JSON file in that directory except `blocks.json`.
+Edit [`src/content/formalizacion.json`](../src/content/formalizacion.json) or add another JSON file under `src/content/`. Each exercise file must contain an array. Vite's glob import loads every JSON file in that directory except the metadata files `blocks.json` and `areas.json`.
 
 This example uses English prose for illustration. Match the existing Spanish content when extending the shipped exercise bank:
 
@@ -85,15 +88,23 @@ Declare the block in [`src/content/blocks.json`](../src/content/blocks.json):
 ```json
 {
   "id": "enunciados-condiciones",
-  "title": "Condiciones necesarias y suficientes",
-  "subtitle": "Formalización",
+  "areaId": "enunciados",
+  "title": "Lógica de enunciados",
+  "subtitle": "Condiciones necesarias y suficientes",
+  "description": "Practica el papel de cada condición.",
   "type": "formalization"
 }
 ```
 
-Append this object to the existing block array, then add exercises using its `blockId`. The home screen enumerates registered blocks, and the exercise bank shows a block filter when multiple blocks exist.
+Append this object to the existing block array, then add exercises using its `blockId`. Each exercise type must match its block's type.
 
-The current home-card artwork and description are oriented toward formalization. Adapt that presentation when adding a substantially different subject.
+Areas are declared in `src/content/areas.json` with `id`, `title`, `description`, and `symbol`. Block `areaId` values must reference an existing area. Add an area there to expose another course section in the home screen and practice navigation.
+
+The practice route uses **area → block → level → exercises**, with ten exercises per page. Search, all-level selection, review filters, and next-exercise navigation stay within the selected block. Direct continuation resolves the exercise's area, block, difficulty, and page automatically.
+
+Block cards compute completed, incomplete, and unattempted counts as a partition of their exercise pool. The separate pending-review count may include a previously completed exercise with a newer mistake.
+
+A block without exercises is displayed as planned and disabled. Its type may be declared in block metadata before its editor exists; exercises still require a registered editor/grader and content validation. Implement a new type before adding its exercise data. The existing 40 exercise IDs and progress storage format are unchanged.
 
 ## Add an exercise type
 
@@ -160,6 +171,7 @@ For UI or persistence changes, also check:
 - Hint and draft persistence after a reload.
 - Hidden solutions and correction before exam submission, resume behavior, blank-answer scoring, and finished-session review.
 - Import merging without duplicate attempts and preservation of existing history.
+- Area/block isolation, block progress counters, pagination, direct continuation, and disabled planned blocks.
 - Keyboard navigation and mobile rendering without horizontal overflow.
 
 Use a separate local port or browser profile for test sessions so that test attempts do not enter a learner's real history.

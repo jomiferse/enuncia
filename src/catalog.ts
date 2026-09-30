@@ -1,6 +1,8 @@
-import type { Block, Difficulty, Exercise } from "./types";
+import type { Area, Block, Difficulty, Exercise } from "./types";
 import { parseFormula } from "./logic";
 import blocksData from "./content/blocks.json";
+import areasData from "./content/areas.json";
+import { validateCourse } from "./course";
 export const difficultyLabels: Record<Difficulty, string> = {
   basica: "Básica",
   media: "Media",
@@ -18,6 +20,10 @@ export function validateCatalog(blocks: Block[], exercises: Exercise[]) {
     ids.add(e.id);
     if (!blockIds.has(e.blockId))
       throw new Error(`Bloque desconocido: ${e.blockId}`);
+    if (blocks.find((b) => b.id === e.blockId)?.type !== e.type)
+      throw new Error(
+        `El tipo del ejercicio no coincide con su bloque: ${e.id}`,
+      );
     if (!Object.hasOwn(exerciseTypes, e.type))
       throw new Error(`Tipo no registrado: ${e.type}`);
     if (!Object.hasOwn(difficultyLabels, e.difficulty))
@@ -43,13 +49,18 @@ export function validateCatalog(blocks: Block[], exercises: Exercise[]) {
     parseFormula(e.solution, atoms);
   }
 }
+export const areas = areasData as Area[];
 export const blocks = blocksData as Block[];
+validateCourse(areas, blocks);
 const files = import.meta.glob<Exercise[]>("./content/*.json", {
   eager: true,
   import: "default",
 });
 export const exercises = Object.entries(files)
-  .filter(([path]) => !path.endsWith("/blocks.json"))
+  .filter(
+    ([path]) =>
+      !["blocks.json", "areas.json"].some((name) => path.endsWith(`/${name}`)),
+  )
   .flatMap(([, data]) => data);
 validateCatalog(blocks, exercises);
 export const exerciseById: Record<string, Exercise> = Object.assign(

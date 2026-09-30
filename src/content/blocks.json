@@ -1,8 +1,58 @@
 [
   {
     "id": "enunciados-formalizacion",
+    "areaId": "enunciados",
     "title": "Lógica de enunciados",
     "subtitle": "Formalización",
-    "type": "formalization"
+    "type": "formalization",
+    "description": "Traduce enunciados a fórmulas e identifica el alcance de cada condición."
+  },
+  {
+    "id": "enunciados-deduccion-natural",
+    "areaId": "enunciados",
+    "title": "Lógica de enunciados",
+    "subtitle": "Deducción natural",
+    "type": "natural-deduction",
+    "description": "Construye demostraciones paso a paso con reglas de inferencia."
+  },
+  {
+    "id": "enunciados-resolucion",
+    "areaId": "enunciados",
+    "title": "Lógica de enunciados",
+    "subtitle": "Resolución",
+    "type": "resolution",
+    "description": "Trabaja con cláusulas y aplica la regla de resolución."
+  },
+  {
+    "id": "enunciados-tablas-verdad",
+    "areaId": "enunciados",
+    "title": "Lógica de enunciados",
+    "subtitle": "Tablas de verdad",
+    "type": "truth-table",
+    "description": "Analiza valores de verdad, equivalencias y validez de argumentos."
+  },
+  {
+    "id": "predicados-formalizacion",
+    "areaId": "predicados",
+    "title": "Lógica de predicados",
+    "subtitle": "Formalización",
+    "type": "formalization",
+    "description": "Traduce enunciados a fórmulas e identifica el alcance de cada condición."
+  },
+  {
+    "id": "predicados-deduccion-natural",
+    "areaId": "predicados",
+    "title": "Lógica de predicados",
+    "subtitle": "Deducción natural",
+    "type": "natural-deduction",
+    "description": "Construye demostraciones paso a paso con reglas de inferencia."
+  },
+  {
+    "id": "predicados-resolucion",
+    "areaId": "predicados",
+    "title": "Lógica de predicados",
+    "subtitle": "Resolución",
+    "type": "resolution",
+    "description": "Trabaja con cláusulas y aplica la regla de resolución."
   }
 ]

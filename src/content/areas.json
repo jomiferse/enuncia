@@ -1,0 +1,14 @@
+[
+  {
+    "id": "enunciados",
+    "title": "Lógica de enunciados",
+    "description": "De las proposiciones a las fórmulas, las demostraciones y sus valores de verdad.",
+    "symbol": "P → Q"
+  },
+  {
+    "id": "predicados",
+    "title": "Lógica de predicados",
+    "description": "Amplía tu razonamiento con relaciones, variables y cuantificadores.",
+    "symbol": "∀x ∃y"
+  }
+]

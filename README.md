@@ -31,14 +31,23 @@ The interface and exercise bank are in **Spanish**. Repository documentation is 
 
 | | What Enuncia offers |
 | :--- | :--- |
-| **Guided practice** | 40 original exercises, supplied atoms, two progressive hints, and explained solutions. |
+| **Guided practice** | 40 original exercises organized by area, block, and level, with supplied atoms, progressive hints, and explained solutions. |
 | **Meaningful correction** | Truth-table equivalence checking accepts different formulas with the same meaning. Incorrect answers receive a concrete counterexample. |
 | **Flexible input** | Use the symbol buttons or type `~`, `!`, `&`, `\|`, `->`, and `<->`. |
 | **Mock exams** | Ten distinct exercises, an informative timer, saved answers, and a full review after submission. |
 | **Personal progress** | Track attempts, first-attempt successes without help, and mistakes to revisit. Export and import backups. |
-| **Room to grow** | Add exercises through JSON files and extend the block registry as your course progresses. |
+| **Room to grow** | Browse course areas and block progress cards; add exercises through JSON files as your course progresses. |
 
-### A learning path with three levels
+### A course structure that grows with you
+
+**Area → Block → Difficulty → Exercises.** The practice screen starts with block cards and progress counters instead of a flat exercise list. Each level displays ten exercises per page.
+
+- **Propositional logic:** Formalization is available. Natural deduction, resolution, and truth tables have clearly marked planned cards.
+- **Predicate logic:** Formalization, natural deduction, and resolution have planned cards for future content.
+
+Planned blocks contain no exercises and cannot be opened for practice. Adding content and its required editor/grader makes a block available.
+
+### Formalization: three difficulty levels
 
 | Basic | Intermediate | Advanced |
 | :---: | :---: | :---: |

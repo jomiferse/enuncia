@@ -41,8 +41,16 @@ export type Progress = {
   exams: Exam[];
   activeExam: Exam | null;
 };
+export type Area = {
+  id: string;
+  title: string;
+  description: string;
+  symbol: string;
+};
 export type Block = {
   id: string;
+  areaId: string;
+  description: string;
   title: string;
   subtitle: string;
   type: string;

@@ -12,7 +12,7 @@ Enuncia currently teaches formalization in propositional logic, with atoms suppl
    Predicate logic is organized into **Deducción natural**, **Resolución**, and **Fórmulas a enunciados** (formulas to natural-language statements). These blocks are currently marked **Próximamente**.
 4. Choose an available block, such as **Formalización**. Its card shows completed, incomplete, and unattempted exercises, plus pending mistakes. Cards marked **Próximamente** are placeholders without active exercises.
 5. Choose a difficulty: **Básica**, **Media**, or **Avanzada**.
-6. Select an exercise from the paginated list. Each page shows at most ten exercises. Search and review filters stay within the chosen block; selecting all difficulties does not mix blocks.
+6. Select an exercise from the paginated list. Each page shows at most ten exercises. Search and review filters stay within the chosen block and difficulty. To change difficulty, return to the level cards using the breadcrumb.
 7. Read the statement and supplied atoms, enter your formula, check its interpretation, and select **Comprobar**.
 
 Use the breadcrumb to return to difficulty selection or the area's block cards. Selecting **Practicar** in the sidebar returns to the block browser. **Continuar practicando** can take you directly to your latest exercise, its level, and its page.

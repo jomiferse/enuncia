@@ -15,7 +15,6 @@ import {
   HelpCircle,
   Home,
   Lightbulb,
-  ListFilter,
   Menu,
   Plus,
   RotateCcw,
@@ -882,7 +881,7 @@ function App() {
                   <Search size={18} />
                   <input
                     aria-label="Buscar ejercicios"
-                    placeholder="Buscar dentro de este bloque…"
+                    placeholder="Buscar dentro de este nivel…"
                     value={search}
                     onChange={(e) => {
                       setSearch(e.target.value);
@@ -890,26 +889,6 @@ function App() {
                     }}
                   />
                 </div>
-                <label className="select-label">
-                  <ListFilter size={17} />
-                  <select
-                    aria-label="Filtrar dificultad"
-                    value={filter}
-                    onChange={(e) => {
-                      setFilter(e.target.value as Difficulty | "all");
-                      setPracticePage(0);
-                    }}
-                  >
-                    <option value="all">
-                      Todos los niveles de este bloque
-                    </option>
-                    {Object.entries(difficultyLabels).map(([id, label]) => (
-                      <option value={id} key={id}>
-                        {label}
-                      </option>
-                    ))}
-                  </select>
-                </label>
                 <button
                   className={`button secondary ${onlyErrors ? "active-filter" : ""}`}
                   aria-pressed={onlyErrors}
@@ -1025,15 +1004,14 @@ function App() {
                     text={
                       onlyErrors
                         ? "Cuando un intento necesite revisión, aparecerá aquí."
-                        : "Prueba otro tema o nivel."
+                        : "Prueba otra búsqueda dentro de este nivel."
                     }
                     action={() => {
                       setOnlyErrors(false);
-                      setFilter("all");
                       setSearch("");
                       setPracticePage(0);
                     }}
-                    actionLabel="Quitar filtros de este bloque"
+                    actionLabel="Quitar filtros de este nivel"
                   />
                 )}
               </div>

@@ -100,7 +100,7 @@ Append this object to the existing block array, then add exercises using its `bl
 
 Areas are declared in `src/content/areas.json` with `id`, `title`, `description`, and `symbol`. Block `areaId` values must reference an existing area. Add an area there to expose another course section in the home screen and practice navigation.
 
-The practice route uses **area → block → level → exercises**, with ten exercises per page. Search, all-level selection, review filters, and next-exercise navigation stay within the selected block. Direct continuation resolves the exercise's area, block, difficulty, and page automatically.
+The practice route uses **area → block → level → exercises**, with ten exercises per page. Search, review filters, and next-exercise navigation stay within the selected block and level. Clearing filters preserves the selected difficulty; changing difficulty uses the level cards. Direct continuation resolves the exercise's area, block, difficulty, and page automatically.
 
 Block cards compute completed, incomplete, and unattempted counts as a partition of their exercise pool. The separate pending-review count may include a previously completed exercise with a newer mistake.
 

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title description">
+  <title id="title">Enuncia — Think clearly.</title>
+  <desc id="description">An introduction to Enuncia, a personal space for propositional logic, with the formula P implies Q.</desc>
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M 28 0 L 0 0 0 28" fill="none" stroke="#cbd8ba" stroke-width="1" opacity=".48"/></pattern>
+    <linearGradient id="fade"><stop stop-color="#eef3e5"/><stop offset="1" stop-color="#e4edda"/></linearGradient>
+  </defs>
+  <rect width="1200" height="360" rx="20" fill="url(#fade)"/>
+  <rect x="700" y="1" width="499" height="358" rx="20" fill="url(#grid)"/>
+  <rect x="58" y="52" width="52" height="52" rx="15" fill="#173e32"/>
+  <circle cx="84" cy="67" r="3" fill="#dbeaab"/><circle cx="73" cy="87" r="3" fill="#dbeaab"/><circle cx="95" cy="87" r="3" fill="#dbeaab"/>
+  <text x="127" y="84" fill="#697d54" font-family="Arial, sans-serif" font-size="12" letter-spacing="3">YOUR PERSONAL LOGIC NOTEBOOK</text>
+  <text x="55" y="190" fill="#173e32" font-family="Georgia, serif" font-size="86" letter-spacing="-3">Enuncia</text>
+  <text x="59" y="244" fill="#647b4b" font-family="Georgia, serif" font-style="italic" font-size="30">Think clearly.</text>
+  <text x="60" y="302" fill="#7a8971" font-family="Arial, sans-serif" font-size="15">From everyday language to logical structure.</text>
+  <text x="777" y="104" fill="#7a8d68" font-family="Arial, sans-serif" font-size="11" letter-spacing="3">ONE STATEMENT. ONE STRUCTURE.</text>
+  <text x="784" y="221" fill="#173e32" font-family="Georgia, serif" font-size="84">P <tspan fill="#819d59">→</tspan> Q</text>
+  <path d="M 782 247 H 1075" fill="none" stroke="#bcccaa"/>
+  <text x="786" y="282" fill="#7a8d68" font-family="Arial, sans-serif" font-size="11" letter-spacing="2">PRACTICE · UNDERSTAND · REPEAT</text>
+</svg>

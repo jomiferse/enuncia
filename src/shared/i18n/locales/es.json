@@ -355,5 +355,9 @@
     "correctFormula": "¡Correcto! Tu fórmula es lógicamente equivalente a la solución.",
     "incorrectFormula": "La fórmula no expresa lo mismo que el enunciado.",
     "invalidJson": "El archivo no contiene un JSON válido."
+  },
+  "theme": {
+    "activateDark": "Activar modo oscuro",
+    "activateLight": "Activar modo claro"
   }
 }

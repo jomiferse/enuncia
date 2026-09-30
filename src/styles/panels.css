@@ -7,24 +7,24 @@
   padding: 55px 25px;
 }
 .empty svg {
-  color: #8fa66c;
+  color: var(--text-muted, #8fa66c);
 }
 .empty h2 {
   font: 29px var(--serif);
 }
 .empty p {
   font-size: 13px;
-  color: #7e8b73;
+  color: var(--text-muted, #7e8b73);
 }
 .empty-mini {
   font-size: 11px;
-  color: #8a947c;
+  color: var(--text-muted, #8a947c);
   padding: 15px;
 }
 .panel {
   border: 1px solid var(--line);
   border-radius: 11px;
-  background: #fffefa;
+  background: var(--surface, #fffefa);
   padding: 27px 30px;
 }
 .panel h2 {
@@ -33,5 +33,5 @@
 }
 .panel > p {
   font-size: 12px;
-  color: #7e8b73;
+  color: var(--text-muted, #7e8b73);
 }

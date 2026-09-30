@@ -15,13 +15,13 @@
   .mobile-toggle {
     display: inline-flex;
     padding: 0 3px 0 0;
-    color: #476444;
+    color: var(--text-primary, #476444);
   }
   .menu-overlay {
     display: block;
     position: fixed;
     inset: 0;
-    background: #142c2355;
+    background: var(--overlay-color, #142c2355);
     z-index: 20;
   }
   .topbar {
@@ -68,7 +68,7 @@
     font-size: 8px;
   }
   .logic-art {
-    border-top: 1px solid #dee5d2;
+    border-top: 1px solid var(--line, #dee5d2);
     padding: 23px 26px 25px;
     min-height: 190px;
     display: block;

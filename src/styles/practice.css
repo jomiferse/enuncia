@@ -8,13 +8,13 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  background: #fffefa;
+  background: var(--surface, #fffefa);
   border: 1px solid var(--line);
   border-radius: 7px;
   padding: 0 13px;
   flex: 1;
   min-width: 220px;
-  color: #8a987e;
+  color: var(--text-muted, #8a987e);
 }
 .search-field input {
   min-width: 0;
@@ -22,7 +22,7 @@
   height: 44px;
   border: 0;
   background: transparent;
-  color: #344e36;
+  color: var(--text-primary, #344e36);
   font-size: 12px;
   outline-offset: 0;
 }
@@ -31,17 +31,17 @@
   align-items: center;
   gap: 8px;
   border: 1px solid var(--line);
-  background: #fffefa;
+  background: var(--surface, #fffefa);
   padding: 0 10px;
   border-radius: 7px;
-  color: #738368;
+  color: var(--text-secondary, #738368);
 }
 select {
-  background: #fffefa;
+  background: var(--surface, #fffefa);
   border: 1px solid var(--line);
   padding: 12px;
   border-radius: 7px;
-  color: #41593c;
+  color: var(--text-primary, #41593c);
   font-size: 12px;
   max-width: 100%;
 }
@@ -51,8 +51,8 @@ select {
   background: transparent;
 }
 .active-filter {
-  background: #e7eedb;
-  border-color: #9bab82;
+  background: var(--surface-accent, #e7eedb);
+  border-color: var(--line, #9bab82);
 }
 .practice-layout {
   display: grid;
@@ -61,7 +61,7 @@ select {
   align-items: start;
 }
 .exercise-list {
-  background: #fffefa;
+  background: var(--surface, #fffefa);
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 15px 9px;
@@ -71,14 +71,14 @@ select {
 .list-heading {
   font-size: 11px;
   padding: 4px 9px 17px;
-  color: #586f47;
+  color: var(--text-secondary, #586f47);
   display: flex;
   justify-content: space-between;
 }
 .list-heading span {
   font-size: 8px;
   letter-spacing: 1px;
-  color: #98a08e;
+  color: var(--text-muted, #98a08e);
 }
 .exercise-item {
   width: 100%;
@@ -91,32 +91,32 @@ select {
   margin: 2px 0;
 }
 .exercise-item:hover {
-  background: #f2f5eb;
+  background: var(--surface-subtle, #f2f5eb);
 }
 .exercise-item.selected {
-  background: #e9f0dd;
+  background: var(--surface-subtle, #e9f0dd);
 }
 .exercise-number {
   flex-shrink: 0;
   width: 29px;
   height: 30px;
-  border: 1px solid #e0e5d8;
-  background: #f7f9f1;
+  border: 1px solid var(--line, #e0e5d8);
+  background: var(--surface-subtle, #f7f9f1);
   border-radius: 6px;
   display: grid;
   place-items: center;
   font-size: 9px;
-  color: #7e8a71;
+  color: var(--text-muted, #7e8a71);
 }
 .exercise-number.done {
-  background: #dceacb;
-  color: #527e38;
-  border-color: #d0dfbd;
+  background: var(--surface-accent, #dceacb);
+  color: var(--text-primary, #527e38);
+  border-color: var(--line, #d0dfbd);
 }
 .exercise-number.pending {
-  background: #f7ebd3;
-  color: #a57a32;
-  border-color: #e8d9b8;
+  background: var(--surface-warning, #f7ebd3);
+  color: var(--text-warning, #a57a32);
+  border-color: var(--border-warning, #e8d9b8);
 }
 .exercise-item > span:nth-child(2) {
   flex: 1;
@@ -131,9 +131,9 @@ select {
 .exercise-item small {
   display: block;
   font-size: 9px;
-  color: #939c87;
+  color: var(--text-muted, #939c87);
   margin-top: 4px;
 }
 .exercise-item > svg {
-  color: #95a083;
+  color: var(--text-muted, #95a083);
 }

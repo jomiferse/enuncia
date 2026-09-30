@@ -1,9 +1,9 @@
 .notice {
   padding: 14px 18px;
-  border: 1px solid #cfdeb9;
+  border: 1px solid var(--line, #cfdeb9);
   border-radius: 7px;
-  background: #eff6e4;
-  color: #68864c;
+  background: var(--surface-subtle, #eff6e4);
+  color: var(--text-secondary, #68864c);
   font-size: 12px;
   display: flex;
   align-items: center;
@@ -15,14 +15,14 @@
   margin-left: auto;
 }
 .notice.warning {
-  color: #9c7b48;
-  background: #fbf4df;
-  border-color: #e8dbb6;
+  color: var(--text-warning, #9c7b48);
+  background: var(--surface-warning, #fbf4df);
+  border-color: var(--border-warning, #e8dbb6);
 }
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: #152c2466;
+  background: var(--overlay-color, #152c2466);
   backdrop-filter: blur(3px);
   display: flex;
   align-items: center;
@@ -31,12 +31,12 @@
   z-index: 50;
 }
 .modal {
-  background: #fffefa;
+  background: var(--surface, #fffefa);
   border-radius: 12px;
   padding: 32px;
   max-width: 480px;
   width: 100%;
-  box-shadow: 0 20px 80px #12382b30;
+  box-shadow: 0 20px 80px var(--shadow-color, #12382b30);
 }
 .modal h2 {
   font: 28px var(--serif);
@@ -44,7 +44,7 @@
 }
 .modal p {
   font-size: 13px;
-  color: #7e8b70;
+  color: var(--text-muted, #7e8b70);
 }
 .visually-hidden {
   position: absolute;

@@ -15,7 +15,7 @@
 }
 .level-progress b {
   font-size: 12px;
-  color: #7a8c66;
+  color: var(--text-secondary, #7a8c66);
   font-weight: 500;
 }
 .backup-panel .circle-icon {
@@ -44,10 +44,10 @@
   align-items: center;
   gap: 15px;
   padding: 16px 0;
-  border-top: 1px solid #ecede5;
+  border-top: 1px solid var(--line, #ecede5);
 }
 .history-row > svg {
-  color: #8fa275;
+  color: var(--text-muted, #8fa275);
 }
 .history-row > span:nth-child(2) {
   flex: 1;
@@ -61,13 +61,13 @@
 .history-row small {
   display: block;
   font-size: 10px;
-  color: #99a08f;
+  color: var(--text-muted, #99a08f);
   margin-top: 5px;
 }
 .history-row code {
   display: block;
   font-size: 12px;
-  color: #7b866d;
+  color: var(--text-secondary, #7b866d);
   margin-top: 8px;
   overflow-wrap: anywhere;
 }
@@ -77,20 +77,20 @@
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: #f7ecd7;
-  color: #a08049;
+  background: var(--surface-warning, #f7ecd7);
+  color: var(--text-warning, #a08049);
   flex-shrink: 0;
 }
 .history-status.correct {
-  background: #e7f0dc;
-  color: #77985a;
+  background: var(--surface-accent, #e7f0dc);
+  color: var(--text-secondary, #77985a);
 }
 .history-status.revealed {
-  background: #eff0e6;
-  color: #9b9f7b;
+  background: var(--surface-subtle, #eff0e6);
+  color: var(--text-muted, #9b9f7b);
 }
 .history-label {
   font-size: 10px;
-  color: #829074;
+  color: var(--text-muted, #829074);
   text-align: right;
 }

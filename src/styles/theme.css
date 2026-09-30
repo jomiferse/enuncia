@@ -1,0 +1,49 @@
+/* Light colors remain in each declaration's fallback; dark uses semantic tokens. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --green: #b6d79e;
+  --lime: #ccdfaa;
+  --muted: #a8b9a0;
+  --line: #35453c;
+  --page-background: #111a16;
+  --sidebar-background: #17211c;
+  --topbar-background: #17211c;
+  --hero-background: #1e2b22;
+  --surface: #1b2720;
+  --surface-subtle: #223129;
+  --surface-accent: #2c4030;
+  --input-background: #15221b;
+  --surface-warning: #352c1d;
+  --surface-error: #35251f;
+  --text-primary: #e8eee3;
+  --text-secondary: #c4cfc0;
+  --text-muted: #a8b9a0;
+  --text-warning: #efcf9a;
+  --text-error: #ecc0aa;
+  --border-warning: #66553b;
+  --border-error: #694c40;
+  --on-accent: #132119;
+  --accent-hover: #c6e7ae;
+  --indicator-color: #a9cd85;
+  --focus-color: #b8d78c;
+  --decoration-color: #354b39;
+  --art-grid-color: #6d885540;
+  --overlay-color: #060c08b3;
+  --shadow-color: #00000040;
+}
+
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface, #fffefa);
+  color: var(--text-secondary, #405243);
+}
+
+.theme-toggle:hover {
+  background: var(--surface-accent, #edf2e4);
+}

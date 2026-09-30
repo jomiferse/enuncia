@@ -14,13 +14,13 @@
   border: 1px solid var(--line);
   padding: 13px 18px;
   border-radius: 8px;
-  background: #fffefa;
-  color: #728365;
+  background: var(--surface, #fffefa);
+  color: var(--text-secondary, #728365);
   font-size: 13px;
 }
 .area-tabs button.selected {
   background: var(--green);
-  color: #f6f8ef;
+  color: var(--on-accent, #f6f8ef);
   border-color: var(--green);
 }
 .area-symbol {
@@ -41,7 +41,7 @@
 }
 .course-section-heading p {
   font-size: 12px;
-  color: #7e8b73;
+  color: var(--text-muted, #7e8b73);
   max-width: 650px;
 }
 .course-section-note {
@@ -49,7 +49,7 @@
   gap: 7px;
   align-items: center;
   font-size: 11px;
-  color: #8a977b;
+  color: var(--text-muted, #8a977b);
   white-space: nowrap;
 }
 .course-grid {
@@ -58,7 +58,7 @@
   gap: 18px;
 }
 .course-card {
-  background: #fffefa;
+  background: var(--surface, #fffefa);
   border: 1px solid var(--line);
   border-radius: 11px;
   padding: 24px;
@@ -79,15 +79,15 @@
   width: 42px;
   height: 42px;
   border-radius: 9px;
-  background: #edf3e3;
-  color: #77925d;
+  background: var(--surface-subtle, #edf3e3);
+  color: var(--text-secondary, #77925d);
 }
 .course-card h3 {
   font: 25px/1.25 var(--serif);
   margin-bottom: 12px;
 }
 .course-card > p {
-  color: #859279;
+  color: var(--text-muted, #859279);
   font-size: 11px;
   line-height: 1.8;
   margin-bottom: 22px;
@@ -98,14 +98,14 @@
   justify-content: space-between;
   align-items: center;
   font-size: 10px;
-  background: #f1f4e9;
+  background: var(--surface-subtle, #f1f4e9);
   border-radius: 6px;
   padding: 11px 12px;
   margin-top: auto;
-  color: #7f8e6d;
+  color: var(--text-muted, #7f8e6d);
 }
 .course-count-heading > b {
-  color: #54723b;
+  color: var(--text-primary, #54723b);
   font-size: 13px;
   font-weight: 550;
 }
@@ -118,30 +118,30 @@
   justify-content: space-between;
   gap: 12px;
   padding: 12px 2px;
-  border-bottom: 1px solid #edf0e5;
+  border-bottom: 1px solid var(--line, #edf0e5);
 }
 .course-counts dt {
   display: flex;
   gap: 7px;
   align-items: center;
   font-size: 11px;
-  color: #7b8b6b;
+  color: var(--text-secondary, #7b8b6b);
 }
 .course-counts dd {
   font-variant-numeric: tabular-nums;
   font-size: 13px;
-  color: #546d40;
+  color: var(--text-primary, #546d40);
   margin: 0;
 }
 .course-counts svg {
-  color: #a0ae8c;
+  color: var(--text-muted, #a0ae8c);
 }
 .course-review-count {
   display: flex;
   align-items: center;
   gap: 6px;
   font-size: 9px;
-  color: #96a086;
+  color: var(--text-muted, #96a086);
   margin: 15px 0 20px;
   min-height: 15px;
 }
@@ -149,12 +149,12 @@
   justify-content: space-between;
 }
 .planned {
-  background: #f7f8f2;
+  background: var(--surface-subtle, #f7f8f2);
 }
 .planned-pill {
-  color: #94a084;
-  background: #f3f5ed;
-  border-color: #e0e5d6;
+  color: var(--text-muted, #94a084);
+  background: var(--surface-subtle, #f3f5ed);
+  border-color: var(--line, #e0e5d6);
 }
 .level-grid {
   display: grid;
@@ -180,17 +180,17 @@
   flex-wrap: wrap;
   margin-bottom: 22px;
   font-size: 11px;
-  color: #87977a;
+  color: var(--text-muted, #87977a);
 }
 .review-context {
   display: flex;
   gap: 9px;
   align-items: center;
   padding: 15px 18px;
-  background: #f6f0df;
-  border: 1px solid #e9dfc6;
+  background: var(--surface-warning, #f6f0df);
+  border: 1px solid var(--border-warning, #e9dfc6);
   border-radius: 8px;
-  color: #9c8250;
+  color: var(--text-warning, #9c8250);
   font-size: 12px;
   margin-bottom: 22px;
 }
@@ -203,19 +203,19 @@
   border-top: 1px solid var(--line);
   margin-top: 10px;
   font-size: 11px;
-  color: #849375;
+  color: var(--text-muted, #849375);
 }
 .exercise-pagination button {
-  border: 1px solid #dce4ce;
+  border: 1px solid var(--line, #dce4ce);
   border-radius: 5px;
   display: grid;
   place-items: center;
   width: 30px;
   height: 30px;
-  background: #f4f8ea;
+  background: var(--surface-subtle, #f4f8ea);
 }
 .exercise-pagination button:hover:not(:disabled) {
-  background: #e5edda;
+  background: var(--surface-accent, #e5edda);
 }
 .area-overview-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -283,7 +283,7 @@
   .exercise-pagination {
     position: sticky;
     bottom: -15px;
-    background: #fffefa;
+    background: var(--surface, #fffefa);
     padding-bottom: 10px;
   }
   .exercise-list:has(.exercise-pagination) {

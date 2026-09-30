@@ -1,3 +1,4 @@
+import { ThemeToggle } from "../../features/theme/ThemeToggle";
 import { BarChart3, BookOpen, ChevronRight, GraduationCap, HelpCircle, Home, Menu, X } from "lucide-react";
 import type { ReactNode } from "react";
 import { useState } from "react";
@@ -91,6 +92,7 @@ export function AppLayout({ view, title, hasActiveExam, storageError, notice, on
             <strong>{title}</strong>
           </div>
           <div className="topbar-right">
+            <ThemeToggle />
             <span className="topbar-local">
               <span />
               {storageError ? t("AppLayout.sinGuardar") : t("AppLayout.guardadoLocal")}

@@ -4,6 +4,8 @@ A Spanish-language app for practicing propositional logic: 40 exercises, hints, 
 
 Progress is saved in your browser. Use **Mi progreso → Exportar / Importar** to back it up or move it to another browser.
 
+Use the sun/moon button in the header to switch themes. Your choice is saved in the browser; the initial theme follows your system settings.
+
 ## Getting started
 
 Requirements: **Node.js 24** and **pnpm 11.20.0**.

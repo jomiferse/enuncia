@@ -1,5 +1,5 @@
 .exercise-card {
-  background: #fffefa;
+  background: var(--surface, #fffefa);
   border: 1px solid var(--line);
   border-radius: 11px;
   padding: 29px 31px;
@@ -18,8 +18,8 @@
   gap: 5px;
   border-radius: 5px;
   padding: 5px 8px;
-  background: #edf3e3;
-  color: #6a824c;
+  background: var(--surface-subtle, #edf3e3);
+  color: var(--text-secondary, #6a824c);
   white-space: nowrap;
 }
 .badge i {
@@ -29,12 +29,12 @@
   border-radius: 50%;
 }
 .badge.media {
-  background: #f8f0de;
-  color: #a08247;
+  background: var(--surface-warning, #f8f0de);
+  color: var(--text-warning, #a08247);
 }
 .badge.avanzada {
-  background: #f3e8e1;
-  color: #ae7b62;
+  background: var(--surface-error, #f3e8e1);
+  color: var(--text-error, #ae7b62);
 }
 .exercise-title {
   font: 28px/1.2 var(--serif);
@@ -44,15 +44,15 @@
 .result-body blockquote {
   font: 21px/1.6 var(--serif);
   margin: 0 0 25px;
-  color: #354f36;
-  border-left: 3px solid #cadbb2;
+  color: var(--text-primary, #354f36);
+  border-left: 3px solid var(--line, #cadbb2);
   padding: 8px 0 8px 19px;
 }
 .atoms {
   padding: 18px;
-  background: #f4f6ed;
+  background: var(--surface-subtle, #f4f6ed);
   border-radius: 7px;
-  border: 1px solid #e8ecdf;
+  border: 1px solid var(--line, #e8ecdf);
   margin-bottom: 26px;
 }
 .atoms dl {
@@ -70,15 +70,15 @@
   flex-shrink: 0;
   height: 25px;
   border-radius: 5px;
-  background: #e7edda;
-  color: #516d3b;
+  background: var(--surface-accent, #e7edda);
+  color: var(--text-primary, #516d3b);
   font: 17px var(--serif);
   display: grid;
   place-items: center;
 }
 .atoms dd {
   font-size: 12px;
-  color: #6d7e60;
+  color: var(--text-secondary, #6d7e60);
   margin: 0;
 }
 .formula-editor > label {
@@ -97,28 +97,28 @@
   font: 20px var(--serif);
   min-width: 32px;
   height: 32px;
-  border: 1px solid #dde4d2;
-  background: #f6f8f0;
+  border: 1px solid var(--line, #dde4d2);
+  background: var(--surface-subtle, #f6f8f0);
   border-radius: 5px;
-  color: #587042;
+  color: var(--text-primary, #587042);
 }
 .symbol-bar button:hover {
-  background: #e4edcf;
+  background: var(--surface-accent, #e4edcf);
 }
 .symbol-bar .atom-button {
   font-size: 15px;
-  background: #fffefa;
+  background: var(--surface, #fffefa);
 }
 .formula-editor textarea {
   width: 100%;
   height: 107px;
   resize: vertical;
   min-height: 85px;
-  border: 1px solid #d6dfcb;
+  border: 1px solid var(--line, #d6dfcb);
   border-radius: 7px;
-  background: #fdfef9;
+  background: var(--input-background, #fdfef9);
   padding: 17px;
-  color: #274832;
+  color: var(--text-primary, #274832);
   font: 23px/1.6 var(--serif);
 }
 .formula-editor textarea::placeholder {
@@ -126,38 +126,38 @@
     14px/2.6 Inter,
     -apple-system,
     sans-serif;
-  color: #a0a994;
+  color: var(--text-muted, #a0a994);
 }
 .input-help {
   font-size: 10px;
-  color: #8d9783;
+  color: var(--text-muted, #8d9783);
   line-height: 1.7;
   margin-top: 9px;
 }
 .interpretation {
-  background: #f4f6ee;
+  background: var(--surface-subtle, #f4f6ee);
   border-radius: 7px;
   padding: 13px 16px;
   margin-top: 17px;
-  border: 1px dashed #dce3ce;
+  border: 1px dashed var(--line, #dce3ce);
 }
 .interpretation > span {
   font-size: 9px;
-  color: #8c977d;
+  color: var(--text-muted, #8c977d);
   display: block;
   margin-bottom: 7px;
 }
 .interpretation > div {
   font: 18px/1.5 var(--serif);
   overflow-wrap: anywhere;
-  color: #557041;
+  color: var(--text-primary, #557041);
 }
 .interpretation.syntax > div {
   font:
     11px/1.6 Inter,
     -apple-system,
     sans-serif;
-  color: #ae8146;
+  color: var(--text-warning, #ae8146);
 }
 .exercise-actions {
   display: flex;
@@ -178,12 +178,12 @@
   margin: 0;
 }
 .hints {
-  background: #faf4e4;
-  border: 1px solid #eee4c9;
+  background: var(--surface-warning, #faf4e4);
+  border: 1px solid var(--border-warning, #eee4c9);
   border-radius: 7px;
   padding: 14px 16px;
   font-size: 12px;
-  color: #968051;
+  color: var(--text-warning, #968051);
   margin-top: 18px;
 }
 .hints p + p {
@@ -191,22 +191,22 @@
 }
 .feedback {
   border-radius: 8px;
-  border: 1px solid #e4dbcc;
-  background: #fcf7ee;
+  border: 1px solid var(--border-warning, #e4dbcc);
+  background: var(--surface-warning, #fcf7ee);
   padding: 18px;
   margin-top: 22px;
   font-size: 12px;
-  color: #8f794b;
+  color: var(--text-warning, #8f794b);
 }
 .feedback.correct {
-  background: #edf5e5;
-  border-color: #d4e4c3;
-  color: #547839;
+  background: var(--surface-subtle, #edf5e5);
+  border-color: var(--line, #d4e4c3);
+  color: var(--text-primary, #547839);
 }
 .feedback.invalid {
-  background: #fbf1ed;
-  border-color: #eddacf;
-  color: #ab795d;
+  background: var(--surface-error, #fbf1ed);
+  border-color: var(--border-error, #eddacf);
+  color: var(--text-error, #ab795d);
 }
 .feedback-heading {
   display: flex;
@@ -228,14 +228,14 @@
 }
 .truth-values span {
   padding: 7px 10px;
-  border: 1px solid #e6d7bc;
-  background: #fffdf7;
+  border: 1px solid var(--border-warning, #e6d7bc);
+  background: var(--surface, #fffdf7);
   border-radius: 5px;
 }
 .solution {
   margin-top: 18px;
   padding-top: 18px;
-  border-top: 1px solid #dbe5cf;
+  border-top: 1px solid var(--line, #dbe5cf);
 }
 .math {
   font: 23px/1.5 var(--serif);
@@ -243,10 +243,10 @@
 }
 .solution .math {
   margin: 10px 0;
-  color: #46672f;
+  color: var(--text-primary, #46672f);
 }
 .solution p {
   font-size: 12px;
-  color: #738365;
+  color: var(--text-secondary, #738365);
   line-height: 1.8;
 }

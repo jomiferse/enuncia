@@ -2392,3 +2392,7 @@ select {
     margin-bottom: 20px;
   }
 }
+
+.practice-feedback {
+  scroll-margin-top: 24px;
+}

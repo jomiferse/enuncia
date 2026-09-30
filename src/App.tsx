@@ -288,6 +288,16 @@ function PracticePanel({
   onNext: () => void;
 }) {
   const [result, setResult] = useState<Grade | null>(null);
+  const feedbackRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!result) return;
+    feedbackRef.current?.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "instant"
+        : "smooth",
+      block: "start",
+    });
+  }, [result]);
   const Editor = typeRegistry[exercise.type].Editor;
   const check = () => {
     const r = typeRegistry[exercise.type].grade(
@@ -354,7 +364,11 @@ function PracticePanel({
           ))}
         </div>
       )}
-      {result && <Feedback result={result} exercise={exercise} />}
+      {result && (
+        <div ref={feedbackRef} className="practice-feedback">
+          <Feedback result={result} exercise={exercise} />
+        </div>
+      )}
       <div className="practice-bottom">
         {!draft.revealed && result?.status !== "correct" ? (
           <button className="text-button" onClick={reveal}>

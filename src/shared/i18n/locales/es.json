@@ -118,13 +118,13 @@
     "siLaReglaPQSeCumple": "«Si la regla P → Q se cumple, R»",
     "estasDosEstructurasNoSonEquivalentesEn": "Estas dos estructuras no son equivalentes. En práctica verás cómo se ha interpretado tu fórmula.",
     "aprendeDeTusIntentos": "Aprende de tus intentos",
-    "unaRespuestaEquivalenteTambienEsCorrectaSi": "Una respuesta equivalente también es correcta. Si falla, el corrector muestra valores donde tu fórmula y el enunciado discrepan.",
+    "unaRespuestaEquivalenteTambienEsCorrectaSi": "En formalización, una respuesta equivalente también es correcta. Si falla, el corrector muestra valores donde tu fórmula y el enunciado discrepan.",
     "lasPistasYLasSolucionesConsultadasQuedan": "Las pistas y las soluciones consultadas quedan registradas. Un ejercicio completado puede volver al repaso si te equivocas después.",
     "aciertoInicialSinAyudaSignificaAcertarEn": "«Acierto inicial sin ayuda» significa acertar en el primer intento sin haber consultado pistas ni solución.",
     "unEspacioQuePuedeCrecer": "Un espacio que puede crecer",
     "puedesPedirMasEjerciciosUnTemaConcreto": "Puedes pedir más ejercicios, un tema concreto o un nuevo bloque, como tablas de verdad, deducción natural o lógica de predicados.",
     "anade15EjerciciosDeCondicionesNecesariasCon": "«Añade 15 ejercicios de condiciones necesarias, con dificultad media y dos pistas por ejercicio.»",
-    "laPrimeraVersionIncluyeFormalizacionLosNuevos": "La primera versión incluye formalización. Los nuevos bloques se incorporan al proyecto conservando el historial."
+    "laPrimeraVersionIncluyeFormalizacionLosNuevos": "Incluye formalización, tablas de verdad, deducción natural, resolución y fórmulas a enunciados. Los nuevos bloques se incorporan al proyecto conservando el historial."
   },
   "HomePage": {
     "tuSiguientePasoMasClaro": "TU SIGUIENTE PASO, MÁS CLARO",
@@ -220,7 +220,7 @@
     "eligeUnBloque": "Elige un bloque",
     "eligeUnAreaYUnBloqueConsulta": "Elige un área y un bloque. Consulta tu avance y practica sin mezclar los temas.",
     "escogeLaDificultadConLaQueQuieres": "Escoge la dificultad con la que quieres trabajar hoy.",
-    "formalizaConLosAtomosDadosLaLista": "Formaliza con los átomos dados. La lista muestra diez ejercicios por página.",
+    "formalizaConLosAtomosDadosLaLista": "Resuelve los ejercicios del bloque a tu ritmo. La lista muestra diez ejercicios por página.",
     "rutaDePractica": "Ruta de práctica",
     "todosLosNiveles": "Todos los niveles",
     "buscarEjercicios": "Buscar ejercicios",

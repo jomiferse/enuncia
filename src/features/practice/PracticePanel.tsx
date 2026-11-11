@@ -35,11 +35,7 @@ export function PracticePanel({
   }, [result]);
   const Editor = editorRegistry[exercise.type].Editor;
   const check = () => {
-    const r = exerciseTypes[exercise.type].grade(
-      draft.answer,
-      exercise.solution,
-      Object.keys(exercise.atoms),
-    );
+    const r = exerciseTypes[exercise.type].grade(draft.answer, exercise);
     setResult(r);
     onAttempt({
       id: crypto.randomUUID(),

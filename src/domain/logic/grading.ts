@@ -12,6 +12,8 @@ export type Grade = {
   counterexample?: Record<string, boolean>;
   actual?: boolean;
   expected?: boolean;
+  /** Extra explanation lines (e.g. wrong rows) shown under the message. */
+  details?: string[];
 };
 export function grade(
   answer: string,

@@ -84,7 +84,7 @@ test("banco completo y soluciones con tablas válidas", () => {
     assert.equal(e.hints.length, 2);
     assert.ok(e.statement && e.explanation && e.tags.length);
     assert.equal(
-      grade(e.solution, e.solution, Object.keys(e.atoms)).status,
+      grade(e.solution!, e.solution!, Object.keys(e.atoms!)).status,
       "correct",
     );
   }

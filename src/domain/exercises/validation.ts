@@ -1,6 +1,4 @@
 import { DomainError } from "../errors";
-import { MAX_ATOMS } from "../logic/limits";
-import { parseFormula } from "../logic/parser";
 import type { Block, Exercise } from "../models";
 import { difficultyLabels, exerciseTypes } from "./registry";
 export function validateCatalog(blocks: Block[], exercises: Exercise[]) {
@@ -29,15 +27,6 @@ export function validateCatalog(blocks: Block[], exercises: Exercise[]) {
       !Array.isArray(e.tags)
     )
       throw new DomainError(`Contenido incompleto: ${e.id}`, "incompleteExercise", { value1: e.id });
-    const atoms = Object.keys(e.atoms ?? {});
-    if (
-      !atoms.length ||
-      atoms.length > MAX_ATOMS ||
-      atoms.some(
-        (a) => !/^[A-Za-z][A-Za-z0-9_]*$/.test(a) || !e.atoms[a]?.trim(),
-      )
-    )
-      throw new DomainError(`Átomos no válidos: ${e.id}`, "invalidAtoms", { value1: e.id });
-    parseFormula(e.solution, atoms);
+    exerciseTypes[e.type].validate(e);
   }
 }

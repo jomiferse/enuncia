@@ -32,7 +32,7 @@ test("simulacros equilibrados, sin duplicados y filtro de dificultad", () => {
 
 test("submission grades answers, records metadata and leaves the active exam immutable", () => {
   const pool = exercises.slice(0, 3);
-  const exam = { id: "exam", exerciseIds: pool.map(e => e.id), answers: { [pool[0].id]: pool[0].solution, [pool[1].id]: "Z" }, startedAt: 1 };
+  const exam = { id: "exam", exerciseIds: pool.map(e => e.id), answers: { [pool[0].id]: pool[0].solution!, [pool[1].id]: "Z" }, startedAt: 1 };
   const before = structuredClone(exam);
   let id = 0;
   const { finished, attempts } = completeExam(exam, Object.fromEntries(pool.map(e => [e.id, e])), 50, () => `attempt-${++id}`);

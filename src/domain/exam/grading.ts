@@ -8,9 +8,7 @@ export function examResults(exam: Exam, exerciseById: Record<string, Exercise>) 
     return {
       id,
       exercise,
-      result: exercise ? exerciseTypes[exercise.type].grade(
-        exam.answers[id] ?? "", exercise.solution, Object.keys(exercise.atoms),
-      ) : null,
+      result: exercise ? exerciseTypes[exercise.type].grade(exam.answers[id] ?? "", exercise) : null,
     };
   });
 }
@@ -37,3 +35,6 @@ export function completeExam(
   });
   return { finished: { ...exam, finishedAt }, attempts };
 }
+
+/** A blank answer is empty, or only the "-" placeholders used by truth-table cells. */
+export const isAnswered = (answer?: string) => !/^[\s-]*$/.test(answer ?? "");

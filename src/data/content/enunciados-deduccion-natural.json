@@ -1,0 +1,787 @@
+[
+  {
+    "id": "enu-ded-001",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "basica",
+    "title": "Modus ponens encadenado",
+    "statement": "Si llueve, la calle se moja; si la calle se moja, hay charcos; y llueve. Demuestra que hay charcos.",
+    "tags": [
+      "condicional",
+      "→E"
+    ],
+    "hints": [
+      "Aplica →E dos veces: primero para obtener Q y luego R.",
+      "→E necesita el condicional y su antecedente: usa 1 y 3 para Q, y 2 y 4 para R."
+    ],
+    "explanation": "Con P → Q y P se obtiene Q (modus ponens); con Q → R y Q se obtiene R.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → Q",
+        "Q → R",
+        "P"
+      ],
+      "conclusion": "R",
+      "atoms": {
+        "P": "Llueve",
+        "Q": "La calle se moja",
+        "R": "Hay charcos"
+      },
+      "rules": [
+        "→E"
+      ],
+      "proof": [
+        "1. P → Q ; Premisa",
+        "2. Q → R ; Premisa",
+        "3. P ; Premisa",
+        "4. Q ; →E ; 1, 3",
+        "5. R ; →E ; 2, 4"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-002",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "basica",
+    "title": "Conmutar una conjunción",
+    "statement": "Sabemos que el examen es difícil y largo. Demuestra que es largo y difícil.",
+    "tags": [
+      "conjunción",
+      "∧I",
+      "∧E"
+    ],
+    "hints": [
+      "Primero separa la conjunción en sus dos partes con ∧E.",
+      "Vuelve a unir las partes en el orden contrario con ∧I citando las líneas en cualquier orden."
+    ],
+    "explanation": "∧E extrae cada componente y ∧I los junta en el orden que necesitamos: la conjunción es conmutativa.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P ∧ Q"
+      ],
+      "conclusion": "Q ∧ P",
+      "atoms": {
+        "P": "El examen es difícil",
+        "Q": "El examen es largo"
+      },
+      "rules": [
+        "∧I",
+        "∧E"
+      ],
+      "proof": [
+        "1. P ∧ Q ; Premisa",
+        "2. P ; ∧E ; 1",
+        "3. Q ; ∧E ; 1",
+        "4. Q ∧ P ; ∧I ; 3, 2"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-003",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "basica",
+    "title": "Ampliar con disyunciones",
+    "statement": "Hace sol. Demuestra que hace sol o llueve, o bien nieva.",
+    "tags": [
+      "disyunción",
+      "∨I"
+    ],
+    "hints": [
+      "∨I permite añadir cualquier fórmula al otro lado de una disyunción.",
+      "Aplícala dos veces: primero para P ∨ Q y luego para (P ∨ Q) ∨ R."
+    ],
+    "explanation": "Si P es verdadera, P ∨ Q lo es; y de ahí, (P ∨ Q) ∨ R. Introducir una disyunción nunca pierde verdad.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P"
+      ],
+      "conclusion": "(P ∨ Q) ∨ R",
+      "atoms": {
+        "P": "Hace sol",
+        "Q": "Llueve",
+        "R": "Nieva"
+      },
+      "rules": [
+        "∨I"
+      ],
+      "proof": [
+        "1. P ; Premisa",
+        "2. P ∨ Q ; ∨I ; 1",
+        "3. (P ∨ Q) ∨ R ; ∨I ; 2"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-004",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "media",
+    "title": "Silogismo hipotético",
+    "statement": "Si estudias, apruebas; si apruebas, te gradúas. Demuestra que si estudias te gradúas.",
+    "tags": [
+      "condicional",
+      "→I",
+      "subprueba"
+    ],
+    "hints": [
+      "Para demostrar un condicional, supón su antecedente en una subprueba.",
+      "Dentro de la subprueba suponiendo P llega a R con →E dos veces y cierra con →I."
+    ],
+    "explanation": "Suponemos P, deducimos Q y después R; al cerrar la subprueba, →I produce P → R.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → Q",
+        "Q → R"
+      ],
+      "conclusion": "P → R",
+      "atoms": {
+        "P": "Estudias",
+        "Q": "Apruebas",
+        "R": "Te gradúas"
+      },
+      "proof": [
+        "1. P → Q ; Premisa",
+        "2. Q → R ; Premisa",
+        "3. > P ; Hipótesis",
+        "4. > Q ; →E ; 1, 3",
+        "5. > R ; →E ; 2, 4",
+        "6. P → R ; →I ; 3-5"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-005",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "basica",
+    "title": "Conmutar una disyunción",
+    "statement": "Se sabe que el tren o el autobús llegan tarde. Demuestra que el autobús o el tren llegan tarde.",
+    "tags": [
+      "disyunción",
+      "∨E"
+    ],
+    "hints": [
+      "Para usar una disyunción hay que razonar por casos: una subprueba por cada lado.",
+      "En cada caso llega a Q ∨ P con ∨I y cierra con ∨E citando la disyunción y las dos subpruebas."
+    ],
+    "explanation": "En cada caso (P o Q) se obtiene Q ∨ P; ∨E reúne ambos casos en la conclusión.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P ∨ Q"
+      ],
+      "conclusion": "Q ∨ P",
+      "atoms": {
+        "P": "El tren llega tarde",
+        "Q": "El autobús llega tarde"
+      },
+      "proof": [
+        "1. P ∨ Q ; Premisa",
+        "2. > P ; Hipótesis",
+        "3. > Q ∨ P ; ∨I ; 2",
+        "4. > Q ; Hipótesis",
+        "5. > Q ∨ P ; ∨I ; 4",
+        "6. Q ∨ P ; ∨E ; 1, 2-3, 4-5"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-006",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "basica",
+    "title": "Modus tollens",
+    "statement": "Si hay corriente, la luz se enciende; la luz no se enciende. Demuestra que no hay corriente.",
+    "tags": [
+      "negación",
+      "¬I"
+    ],
+    "hints": [
+      "Para demostrar ¬P supón P y busca una contradicción (⊥).",
+      "Con P obtienes Q por →E; Q choca con ¬Q, así que ¬E da ⊥ y ¬I cierra la subprueba."
+    ],
+    "explanation": "Si P fuera cierta, tendríamos Q y ¬Q a la vez: contradicción. Por tanto, ¬P.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → Q",
+        "¬Q"
+      ],
+      "conclusion": "¬P",
+      "atoms": {
+        "P": "Hay corriente",
+        "Q": "La luz se enciende"
+      },
+      "proof": [
+        "1. P → Q ; Premisa",
+        "2. ¬Q ; Premisa",
+        "3. > P ; Hipótesis",
+        "4. > Q ; →E ; 1, 3",
+        "5. > ⊥ ; ¬E ; 4, 2",
+        "6. ¬P ; ¬I ; 3-5"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-007",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "basica",
+    "title": "Una premisa vale para cualquier condición",
+    "statement": "Hoy es festivo. Demuestra que, si llueve, hoy es festivo.",
+    "tags": [
+      "condicional",
+      "→I",
+      "Reiteración"
+    ],
+    "hints": [
+      "Abre una subprueba suponiendo el antecedente Q.",
+      "Dentro de la subprueba puedes repetir la premisa P con Reiteración; luego cierra con →I."
+    ],
+    "explanation": "La premisa P sigue disponible dentro de la subprueba; con ella, →I da Q → P sin usar Q.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P"
+      ],
+      "conclusion": "Q → P",
+      "atoms": {
+        "P": "Hoy es festivo",
+        "Q": "Llueve"
+      },
+      "proof": [
+        "1. P ; Premisa",
+        "2. > Q ; Hipótesis",
+        "3. > P ; Reiteración ; 1",
+        "4. Q → P ; →I ; 2-3"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-008",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "media",
+    "title": "Asociatividad de la conjunción",
+    "statement": "Demuestra que de (P ∧ Q) ∧ R se sigue P ∧ (Q ∧ R).",
+    "tags": [
+      "conjunción",
+      "∧I",
+      "∧E"
+    ],
+    "hints": [
+      "Descompón la premisa hasta tener P, Q y R por separado.",
+      "Reconstruye de dentro afuera: primero Q ∧ R y después P ∧ (Q ∧ R)."
+    ],
+    "explanation": "Tras separar P, Q y R con ∧E, se reagrupan con ∧I en la forma pedida.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "(P ∧ Q) ∧ R"
+      ],
+      "conclusion": "P ∧ (Q ∧ R)",
+      "atoms": {
+        "P": "El plato está caliente",
+        "Q": "El plato está salado",
+        "R": "El plato está servido"
+      },
+      "rules": [
+        "∧I",
+        "∧E"
+      ],
+      "proof": [
+        "1. (P ∧ Q) ∧ R ; Premisa",
+        "2. P ∧ Q ; ∧E ; 1",
+        "3. R ; ∧E ; 1",
+        "4. P ; ∧E ; 2",
+        "5. Q ; ∧E ; 2",
+        "6. Q ∧ R ; ∧I ; 5, 3",
+        "7. P ∧ (Q ∧ R) ; ∧I ; 4, 6"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-009",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "media",
+    "title": "Distributiva de ∧ sobre ∨",
+    "statement": "Demuestra que de P ∧ (Q ∨ R) se sigue (P ∧ Q) ∨ (P ∧ R).",
+    "tags": [
+      "conjunción",
+      "disyunción",
+      "∨E"
+    ],
+    "hints": [
+      "Extrae P y Q ∨ R de la conjunción y razona por casos sobre Q ∨ R.",
+      "En cada caso usa P (línea 2, que está fuera de las subpruebas) y construye la disyunción con ∨I."
+    ],
+    "explanation": "Por casos sobre Q ∨ R: si Q, se tiene P ∧ Q; si R, se tiene P ∧ R; en ambos casos vale la disyunción.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P ∧ (Q ∨ R)"
+      ],
+      "conclusion": "(P ∧ Q) ∨ (P ∧ R)",
+      "atoms": {
+        "P": "Hay entradas",
+        "Q": "Vamos al cine",
+        "R": "Vamos al teatro"
+      },
+      "proof": [
+        "1. P ∧ (Q ∨ R) ; Premisa",
+        "2. P ; ∧E ; 1",
+        "3. Q ∨ R ; ∧E ; 1",
+        "4. > Q ; Hipótesis",
+        "5. > P ∧ Q ; ∧I ; 2, 4",
+        "6. > (P ∧ Q) ∨ (P ∧ R) ; ∨I ; 5",
+        "7. > R ; Hipótesis",
+        "8. > P ∧ R ; ∧I ; 2, 7",
+        "9. > (P ∧ Q) ∨ (P ∧ R) ; ∨I ; 8",
+        "10. (P ∧ Q) ∨ (P ∧ R) ; ∨E ; 3, 4-6, 7-9"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-010",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "media",
+    "title": "Exportación",
+    "statement": "Si hace frío y llueve, nos quedamos en casa. Demuestra que si hace frío, entonces si llueve nos quedamos en casa.",
+    "tags": [
+      "condicional",
+      "→I",
+      "subprueba anidada"
+    ],
+    "hints": [
+      "Anida dos subpruebas: primero supón P y dentro de ella supón Q.",
+      "Con P y Q construye P ∧ Q, aplica →E y cierra las subpruebas de dentro afuera con →I."
+    ],
+    "explanation": "Suponiendo P y luego Q se obtiene R; cerrando primero la subprueba de Q y luego la de P se llega a P → (Q → R).",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "(P ∧ Q) → R"
+      ],
+      "conclusion": "P → (Q → R)",
+      "atoms": {
+        "P": "Hace frío",
+        "Q": "Llueve",
+        "R": "Nos quedamos en casa"
+      },
+      "proof": [
+        "1. (P ∧ Q) → R ; Premisa",
+        "2. > P ; Hipótesis",
+        "3. > > Q ; Hipótesis",
+        "4. > > P ∧ Q ; ∧I ; 2, 3",
+        "5. > > R ; →E ; 1, 4",
+        "6. > Q → R ; →I ; 3-5",
+        "7. P → (Q → R) ; →I ; 2-6"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-011",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "media",
+    "title": "Importación",
+    "statement": "Si hace frío, entonces si llueve nos quedamos en casa. Demuestra que si hace frío y llueve, nos quedamos en casa.",
+    "tags": [
+      "condicional",
+      "conjunción",
+      "→I"
+    ],
+    "hints": [
+      "Supón el antecedente P ∧ Q y sepáralo con ∧E.",
+      "Usa →E dos veces: con P obtienes Q → R y con Q obtienes R."
+    ],
+    "explanation": "Dentro de la subprueba tenemos P y Q; dos aplicaciones de →E producen R y →I cierra el condicional.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → (Q → R)"
+      ],
+      "conclusion": "(P ∧ Q) → R",
+      "atoms": {
+        "P": "Hace frío",
+        "Q": "Llueve",
+        "R": "Nos quedamos en casa"
+      },
+      "proof": [
+        "1. P → (Q → R) ; Premisa",
+        "2. > P ∧ Q ; Hipótesis",
+        "3. > P ; ∧E ; 2",
+        "4. > Q ; ∧E ; 2",
+        "5. > Q → R ; →E ; 1, 3",
+        "6. > R ; →E ; 5, 4",
+        "7. (P ∧ Q) → R ; →I ; 2-6"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-012",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "media",
+    "title": "Silogismo disyuntivo",
+    "statement": "O bien el paquete llega hoy o bien llega mañana; no llega hoy. Demuestra que llega mañana.",
+    "tags": [
+      "disyunción",
+      "negación",
+      "⊥E"
+    ],
+    "hints": [
+      "Razona por casos sobre P ∨ Q; en el caso P hay una contradicción con ¬P.",
+      "De ⊥ se obtiene cualquier fórmula con ⊥E. En el caso Q basta con repetirla (Reiteración)."
+    ],
+    "explanation": "El caso P es imposible (da ⊥ y de ⊥ sale Q); el caso Q ya es la conclusión. Por ∨E, Q.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P ∨ Q",
+        "¬P"
+      ],
+      "conclusion": "Q",
+      "atoms": {
+        "P": "El paquete llega hoy",
+        "Q": "El paquete llega mañana"
+      },
+      "proof": [
+        "1. P ∨ Q ; Premisa",
+        "2. ¬P ; Premisa",
+        "3. > P ; Hipótesis",
+        "4. > ⊥ ; ¬E ; 3, 2",
+        "5. > Q ; ⊥E ; 4",
+        "6. > Q ; Hipótesis",
+        "7. > Q ; Reiteración ; 6",
+        "8. Q ; ∨E ; 1, 3-5, 6-7"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-013",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "media",
+    "title": "Ley de De Morgan para la disyunción",
+    "statement": "No ocurre que el tren o el autobús lleguen a tiempo. Demuestra que el tren no llega a tiempo y el autobús tampoco.",
+    "tags": [
+      "negación",
+      "disyunción",
+      "¬I"
+    ],
+    "hints": [
+      "Demuestra ¬P y ¬Q por separado, cada uno con su subprueba, y únelos con ∧I.",
+      "Para ¬P: supón P, construye P ∨ Q con ∨I y choca con la premisa para obtener ⊥."
+    ],
+    "explanation": "Suponer P (o Q) permite formar P ∨ Q, que contradice la premisa; luego ¬P y ¬Q, y ∧I los une.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "¬(P ∨ Q)"
+      ],
+      "conclusion": "¬P ∧ ¬Q",
+      "atoms": {
+        "P": "El tren llega a tiempo",
+        "Q": "El autobús llega a tiempo"
+      },
+      "proof": [
+        "1. ¬(P ∨ Q) ; Premisa",
+        "2. > P ; Hipótesis",
+        "3. > P ∨ Q ; ∨I ; 2",
+        "4. > ⊥ ; ¬E ; 3, 1",
+        "5. ¬P ; ¬I ; 2-4",
+        "6. > Q ; Hipótesis",
+        "7. > P ∨ Q ; ∨I ; 6",
+        "8. > ⊥ ; ¬E ; 7, 1",
+        "9. ¬Q ; ¬I ; 6-8",
+        "10. ¬P ∧ ¬Q ; ∧I ; 5, 9"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-014",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "media",
+    "title": "Contraposición",
+    "statement": "Si hay luz solar, las plantas crecen. Demuestra que si las plantas no crecen, no hay luz solar.",
+    "tags": [
+      "condicional",
+      "negación",
+      "subprueba anidada"
+    ],
+    "hints": [
+      "Supón ¬Q; para obtener ¬P supón además P dentro de otra subprueba.",
+      "Con P llegas a Q por →E, que contradice ¬Q. Cierra con ¬I y luego con →I."
+    ],
+    "explanation": "Con ¬Q y P se llega a ⊥, así que ¬P; cerrando la subprueba exterior queda ¬Q → ¬P.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → Q"
+      ],
+      "conclusion": "¬Q → ¬P",
+      "atoms": {
+        "P": "Hay luz solar",
+        "Q": "Las plantas crecen"
+      },
+      "proof": [
+        "1. P → Q ; Premisa",
+        "2. > ¬Q ; Hipótesis",
+        "3. > > P ; Hipótesis",
+        "4. > > Q ; →E ; 1, 3",
+        "5. > > ⊥ ; ¬E ; 4, 2",
+        "6. > ¬P ; ¬I ; 3-5",
+        "7. ¬Q → ¬P ; →I ; 2-6"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-015",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "avanzada",
+    "title": "Tercero excluido",
+    "statement": "Demuestra, sin premisas, que siempre ocurre P o no ocurre P.",
+    "tags": [
+      "RAA",
+      "disyunción",
+      "teorema"
+    ],
+    "hints": [
+      "Usa reducción al absurdo: supón la negación de la conclusión.",
+      "Dentro, demuestra ¬P (supón P y llega a ⊥) y luego P ∨ ¬P, que contradice tu hipótesis."
+    ],
+    "explanation": "Si P ∨ ¬P fuera falsa, tanto P como ¬P llevarían a contradicción; con ¬P se obtiene P ∨ ¬P y se contradice la hipótesis. RAA concluye.",
+    "data": {
+      "language": "propositional",
+      "premises": [],
+      "conclusion": "P ∨ ¬P",
+      "atoms": {
+        "P": "Mañana lloverá"
+      },
+      "proof": [
+        "1. > ¬(P ∨ ¬P) ; Hipótesis",
+        "2. > > P ; Hipótesis",
+        "3. > > P ∨ ¬P ; ∨I ; 2",
+        "4. > > ⊥ ; ¬E ; 3, 1",
+        "5. > ¬P ; ¬I ; 2-4",
+        "6. > P ∨ ¬P ; ∨I ; 5",
+        "7. > ⊥ ; ¬E ; 6, 1",
+        "8. P ∨ ¬P ; RAA ; 1-7"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-016",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "avanzada",
+    "title": "De Morgan inversa",
+    "statement": "Ni el tren ni el autobús llegan a tiempo. Demuestra que no ocurre que alguno de los dos llegue a tiempo.",
+    "tags": [
+      "negación",
+      "disyunción",
+      "subprueba anidada"
+    ],
+    "hints": [
+      "Supón P ∨ Q para llegar a ⊥ y cierra con ¬I.",
+      "Dentro, razona por casos con ∨E: en cada caso obtén ⊥ chocando con ¬P o con ¬Q."
+    ],
+    "explanation": "Suponiendo P ∨ Q, ambos casos dan ⊥ (P choca con ¬P y Q con ¬Q), así que ∨E da ⊥ y ¬I concluye ¬(P ∨ Q).",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "¬P ∧ ¬Q"
+      ],
+      "conclusion": "¬(P ∨ Q)",
+      "atoms": {
+        "P": "El tren llega a tiempo",
+        "Q": "El autobús llega a tiempo"
+      },
+      "proof": [
+        "1. ¬P ∧ ¬Q ; Premisa",
+        "2. ¬P ; ∧E ; 1",
+        "3. ¬Q ; ∧E ; 1",
+        "4. > P ∨ Q ; Hipótesis",
+        "5. > > P ; Hipótesis",
+        "6. > > ⊥ ; ¬E ; 5, 2",
+        "7. > > Q ; Hipótesis",
+        "8. > > ⊥ ; ¬E ; 7, 3",
+        "9. > ⊥ ; ∨E ; 4, 5-6, 7-8",
+        "10. ¬(P ∨ Q) ; ¬I ; 4-9"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-017",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "basica",
+    "title": "Doble negación",
+    "statement": "La reunión se celebra. Demuestra que no es cierto que la reunión no se celebre.",
+    "tags": [
+      "negación",
+      "¬I"
+    ],
+    "hints": [
+      "Para demostrar ¬¬P supón ¬P.",
+      "P y ¬P son contradictorias: ¬E da ⊥ y ¬I cierra la subprueba."
+    ],
+    "explanation": "Suponer ¬P contradice P; por ¬I se obtiene ¬¬P.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P"
+      ],
+      "conclusion": "¬¬P",
+      "atoms": {
+        "P": "La reunión se celebra"
+      },
+      "rules": [
+        "¬I",
+        "¬E"
+      ],
+      "proof": [
+        "1. P ; Premisa",
+        "2. > ¬P ; Hipótesis",
+        "3. > ⊥ ; ¬E ; 1, 2",
+        "4. ¬¬P ; ¬I ; 2-3"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-018",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "avanzada",
+    "title": "Del condicional a la disyunción",
+    "statement": "Si estudias, apruebas. Demuestra que no estudias o apruebas.",
+    "tags": [
+      "RAA",
+      "condicional",
+      "disyunción"
+    ],
+    "hints": [
+      "Razona por reducción al absurdo suponiendo ¬(¬P ∨ Q).",
+      "Dentro, demuestra primero ¬P (suponiendo P, llegas a Q y de ahí a ¬P ∨ Q, que contradice la hipótesis) y luego ¬P ∨ Q."
+    ],
+    "explanation": "Negar la conclusión permite probar ¬P y, por tanto, ¬P ∨ Q, lo que la contradice; RAA cierra la prueba.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → Q"
+      ],
+      "conclusion": "¬P ∨ Q",
+      "atoms": {
+        "P": "Estudias",
+        "Q": "Apruebas"
+      },
+      "proof": [
+        "1. P → Q ; Premisa",
+        "2. > ¬(¬P ∨ Q) ; Hipótesis",
+        "3. > > P ; Hipótesis",
+        "4. > > Q ; →E ; 1, 3",
+        "5. > > ¬P ∨ Q ; ∨I ; 4",
+        "6. > > ⊥ ; ¬E ; 5, 2",
+        "7. > ¬P ; ¬I ; 3-6",
+        "8. > ¬P ∨ Q ; ∨I ; 7",
+        "9. > ⊥ ; ¬E ; 8, 2",
+        "10. ¬P ∨ Q ; RAA ; 2-9"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-019",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "avanzada",
+    "title": "De la disyunción al condicional",
+    "statement": "O no estudias o apruebas. Demuestra que si estudias, apruebas.",
+    "tags": [
+      "disyunción",
+      "condicional",
+      "∨E"
+    ],
+    "hints": [
+      "Supón P y razona por casos sobre ¬P ∨ Q dentro de esa subprueba.",
+      "El caso ¬P contradice P (⊥, y de ⊥ sale Q); el caso Q es directo."
+    ],
+    "explanation": "Suponiendo P, el caso ¬P es imposible y el caso Q da directamente Q; ∨E da Q y →I cierra el condicional.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "¬P ∨ Q"
+      ],
+      "conclusion": "P → Q",
+      "atoms": {
+        "P": "Estudias",
+        "Q": "Apruebas"
+      },
+      "proof": [
+        "1. ¬P ∨ Q ; Premisa",
+        "2. > P ; Hipótesis",
+        "3. > > ¬P ; Hipótesis",
+        "4. > > ⊥ ; ¬E ; 2, 3",
+        "5. > > Q ; ⊥E ; 4",
+        "6. > > Q ; Hipótesis",
+        "7. > > Q ; Reiteración ; 6",
+        "8. > Q ; ∨E ; 1, 3-5, 6-7",
+        "9. P → Q ; →I ; 2-8"
+      ]
+    }
+  },
+  {
+    "id": "enu-ded-020",
+    "blockId": "enunciados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "avanzada",
+    "title": "Equivalencia con una conjunción común",
+    "statement": "P es equivalente a Q. Demuestra que P y R equivale a Q y R.",
+    "tags": [
+      "bicondicional",
+      "↔I",
+      "↔E"
+    ],
+    "hints": [
+      "↔I necesita dos subpruebas: de P ∧ R a Q ∧ R y de Q ∧ R a P ∧ R.",
+      "En cada subprueba separa la conjunción, cambia P por Q (o al revés) con ↔E y vuelve a unir."
+    ],
+    "explanation": "Cada subprueba usa ↔E para cambiar P por Q (o Q por P) y conserva R; ↔I junta ambas direcciones.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P ↔ Q"
+      ],
+      "conclusion": "(P ∧ R) ↔ (Q ∧ R)",
+      "atoms": {
+        "P": "El plan es viable",
+        "Q": "El plan es rentable",
+        "R": "El plan está aprobado"
+      },
+      "proof": [
+        "1. P ↔ Q ; Premisa",
+        "2. > P ∧ R ; Hipótesis",
+        "3. > P ; ∧E ; 2",
+        "4. > R ; ∧E ; 2",
+        "5. > Q ; ↔E ; 1, 3",
+        "6. > Q ∧ R ; ∧I ; 5, 4",
+        "7. > Q ∧ R ; Hipótesis",
+        "8. > Q ; ∧E ; 7",
+        "9. > R ; ∧E ; 7",
+        "10. > P ; ↔E ; 1, 8",
+        "11. > P ∧ R ; ∧I ; 10, 9",
+        "12. (P ∧ R) ↔ (Q ∧ R) ; ↔I ; 2-6, 7-11"
+      ]
+    }
+  }
+]

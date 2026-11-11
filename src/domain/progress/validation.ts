@@ -1,6 +1,6 @@
 import { DomainError } from "../errors";
 import { EXAM_SIZE } from "../exam/config";
-import { MAX_FORMULA_LENGTH } from "../logic/limits";
+import { MAX_ANSWER_LENGTH } from "../logic/limits";
 import type { Exam, Progress } from "../models";
 const object = (x: unknown): x is Record<string, unknown> =>
   typeof x === "object" && x !== null && !Array.isArray(x);
@@ -21,7 +21,7 @@ function validExam(x: unknown, finished: boolean): x is Exam {
         x.exerciseIds instanceof Array &&
         x.exerciseIds.includes(k) &&
         typeof v === "string" &&
-        v.length <= MAX_FORMULA_LENGTH,
+        v.length <= MAX_ANSWER_LENGTH,
     ) &&
     date(x.startedAt) &&
     (finished
@@ -45,7 +45,7 @@ export function readProgress(value: unknown): Progress {
         (d) =>
           !object(d) ||
           typeof d.answer !== "string" ||
-          d.answer.length > MAX_FORMULA_LENGTH ||
+          d.answer.length > MAX_ANSWER_LENGTH ||
           !Number.isInteger(d.hints) ||
           Number(d.hints) < 0 ||
           Number(d.hints) > 2 ||
@@ -63,7 +63,7 @@ export function readProgress(value: unknown): Progress {
       typeof x.exerciseId !== "string" ||
       !x.exerciseId ||
       typeof x.answer !== "string" ||
-      x.answer.length > MAX_FORMULA_LENGTH ||
+      x.answer.length > MAX_ANSWER_LENGTH ||
       !["correct", "incorrect", "invalid", "revealed"].includes(
         String(x.status),
       ) ||

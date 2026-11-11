@@ -1,0 +1,145 @@
+.nd-sequent {
+  display: grid;
+  gap: 14px;
+  margin: 14px 0;
+}
+.nd-group {
+  background: var(--surface-subtle, #f4f6ee);
+  border-radius: 7px;
+  padding: 11px 16px;
+  min-width: 0;
+}
+.nd-premises {
+  margin: 6px 0 0;
+  padding-left: 22px;
+  color: var(--text-primary, #25352a);
+}
+.nd-premises li,
+.nd-conclusion {
+  font-size: 16px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.nd-conclusion {
+  color: var(--text-primary, #25352a);
+}
+.nd-rules {
+  margin: 8px 0;
+  color: var(--text-secondary, #4e5f50);
+  overflow-wrap: anywhere;
+}
+.nd-bars {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.nd-bars .symbol-bar {
+  margin: 0;
+}
+.deduction-input {
+  width: 100%;
+  min-height: 190px;
+  box-sizing: border-box;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  resize: vertical;
+  white-space: pre;
+  overflow-x: auto;
+}
+.nd-reference {
+  margin: 6px 0 10px;
+  color: var(--text-secondary, #4e5f50);
+}
+.nd-reference summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-primary, #25352a);
+  min-height: 32px;
+}
+.nd-reference summary:focus-visible {
+  outline: 2px solid var(--focus-color, #6a824c);
+  outline-offset: 2px;
+}
+.nd-reference ul {
+  margin: 6px 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 4px;
+}
+.nd-proof {
+  display: grid;
+  margin: 8px 0;
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line, #dbe5cf);
+  border-radius: 7px;
+  background: var(--surface, #fffefa);
+  color: var(--text-primary, #25352a);
+}
+.nd-proof-row {
+  display: grid;
+  grid-template-columns: 44px minmax(180px, 1fr) 84px 76px;
+  align-items: baseline;
+  gap: 10px;
+  padding: 5px 12px;
+  border-bottom: 1px solid var(--line, #dbe5cf);
+  font-size: 14px;
+}
+.nd-proof-row:last-child {
+  border-bottom: 0;
+}
+.nd-proof-head {
+  background: var(--surface-subtle, #f4f6ee);
+  font-weight: 600;
+  font-size: 12px;
+}
+.nd-num {
+  color: var(--text-muted, #8d9783);
+  text-align: right;
+}
+.nd-formula {
+  padding-left: calc(var(--depth, 0) * 18px);
+  border-left: 0;
+  white-space: nowrap;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--indicator-color, #6a824c) 0 2px,
+    transparent 2px 18px
+  );
+  background-size: calc(var(--depth, 0) * 18px) 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  padding-block: 2px;
+}
+.nd-formula .math {
+  padding-left: 6px;
+}
+.nd-rule {
+  font-weight: 600;
+  white-space: nowrap;
+}
+.nd-cites {
+  color: var(--text-secondary, #4e5f50);
+  white-space: nowrap;
+}
+.nd-preview > div + div {
+  margin-top: 6px;
+}
+.nd-solution .input-help {
+  margin: 4px 0 8px;
+}
+@media (max-width: 600px) {
+  .nd-proof-row {
+    grid-template-columns: 30px minmax(160px, 1fr) 64px 60px;
+    gap: 6px;
+    padding: 5px 8px;
+  }
+  .nd-bars .symbol-bar button {
+    min-width: 40px;
+    min-height: 40px;
+  }
+  .deduction-input {
+    font-size: 14px;
+  }
+}

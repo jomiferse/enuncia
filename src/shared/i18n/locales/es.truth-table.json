@@ -1,0 +1,63 @@
+{
+  "errors": {
+    "truthTable": {
+      "tooManyAtoms": "Las tablas completas admiten hasta {{value1}} átomos.",
+      "invalidData": "Datos de tabla de verdad no válidos: {{value1}}",
+      "invalidAnswer": "Usa solo V, F o - en cada celda.",
+      "incomplete": "Faltan {{value1}} celdas por rellenar. Completa toda la columna antes de comprobar.",
+      "correct": "¡Correcto! La tabla está bien completada.",
+      "incorrectCells": "Hay {{value1}} celdas con un valor erróneo.",
+      "noOption": "Elige una opción para continuar.",
+      "correctOption": "¡Correcto! Tu respuesta coincide con la tabla de verdad.",
+      "incorrectOption": "La opción elegida no coincide con la tabla de verdad."
+    }
+  },
+  "TruthTable": {
+    "label": "/ TABLA DE VERDAD",
+    "instruction": {
+      "complete": "Completa la columna resultado de la tabla de verdad de esta fórmula.",
+      "classify": "Clasifica esta fórmula.",
+      "equivalence": "Decide si estas dos fórmulas son equivalentes.",
+      "validity": "Decide si este argumento es válido."
+    },
+    "formula": "Fórmula",
+    "formulas": "Fórmulas",
+    "premises": "Premisas",
+    "conclusion": "Conclusión",
+    "result": "Resultado",
+    "tableCaption": "Tabla de verdad",
+    "tableHelp": "Pulsa una celda para cambiar entre sin rellenar, V y F.",
+    "clearTable": "Vaciar tabla",
+    "cellLabel": "Fila {{row}} ({{values}}): resultado {{state}}",
+    "state": {
+      "V": "verdadero",
+      "F": "falso",
+      "-": "sin rellenar"
+    },
+    "choose": {
+      "classify": "¿Qué tipo de fórmula es?",
+      "equivalence": "¿Son equivalentes?",
+      "validity": "¿Es válido el argumento?"
+    },
+    "option": {
+      "tautologia": "Tautología (siempre verdadera)",
+      "contradiccion": "Contradicción (siempre falsa)",
+      "contingencia": "Contingencia (a veces verdadera y a veces falsa)",
+      "equivalentes": "Son equivalentes",
+      "no-equivalentes": "No son equivalentes",
+      "valido": "Válido",
+      "invalido": "Inválido"
+    },
+    "solutionTitle": "Solución explicada",
+    "verdict": {
+      "complete": "Esta es la columna resultado correcta.",
+      "tautologia": "La fórmula vale V en todas las filas: es una tautología.",
+      "contradiccion": "La fórmula vale F en todas las filas: es una contradicción.",
+      "contingencia": "La fórmula vale V en unas filas y F en otras: es una contingencia.",
+      "equivalentes": "Las dos fórmulas valen lo mismo en todas las filas: son equivalentes.",
+      "no-equivalentes": "Hay una fila (marcada) donde las fórmulas difieren: no son equivalentes.",
+      "valido": "Ninguna fila hace verdaderas todas las premisas y falsa la conclusión: el argumento es válido.",
+      "invalido": "La fila marcada hace verdaderas todas las premisas y falsa la conclusión: el argumento es inválido."
+    }
+  }
+}

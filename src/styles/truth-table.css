@@ -1,0 +1,121 @@
+.tt-formulas {
+  display: grid;
+  gap: 14px;
+  margin: 14px 0;
+}
+.tt-formula-group {
+  background: var(--surface-subtle, #f4f6ee);
+  border-radius: 7px;
+  padding: 11px 16px;
+  min-width: 0;
+}
+.tt-formula {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-primary, #25352a);
+  overflow-wrap: anywhere;
+}
+.tt-scroll {
+  overflow-x: auto;
+  margin: 12px 0;
+  max-width: 100%;
+}
+.tt-table {
+  border-collapse: collapse;
+  font-size: 14px;
+  color: var(--text-primary, #25352a);
+}
+.tt-table th,
+.tt-table td {
+  border: 1px solid var(--line, #dbe5cf);
+  padding: 6px 12px;
+  text-align: center;
+  white-space: nowrap;
+}
+.tt-table th {
+  background: var(--surface-subtle, #f4f6ee);
+  font-weight: 600;
+}
+.tt-table .tt-result {
+  background: var(--surface-accent, #edf2e4);
+}
+.tt-table th.tt-result {
+  background: var(--surface-accent, #edf2e4);
+}
+.tt-table tr.tt-refutes td {
+  background: var(--surface-error, #f3e8e1);
+  color: var(--text-error, #8a5a44);
+  font-weight: 600;
+}
+.tt-caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.tt-cell {
+  width: 44px;
+  height: 36px;
+  border: 1px solid var(--line, #dbe5cf);
+  border-radius: 6px;
+  background: var(--input-background, #fffefa);
+  color: var(--text-primary, #25352a);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.tt-cell.tt-empty {
+  color: var(--text-muted, #8d9783);
+  font-weight: 400;
+}
+.tt-cell.tt-V,
+.tt-cell.tt-F {
+  background: var(--surface-subtle, #edf3e3);
+}
+.tt-cell:focus-visible,
+.tt-options input:focus-visible {
+  outline: 2px solid var(--focus-color, #6a824c);
+  outline-offset: 2px;
+}
+.tt-options {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.tt-options legend {
+  padding: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--text-primary, #25352a);
+}
+.tt-options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--line, #dbe5cf);
+  border-radius: 8px;
+  background: var(--input-background, #fffefa);
+  color: var(--text-primary, #25352a);
+  cursor: pointer;
+}
+.tt-options label.selected {
+  background: var(--surface-accent, #edf2e4);
+  border-color: var(--indicator-color, #6a824c);
+}
+.tt-options input {
+  flex-shrink: 0;
+  accent-color: var(--indicator-color, #6a824c);
+}
+@media (max-width: 600px) {
+  .tt-table th,
+  .tt-table td {
+    padding: 5px 8px;
+  }
+}

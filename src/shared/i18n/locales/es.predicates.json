@@ -1,0 +1,30 @@
+{
+  "FormulaToStatement": {
+    "label": "Fórmula a enunciado",
+    "formula": "Fórmula",
+    "dictionary": "Diccionario",
+    "candidateStatements": "¿Qué enunciado expresa la fórmula? Elige uno",
+    "correctReading": "Lectura correcta:",
+    "whyNot": "Por qué los demás no equivalen"
+  },
+  "errors": {
+    "predicates": {
+      "unknownSymbol": "El símbolo «{{value1}}» no está declarado.",
+      "unknownPredicate": "El predicado «{{value1}}» no está declarado. Símbolos disponibles: {{value2}}.",
+      "arityMismatch": "El predicado «{{value1}}» tiene aridad {{value2}}, pero se usa con {{value3}} argumento(s).",
+      "functionArityMismatch": "La función «{{value1}}» tiene aridad {{value2}}, pero se usa con {{value3}} argumento(s).",
+      "expectedTerm": "Se esperaba un término (variable o constante).",
+      "expectedFormula": "Se esperaba un predicado, una negación, un cuantificador o un paréntesis de apertura.",
+      "expectedVariable": "Tras un cuantificador se esperaba una variable.",
+      "undeclaredVariable": "«{{value1}}» no es una variable declarada. Variables: {{value2}}.",
+      "predicateAsTerm": "«{{value1}}» es un predicado, no un término.",
+      "termAsFormula": "«{{value1}}» no es un predicado: escríbelo como argumento, por ejemplo P({{value1}}).",
+      "invalidSignature": "Signatura no válida: «{{value1}}».",
+      "invalidData": "Datos de «fórmula a enunciado» no válidos en {{value1}}.",
+      "correctOptionCount": "Debe haber exactamente una opción correcta en {{value1}} (hay {{value2}}).",
+      "noOptionSelected": "Elige un enunciado para continuar.",
+      "correctOption": "¡Correcto! Ese enunciado expresa la fórmula.",
+      "incorrectOption": "Ese enunciado no equivale a la fórmula."
+    }
+  }
+}

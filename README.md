@@ -1,6 +1,6 @@
 # Enuncia
 
-A Spanish-language app for practicing propositional logic: 40 exercises, hints, explained solutions, and mock exams.
+A Spanish-language app for practicing propositional and predicate logic: 180+ exercises, hints, explained solutions, and mock exams.
 
 Progress is saved in your browser. Use **Mi progreso → Exportar / Importar** to back it up or move it to another browser.
 

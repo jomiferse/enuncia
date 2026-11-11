@@ -1,4 +1,4 @@
-export type MessageCode =
+export type KnownMessageCode =
   | "invalidAreas"
   | "invalidBlocks"
   | "missingExamExercise"
@@ -30,6 +30,8 @@ export type MessageCode =
   | "backupTooLarge"
   | "correctFormula"
   | "incorrectFormula";
+/** Exercise types add namespaced codes such as `truthTable.incomplete` (key `errors.truthTable.incomplete`). */
+export type MessageCode = KnownMessageCode | `${string}.${string}`;
 export type MessageParams = Record<string, string | number>;
 
 export class DomainError extends Error {

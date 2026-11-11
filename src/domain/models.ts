@@ -7,8 +7,11 @@ export type Exercise = {
   title: string;
   tags: string[];
   statement: string;
-  atoms: Record<string, string>;
-  solution: string;
+  /** Formalization data. Other types keep their own data in `data`. */
+  atoms?: Record<string, string>;
+  solution?: string;
+  /** Type-specific payload, validated by the exercise type's `validate`. */
+  data?: Record<string, unknown>;
   hints: [string, string];
   explanation: string;
 };

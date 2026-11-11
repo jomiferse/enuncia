@@ -17,12 +17,13 @@ export function FormulaEditor({
   preview?: boolean;
 }) {
   const { t } = useTranslation();
+  const atomNames = Object.keys(exercise.atoms ?? {});
   const input = useRef<HTMLTextAreaElement>(null);
   let parsed = "";
   let error = "";
   if (preview && value.trim()) {
     try {
-      parsed = formatFormula(parseFormula(value, Object.keys(exercise.atoms)));
+      parsed = formatFormula(parseFormula(value, atomNames));
     } catch (e) {
       error = translateError(e);
     }
@@ -62,7 +63,7 @@ export function FormulaEditor({
           "↔",
           "(",
           ")",
-          ...Object.keys(exercise.atoms),
+          ...atomNames,
         ].map((s) => (
           <button
             type="button"
@@ -70,7 +71,7 @@ export function FormulaEditor({
             onClick={() => insert(s)}
             aria-label={t("FormulaEditor.insertarValue1", { value1: s })}
             className={
-              Object.keys(exercise.atoms).includes(s) ? "atom-button" : ""
+              atomNames.includes(s) ? "atom-button" : ""
             }
           >
             {s}

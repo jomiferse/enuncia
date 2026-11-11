@@ -1,0 +1,3315 @@
+[
+  {
+    "id": "enu-res-001",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "basica",
+    "title": "Modus ponens en el puerto",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. R: sube la marea; S: se cierra el paso.",
+    "tags": [
+      "modus ponens",
+      "condicional"
+    ],
+    "hints": [
+      "Solo una premisa lleva condicional: elimínalo con A → B = ¬A ∨ B. Las demás fórmulas ya están en forma normal.",
+      "Empieza el árbol por la cláusula que viene de la negación de la conclusión y busca una cláusula con el literal complementario."
+    ],
+    "explanation": "Es un modus ponens: si R implica S y se da R, se sigue S. Añadir ¬S contradice las otras dos cláusulas. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "R → S",
+        "R"
+      ],
+      "conclusion": "S",
+      "atoms": [
+        "R",
+        "S"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬R ∨ S"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "¬S",
+              "sideLiteral": "S"
+            },
+            {
+              "trunk": 3,
+              "side": 1,
+              "trunkLiteral": "¬R",
+              "sideLiteral": "R"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{R}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-002",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "basica",
+    "title": "Modus tollens con la alarma",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: hay una avería; Q: salta la alarma.",
+    "tags": [
+      "modus tollens",
+      "doble negación"
+    ],
+    "hints": [
+      "La negación de la conclusión es ¬¬P: necesita la ley de la doble negación antes de poder marcar FNC.",
+      "Cuando tengas las cláusulas, encadena dos resoluciones: una con la cláusula del condicional y otra con la unitaria que queda."
+    ],
+    "explanation": "Si hubiera avería la alarma sonaría, pero no suena; el modus tollens permite concluir que no hay avería. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → Q",
+        "¬Q"
+      ],
+      "conclusion": "¬P",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ Q"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "doubleNeg",
+              "result": "P"
+            },
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "P",
+              "sideLiteral": "¬P"
+            },
+            {
+              "trunk": 3,
+              "side": 1,
+              "trunkLiteral": "Q",
+              "sideLiteral": "¬Q"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬Q}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-003",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "basica",
+    "title": "Silogismo hipotético del riego",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: el aspersor se activa; Q: el césped se moja; R: aparece barro.",
+    "tags": [
+      "silogismo hipotético",
+      "condicional",
+      "De Morgan"
+    ],
+    "hints": [
+      "La negación de la conclusión es ¬(P → R): elimina el condicional y luego aplica De Morgan y la doble negación.",
+      "De ¬(P → R) salen dos cláusulas unitarias; resuelve cada una con la cláusula donde aparece su complementario."
+    ],
+    "explanation": "Encadenar dos condicionales da un condicional: de P se llega a Q y de Q a R. Negar la conclusión (P y ¬R) lleva a contradicción. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → Q",
+        "Q → R"
+      ],
+      "conclusion": "P → R",
+      "atoms": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ Q"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬Q ∨ R"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "imp",
+              "result": "¬(¬P ∨ R)"
+            },
+            {
+              "law": "deMorganOr",
+              "result": "¬¬P ∧ ¬R"
+            },
+            {
+              "law": "doubleNeg",
+              "result": "P ∧ ¬R"
+            },
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "P",
+              "sideLiteral": "¬P"
+            },
+            {
+              "trunk": 4,
+              "side": 1,
+              "trunkLiteral": "Q",
+              "sideLiteral": "¬Q"
+            },
+            {
+              "trunk": 5,
+              "side": 3,
+              "trunkLiteral": "R",
+              "sideLiteral": "¬R"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬Q, R}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-004",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "basica",
+    "title": "Silogismo disyuntivo de la cena",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: cenamos pasta; Q: cenamos arroz.",
+    "tags": [
+      "silogismo disyuntivo",
+      "disyunción"
+    ],
+    "hints": [
+      "Todas las premisas están ya en forma normal: solo falta marcar FNC en cada fórmula.",
+      "La cláusula con dos literales se resuelve primero con la unitaria que contiene el complementario de uno de ellos."
+    ],
+    "explanation": "Si una de dos cosas es cierta y una de ellas no lo es, la otra tiene que serlo. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P ∨ Q",
+        "¬P"
+      ],
+      "conclusion": "Q",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "¬Q",
+              "sideLiteral": "Q"
+            },
+            {
+              "trunk": 3,
+              "side": 1,
+              "trunkLiteral": "P",
+              "sideLiteral": "¬P"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬P}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-005",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "basica",
+    "title": "Afirmar el consecuente",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: el sensor falla; Q: se enciende el piloto.",
+    "tags": [
+      "falacia",
+      "no válido",
+      "condicional"
+    ],
+    "hints": [
+      "Haz la forma normal de la premisa condicional y de ¬P; las demás fórmulas ya están en forma normal.",
+      "Antes de buscar un árbol, mira si queda algún literal puro: puede dejar el conjunto vacío."
+    ],
+    "explanation": "Que se encienda el piloto no prueba que el sensor falle: el piloto puede encenderse por otra causa. Es la falacia de afirmar el consecuente. Resultado: el razonamiento no es válido, porque el conjunto con la negación de la conclusión es satisfacible y no hay árbol de resolución. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → Q",
+        "Q"
+      ],
+      "conclusion": "P",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ Q"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "subsumption",
+              "result": "{Q}, {¬P}"
+            },
+            {
+              "kind": "pure",
+              "result": "{¬P}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "valid": false,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "subsumption",
+              "result": "{Q}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-006",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "basica",
+    "title": "Premisas que se contradicen",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: llueve; Q: hay nubes; R: se suspende el partido.",
+    "tags": [
+      "inconsistencia",
+      "modus ponens"
+    ],
+    "hints": [
+      "La conclusión R no aparece en las premisas: su negación ¬R es un literal que no podrá resolverse con nada.",
+      "Fíjate en qué cláusulas se contradicen entre sí sin usar la conclusión; eso decide la consistencia de las premisas."
+    ],
+    "explanation": "Las premisas ya son contradictorias por sí solas: P y P → Q dan Q, que choca con ¬Q. De un conjunto inconsistente se sigue cualquier conclusión, por eso el razonamiento es válido de forma trivial. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son inconsistentes: ya se refutan sin la conclusión.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → Q",
+        "P",
+        "¬Q"
+      ],
+      "conclusion": "R",
+      "atoms": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ Q"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬P, Q}, {P}, {¬Q}"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 0,
+              "side": 1,
+              "trunkLiteral": "¬P",
+              "sideLiteral": "P"
+            },
+            {
+              "trunk": 3,
+              "side": 2,
+              "trunkLiteral": "Q",
+              "sideLiteral": "¬Q"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 0,
+              "side": 1,
+              "trunkLiteral": "¬P",
+              "sideLiteral": "P"
+            },
+            {
+              "trunk": 3,
+              "side": 2,
+              "trunkLiteral": "Q",
+              "sideLiteral": "¬Q"
+            }
+          ]
+        },
+        "consistent": false
+      }
+    }
+  },
+  {
+    "id": "enu-res-007",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "basica",
+    "title": "Contraposición de un condicional",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: hay entradas; Q: vamos al concierto.",
+    "tags": [
+      "contraposición",
+      "condicional",
+      "De Morgan"
+    ],
+    "hints": [
+      "La negación de la conclusión es ¬(¬Q → ¬P): elimina el condicional y aplica De Morgan y doble negación hasta llegar a FNC.",
+      "De la negación de la conclusión salen cláusulas unitarias; empieza resolviendo una con la cláusula de la premisa."
+    ],
+    "explanation": "Un condicional equivale a su contrarrecíproco: ¬Q → ¬P. Negar el contrarrecíproco da ¬Q y P, que contradicen a ¬P ∨ Q. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → Q"
+      ],
+      "conclusion": "¬Q → ¬P",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ Q"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "imp",
+              "result": "¬(¬¬Q ∨ ¬P)"
+            },
+            {
+              "law": "deMorganOr",
+              "result": "¬¬¬Q ∧ ¬¬P"
+            },
+            {
+              "law": "doubleNeg",
+              "result": "¬Q ∧ ¬¬P"
+            },
+            {
+              "law": "doubleNeg",
+              "result": "¬Q ∧ P"
+            },
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 1,
+              "side": 0,
+              "trunkLiteral": "¬Q",
+              "sideLiteral": "Q"
+            },
+            {
+              "trunk": 3,
+              "side": 2,
+              "trunkLiteral": "¬P",
+              "sideLiteral": "P"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-008",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Dilema constructivo del viaje",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: viajamos en tren; Q: viajamos en autobús; R: llegamos de noche.",
+    "tags": [
+      "dilema constructivo",
+      "disyunción"
+    ],
+    "hints": [
+      "Dos de las premisas llevan condicional: elimínalo en cada una con A → B = ¬A ∨ B.",
+      "Usa ¬R como cláusula de partida y resuelve con cada condicional; al final solo debe quedar una cláusula con P ∨ Q."
+    ],
+    "explanation": "Sea cual sea la opción de la disyunción, el resultado es el mismo (R): es un razonamiento por casos. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P ∨ Q",
+        "P → R",
+        "Q → R"
+      ],
+      "conclusion": "R",
+      "atoms": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ R"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬Q ∨ R"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 0,
+              "side": 1,
+              "trunkLiteral": "P",
+              "sideLiteral": "¬P"
+            },
+            {
+              "trunk": 4,
+              "side": 2,
+              "trunkLiteral": "Q",
+              "sideLiteral": "¬Q"
+            },
+            {
+              "trunk": 5,
+              "side": 3,
+              "trunkLiteral": "R",
+              "sideLiteral": "¬R"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{P, Q}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-009",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Negar el antecedente",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: estudia con constancia; Q: aprueba.",
+    "tags": [
+      "falacia",
+      "no válido",
+      "condicional"
+    ],
+    "hints": [
+      "Elimina el condicional de la primera premisa y aplica doble negación a la negación de la conclusión.",
+      "Tras simplificar mira si queda algún árbol posible: comprueba qué literales siguen sin complementario en el conjunto."
+    ],
+    "explanation": "Que no estudie con constancia no impide aprobar por otro motivo; es la falacia de negar el antecedente. El conjunto es satisfacible (por ejemplo, con P falso y Q verdadero). Resultado: el razonamiento no es válido, porque el conjunto con la negación de la conclusión es satisfacible y no hay árbol de resolución. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → Q",
+        "¬P"
+      ],
+      "conclusion": "¬Q",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ Q"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "doubleNeg",
+              "result": "Q"
+            },
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "subsumption",
+              "result": "{¬P}, {Q}"
+            },
+            {
+              "kind": "pure",
+              "result": "{Q}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "valid": false,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "subsumption",
+              "result": "{¬P}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-010",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "De Morgan y descarte",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: el tren llega a tiempo; Q: el autobús llega a tiempo.",
+    "tags": [
+      "De Morgan",
+      "negación",
+      "conjunción"
+    ],
+    "hints": [
+      "La primera premisa necesita una ley de De Morgan para convertir la negación de la conjunción en una disyunción.",
+      "La negación de la conclusión pide la doble negación; luego resuelve primero la cláusula unitaria P con la disyunción."
+    ],
+    "explanation": "Si no pueden darse a la vez los dos hechos y uno de ellos se da, el otro no. Negar la conclusión (Q) provoca la contradicción. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "¬(P ∧ Q)",
+        "P"
+      ],
+      "conclusion": "¬Q",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "deMorganAnd",
+                "result": "¬P ∨ ¬Q"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "doubleNeg",
+              "result": "Q"
+            },
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "Q",
+              "sideLiteral": "¬Q"
+            },
+            {
+              "trunk": 3,
+              "side": 1,
+              "trunkLiteral": "¬P",
+              "sideLiteral": "P"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{P}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-011",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Exportación de una conjunción",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: hay presupuesto; Q: hay permiso; R: se construye el puente.",
+    "tags": [
+      "exportación",
+      "condicional",
+      "De Morgan"
+    ],
+    "hints": [
+      "La conclusión negada tiene condicionales anidados: elimínalos de fuera hacia dentro y aplica De Morgan donde aparezca ¬(… ∨ …).",
+      "Después de la forma normal solo tienes cláusulas unitarias y una cláusula de tres literales: resuélvela con las unitarias una a una."
+    ],
+    "explanation": "Un condicional con antecedente conjuntivo equivale a anidar condicionales (exportación). Negar la conclusión da P, Q y ¬R, que contradicen la premisa. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "(P ∧ Q) → R"
+      ],
+      "conclusion": "P → (Q → R)",
+      "atoms": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬(P ∧ Q) ∨ R"
+              },
+              {
+                "law": "deMorganAnd",
+                "result": "¬P ∨ ¬Q ∨ R"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "imp",
+              "result": "¬(¬P ∨ (Q → R))"
+            },
+            {
+              "law": "imp",
+              "result": "¬(¬P ∨ ¬Q ∨ R)"
+            },
+            {
+              "law": "deMorganOr",
+              "result": "¬¬P ∧ ¬¬Q ∧ ¬R"
+            },
+            {
+              "law": "doubleNeg",
+              "result": "P ∧ ¬¬Q ∧ ¬R"
+            },
+            {
+              "law": "doubleNeg",
+              "result": "P ∧ Q ∧ ¬R"
+            },
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 1,
+              "side": 0,
+              "trunkLiteral": "P",
+              "sideLiteral": "¬P"
+            },
+            {
+              "trunk": 4,
+              "side": 2,
+              "trunkLiteral": "¬Q",
+              "sideLiteral": "Q"
+            },
+            {
+              "trunk": 5,
+              "side": 3,
+              "trunkLiteral": "R",
+              "sideLiteral": "¬R"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-012",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Distribuir para descartar",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: gana el equipo local; Q: hay prórroga; R: se juega la final.",
+    "tags": [
+      "distributiva",
+      "disyunción"
+    ],
+    "hints": [
+      "La primera premisa mezcla ∨ y ∧: necesita la ley distributiva A ∨ (B ∧ C) = (A ∨ B) ∧ (A ∨ C) para llegar a FNC.",
+      "De la premisa salen dos cláusulas; solo una de ellas te hace falta para llegar a □ con ¬P y ¬Q."
+    ],
+    "explanation": "Si P falla, la disyunción obliga a que Q ∧ R sea cierto, y de ahí se sigue Q. Tras distribuir, la cláusula {P, Q} resuelve con ¬P y choca con ¬Q. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P ∨ (Q ∧ R)",
+        "¬P"
+      ],
+      "conclusion": "Q",
+      "atoms": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "distribOrAnd",
+                "result": "(P ∨ Q) ∧ (P ∨ R)"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{P, Q}, {¬P}, {¬Q}"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "¬Q",
+              "sideLiteral": "Q"
+            },
+            {
+              "trunk": 3,
+              "side": 1,
+              "trunkLiteral": "P",
+              "sideLiteral": "¬P"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{P, R}, {¬P}"
+            },
+            {
+              "kind": "pure",
+              "result": "{¬P}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-013",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Absorción antes de resolver",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: se aprueba el plan; Q: se pide un informe; R: comienza la obra.",
+    "tags": [
+      "absorción",
+      "condicional"
+    ],
+    "hints": [
+      "En la primera premisa la ley A ∧ (A ∨ B) = A elimina parte de la fórmula antes de marcar FNC.",
+      "Con esa limpieza y la premisa condicional, empieza el árbol con ¬R."
+    ],
+    "explanation": "P ∧ (P ∨ Q) equivale a P por absorción, así que con P → R se obtiene R. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P ∧ (P ∨ Q)",
+        "P → R"
+      ],
+      "conclusion": "R",
+      "atoms": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "absorbAnd",
+                "result": "P"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ R"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 1,
+              "trunkLiteral": "¬R",
+              "sideLiteral": "R"
+            },
+            {
+              "trunk": 3,
+              "side": 0,
+              "trunkLiteral": "¬P",
+              "sideLiteral": "P"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{P}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-014",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Subsunción de cláusulas",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: el cliente paga; Q: hay descuento; R: se emite la factura.",
+    "tags": [
+      "subsunción",
+      "simplificación"
+    ],
+    "hints": [
+      "Todas las premisas están casi en forma normal: solo el condicional necesita una ley antes de marcar FNC.",
+      "En el conjunto de cláusulas hay una cláusula que contiene otra completa: se puede eliminar por subsunción."
+    ],
+    "explanation": "La cláusula {P, Q} queda subsumida por {P}: si se cumple P, ya se cumple P ∨ Q. Tras eliminarla, P, ¬P ∨ R y ¬R se refutan en dos pasos. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P",
+        "P ∨ Q",
+        "P → R"
+      ],
+      "conclusion": "R",
+      "atoms": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ R"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "subsumption",
+              "result": "{P}, {¬P, R}, {¬R}"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 1,
+              "trunkLiteral": "¬R",
+              "sideLiteral": "R"
+            },
+            {
+              "trunk": 3,
+              "side": 0,
+              "trunkLiteral": "¬P",
+              "sideLiteral": "P"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "subsumption",
+              "result": "{P}, {¬P, R}"
+            },
+            {
+              "kind": "pure",
+              "result": "{P}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-015",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Cláusulas tautológicas",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: falla el motor; Q: suena un aviso; R: se detiene la máquina.",
+    "tags": [
+      "tautología",
+      "simplificación",
+      "disyunción"
+    ],
+    "hints": [
+      "Elimina el condicional de la primera premisa y mira el resultado: ¿qué ocurre con los literales P y ¬P de la misma cláusula?",
+      "En el conjunto hay una cláusula que siempre es verdadera: se puede quitar con la simplificación por tautología."
+    ],
+    "explanation": "La primera premisa es una tautología (si P, entonces Q o P): no aporta información. Con P ∨ R y ¬P se obtiene R directamente. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → (Q ∨ P)",
+        "P ∨ R",
+        "¬P"
+      ],
+      "conclusion": "R",
+      "atoms": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ Q ∨ P"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "tautology",
+              "result": "{P, R}, {¬P}, {¬R}"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "¬R",
+              "sideLiteral": "R"
+            },
+            {
+              "trunk": 3,
+              "side": 1,
+              "trunkLiteral": "P",
+              "sideLiteral": "¬P"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "tautology",
+              "result": "{P, R}, {¬P}"
+            },
+            {
+              "kind": "pure",
+              "result": "{¬P}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-016",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Premisas repetidas y una irrelevante",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: se abre la puerta; Q: suena el timbre; T: hay visitas; U: se prepara café.",
+    "tags": [
+      "repetidas",
+      "literal puro",
+      "simplificación"
+    ],
+    "hints": [
+      "Cada premisa se pasa a forma normal por separado, aunque dos de ellas coincidan.",
+      "En el conjunto de cláusulas hay una cláusula repetida y otra con literales que no tienen complementario: simplifica ambas antes del árbol."
+    ],
+    "explanation": "T → U no tiene relación con la conclusión: sus literales son puros y se eliminan. La premisa repetida se descarta como cláusula repetida. Queda el modus ponens de siempre. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → Q",
+        "P → Q",
+        "P",
+        "T → U"
+      ],
+      "conclusion": "Q",
+      "atoms": [
+        "P",
+        "Q",
+        "T",
+        "U"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ Q"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ Q"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬T ∨ U"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "repeated",
+              "result": "{¬P, Q}, {P}, {¬T, U}, {¬Q}"
+            },
+            {
+              "kind": "pure",
+              "result": "{¬P, Q}, {P}, {¬Q}"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "¬Q",
+              "sideLiteral": "Q"
+            },
+            {
+              "trunk": 3,
+              "side": 1,
+              "trunkLiteral": "¬P",
+              "sideLiteral": "P"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "repeated",
+              "result": "{¬P, Q}, {P}, {¬T, U}"
+            },
+            {
+              "kind": "pure",
+              "result": "{P}, {¬T, U}"
+            },
+            {
+              "kind": "pure",
+              "result": "{¬T, U}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-017",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Cadena que se rompe",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: se enciende el horno; Q: sube la temperatura; R: salta el térmico; S: se corta la luz.",
+    "tags": [
+      "inconsistencia",
+      "cadena de condicionales"
+    ],
+    "hints": [
+      "Solo los dos condicionales necesitan una ley antes de marcar FNC; el resto ya está en forma normal.",
+      "Estudia primero las premisas: busca una cadena que desde P llegue a un literal contradictorio con ¬R."
+    ],
+    "explanation": "P conduce a Q y Q conduce a R, pero se afirma ¬R: las premisas son inconsistentes. La conclusión S no interviene, y el razonamiento es válido de forma trivial. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son inconsistentes: ya se refutan sin la conclusión.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → Q",
+        "Q → R",
+        "P",
+        "¬R"
+      ],
+      "conclusion": "S",
+      "atoms": [
+        "P",
+        "Q",
+        "R",
+        "S"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ Q"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬Q ∨ R"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬P, Q}, {¬Q, R}, {P}, {¬R}"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 0,
+              "side": 2,
+              "trunkLiteral": "¬P",
+              "sideLiteral": "P"
+            },
+            {
+              "trunk": 4,
+              "side": 1,
+              "trunkLiteral": "Q",
+              "sideLiteral": "¬Q"
+            },
+            {
+              "trunk": 5,
+              "side": 3,
+              "trunkLiteral": "R",
+              "sideLiteral": "¬R"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 0,
+              "side": 2,
+              "trunkLiteral": "¬P",
+              "sideLiteral": "P"
+            },
+            {
+              "trunk": 4,
+              "side": 1,
+              "trunkLiteral": "Q",
+              "sideLiteral": "¬Q"
+            },
+            {
+              "trunk": 5,
+              "side": 3,
+              "trunkLiteral": "R",
+              "sideLiteral": "¬R"
+            }
+          ]
+        },
+        "consistent": false
+      }
+    }
+  },
+  {
+    "id": "enu-res-018",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Contradicción interna en una premisa",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: el sistema arranca; Q: hay corriente; R: se muestra la pantalla.",
+    "tags": [
+      "contradicción",
+      "neutros",
+      "distributiva"
+    ],
+    "hints": [
+      "Antes de distribuir, mira la subfórmula Q ∧ ¬Q: las leyes de complementarios y de neutros la simplifican.",
+      "Con la premisa limpia, el resto es un modus ponens con ¬R como cláusula de partida."
+    ],
+    "explanation": "Q ∧ ¬Q es una contradicción y P ∨ □ = P, así que la primera premisa equivale a P; con P → R se obtiene R. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P ∨ (Q ∧ ¬Q)",
+        "P → R"
+      ],
+      "conclusion": "R",
+      "atoms": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "contradiction",
+                "result": "P ∨ □"
+              },
+              {
+                "law": "neutralOr",
+                "result": "P"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ R"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 1,
+              "trunkLiteral": "¬R",
+              "sideLiteral": "R"
+            },
+            {
+              "trunk": 3,
+              "side": 0,
+              "trunkLiteral": "¬P",
+              "sideLiteral": "P"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{P}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-019",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "Cadena de tres condicionales",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: llueve; Q: crece el río; R: se inunda el valle; S: se evacúa el pueblo.",
+    "tags": [
+      "silogismo hipotético",
+      "modus ponens",
+      "4 átomos"
+    ],
+    "hints": [
+      "Hay tres condicionales: cada uno necesita su ley antes de marcar FNC.",
+      "El árbol es largo: empieza con ¬S y resuelve en el orden inverso de la cadena."
+    ],
+    "explanation": "Encadenando P → Q, Q → R y R → S a partir de P se llega a S. Negar S rompe la cadena en su último eslabón. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → Q",
+        "Q → R",
+        "R → S",
+        "P"
+      ],
+      "conclusion": "S",
+      "atoms": [
+        "P",
+        "Q",
+        "R",
+        "S"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ Q"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬Q ∨ R"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬R ∨ S"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 4,
+              "side": 2,
+              "trunkLiteral": "¬S",
+              "sideLiteral": "S"
+            },
+            {
+              "trunk": 5,
+              "side": 1,
+              "trunkLiteral": "¬R",
+              "sideLiteral": "R"
+            },
+            {
+              "trunk": 6,
+              "side": 0,
+              "trunkLiteral": "¬Q",
+              "sideLiteral": "Q"
+            },
+            {
+              "trunk": 7,
+              "side": 3,
+              "trunkLiteral": "¬P",
+              "sideLiteral": "P"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬P, Q}, {¬Q, R}, {P}"
+            },
+            {
+              "kind": "pure",
+              "result": "{¬P, Q}, {P}"
+            },
+            {
+              "kind": "pure",
+              "result": "{P}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-020",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "Contraposición con una elección",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. Q: el acto es público; R: hay lluvia; S: se monta la carpa; T: se suspende el ensayo.",
+    "tags": [
+      "contraposición",
+      "condicional",
+      "disyunción"
+    ],
+    "hints": [
+      "La conclusión negada ¬(S → Q) da dos unitarias tras eliminar el condicional y aplicar De Morgan.",
+      "Con S y ¬Q a la vista, usa primero las cláusulas que los contienen y encadena hacia R ∨ T."
+    ],
+    "explanation": "Si S, entonces ¬R; por R ∨ T debe darse T, y T → Q lleva a Q. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "S → ¬R",
+        "R ∨ T",
+        "T → Q"
+      ],
+      "conclusion": "S → Q",
+      "atoms": [
+        "Q",
+        "R",
+        "S",
+        "T"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬S ∨ ¬R"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬T ∨ Q"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "imp",
+              "result": "¬(¬S ∨ Q)"
+            },
+            {
+              "law": "deMorganOr",
+              "result": "¬¬S ∧ ¬Q"
+            },
+            {
+              "law": "doubleNeg",
+              "result": "S ∧ ¬Q"
+            },
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 3,
+              "side": 0,
+              "trunkLiteral": "S",
+              "sideLiteral": "¬S"
+            },
+            {
+              "trunk": 5,
+              "side": 1,
+              "trunkLiteral": "¬R",
+              "sideLiteral": "R"
+            },
+            {
+              "trunk": 6,
+              "side": 2,
+              "trunkLiteral": "T",
+              "sideLiteral": "¬T"
+            },
+            {
+              "trunk": 7,
+              "side": 4,
+              "trunkLiteral": "Q",
+              "sideLiteral": "¬Q"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{R, T}, {Q, ¬T}"
+            },
+            {
+              "kind": "pure",
+              "result": "{Q, ¬T}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-021",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "Dilema con pasos intermedios",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: se elige la ruta norte; Q: se elige la ruta sur; R: hay peaje; S: hay obras; T: se llega con retraso.",
+    "tags": [
+      "dilema constructivo",
+      "5 átomos",
+      "condicional"
+    ],
+    "hints": [
+      "Cuatro premisas son condicionales: elimina cada uno con su ley y marca FNC en la disyunción.",
+      "Parte de ¬T y resuelve con los dos condicionales finales; después sube hasta las cláusulas de R y S."
+    ],
+    "explanation": "Las dos ramas de la disyunción acaban en T (a través de R o de S). Es un dilema constructivo con un paso intermedio en cada rama. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P ∨ Q",
+        "P → R",
+        "Q → S",
+        "R → T",
+        "S → T"
+      ],
+      "conclusion": "T",
+      "atoms": [
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ R"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬Q ∨ S"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬R ∨ T"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬S ∨ T"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 0,
+              "side": 1,
+              "trunkLiteral": "P",
+              "sideLiteral": "¬P"
+            },
+            {
+              "trunk": 6,
+              "side": 2,
+              "trunkLiteral": "Q",
+              "sideLiteral": "¬Q"
+            },
+            {
+              "trunk": 7,
+              "side": 3,
+              "trunkLiteral": "R",
+              "sideLiteral": "¬R"
+            },
+            {
+              "trunk": 8,
+              "side": 4,
+              "trunkLiteral": "S",
+              "sideLiteral": "¬S"
+            },
+            {
+              "trunk": 9,
+              "side": 5,
+              "trunkLiteral": "T",
+              "sideLiteral": "¬T"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{P, Q}, {¬P, R}, {¬Q, S}"
+            },
+            {
+              "kind": "pure",
+              "result": "{P, Q}, {¬Q, S}"
+            },
+            {
+              "kind": "pure",
+              "result": "{¬Q, S}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-022",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "Antecedente disyuntivo mal usado",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: falla la red; Q: falla el servidor; R: cae el servicio; S: se avisa al cliente.",
+    "tags": [
+      "no válido",
+      "De Morgan",
+      "condicional"
+    ],
+    "hints": [
+      "El primer condicional tiene una disyunción como antecedente: tras eliminar el condicional usa De Morgan.",
+      "No esperes encontrar siempre un árbol: si todas las cláusulas restantes dejan algún literal sin complementario, puedes descartarlo con la simplificación."
+    ],
+    "explanation": "Que no falle la red no basta: si falla el servidor (Q), cae el servicio y se avisa al cliente, con lo que ¬S es falso. El conjunto con S es satisfacible. Resultado: el razonamiento no es válido, porque el conjunto con la negación de la conclusión es satisfacible y no hay árbol de resolución. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "(P ∨ Q) → R",
+        "R → S",
+        "¬P"
+      ],
+      "conclusion": "¬S",
+      "atoms": [
+        "P",
+        "Q",
+        "R",
+        "S"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬(P ∨ Q) ∨ R"
+              },
+              {
+                "law": "deMorganOr",
+                "result": "(¬P ∧ ¬Q) ∨ R"
+              },
+              {
+                "law": "distribOrAnd",
+                "result": "(R ∨ ¬P) ∧ (R ∨ ¬Q)"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬R ∨ S"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "doubleNeg",
+              "result": "S"
+            },
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "subsumption",
+              "result": "{¬Q, R}, {¬R, S}, {¬P}, {S}"
+            },
+            {
+              "kind": "subsumption",
+              "result": "{¬Q, R}, {¬P}, {S}"
+            },
+            {
+              "kind": "pure",
+              "result": "{¬P}, {S}"
+            },
+            {
+              "kind": "pure",
+              "result": "{S}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "valid": false,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "subsumption",
+              "result": "{¬Q, R}, {¬R, S}, {¬P}"
+            },
+            {
+              "kind": "pure",
+              "result": "{¬R, S}, {¬P}"
+            },
+            {
+              "kind": "pure",
+              "result": "{¬P}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-023",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "Premisas con disyunción incompatible",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: sube el precio; Q: baja la demanda; R: se cierra la tienda; S: llega un competidor; T: se amplía el local.",
+    "tags": [
+      "inconsistencia",
+      "De Morgan",
+      "5 átomos"
+    ],
+    "hints": [
+      "La primera premisa necesita eliminar el condicional y aplicar De Morgan sobre la disyunción negada.",
+      "T no aparece en ninguna premisa: concéntrate en si las premisas pueden cumplirse a la vez."
+    ],
+    "explanation": "De ¬R y (P ∨ Q) → R se obtiene ¬P y ¬Q; entonces P ∨ S exige S, pero S → Q exige Q: contradicción. Las premisas son inconsistentes y T se sigue trivialmente. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son inconsistentes: ya se refutan sin la conclusión.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "(P ∨ Q) → R",
+        "¬R",
+        "P ∨ S",
+        "S → Q"
+      ],
+      "conclusion": "T",
+      "atoms": [
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬(P ∨ Q) ∨ R"
+              },
+              {
+                "law": "deMorganOr",
+                "result": "(¬P ∧ ¬Q) ∨ R"
+              },
+              {
+                "law": "distribOrAnd",
+                "result": "(R ∨ ¬P) ∧ (R ∨ ¬Q)"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬S ∨ Q"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬P, R}, {¬Q, R}, {¬R}, {P, S}, {Q, ¬S}"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 0,
+              "side": 3,
+              "trunkLiteral": "¬P",
+              "sideLiteral": "P"
+            },
+            {
+              "trunk": 5,
+              "side": 4,
+              "trunkLiteral": "S",
+              "sideLiteral": "¬S"
+            },
+            {
+              "trunk": 6,
+              "side": 1,
+              "trunkLiteral": "Q",
+              "sideLiteral": "¬Q"
+            },
+            {
+              "trunk": 7,
+              "side": 2,
+              "trunkLiteral": "R",
+              "sideLiteral": "¬R"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 0,
+              "side": 3,
+              "trunkLiteral": "¬P",
+              "sideLiteral": "P"
+            },
+            {
+              "trunk": 5,
+              "side": 4,
+              "trunkLiteral": "S",
+              "sideLiteral": "¬S"
+            },
+            {
+              "trunk": 6,
+              "side": 1,
+              "trunkLiteral": "Q",
+              "sideLiteral": "¬Q"
+            },
+            {
+              "trunk": 7,
+              "side": 2,
+              "trunkLiteral": "R",
+              "sideLiteral": "¬R"
+            }
+          ]
+        },
+        "consistent": false
+      }
+    }
+  },
+  {
+    "id": "enu-res-024",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "Distribuir la negación de la conclusión",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: el equipo gana; Q: hay empate; R: hay prórroga.",
+    "tags": [
+      "distributiva",
+      "idempotencia",
+      "De Morgan"
+    ],
+    "hints": [
+      "Niega la conclusión y aplica De Morgan varias veces: te quedará una disyunción de conjunciones, que se resuelve con la ley distributiva.",
+      "Después de distribuir pueden aparecer literales repetidos dentro de una misma cláusula: la idempotencia los limpia."
+    ],
+    "explanation": "P implica P ∨ Q y P ∨ R, y por tanto su conjunción. Al negar la conclusión y distribuir aparecen cláusulas que contradicen la unitaria P. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P"
+      ],
+      "conclusion": "(P ∨ Q) ∧ (P ∨ R)",
+      "atoms": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "deMorganAnd",
+              "result": "¬(P ∨ Q) ∨ ¬(P ∨ R)"
+            },
+            {
+              "law": "deMorganOr",
+              "result": "(¬P ∧ ¬Q) ∨ ¬(P ∨ R)"
+            },
+            {
+              "law": "deMorganOr",
+              "result": "(¬P ∧ ¬Q) ∨ (¬P ∧ ¬R)"
+            },
+            {
+              "law": "distribOrAnd",
+              "result": "((¬P ∧ ¬R) ∨ ¬P) ∧ ((¬P ∧ ¬R) ∨ ¬Q)"
+            },
+            {
+              "law": "distribOrAnd",
+              "result": "(¬P ∨ ¬P) ∧ (¬P ∨ ¬R) ∧ ((¬P ∧ ¬R) ∨ ¬Q)"
+            },
+            {
+              "law": "distribOrAnd",
+              "result": "(¬P ∨ ¬P) ∧ (¬P ∨ ¬R) ∧ (¬Q ∨ ¬P) ∧ (¬Q ∨ ¬R)"
+            },
+            {
+              "law": "idemOr",
+              "result": "¬P ∧ (¬P ∨ ¬R) ∧ (¬Q ∨ ¬P) ∧ (¬Q ∨ ¬R)"
+            },
+            {
+              "law": "absorbAnd",
+              "result": "¬P ∧ (¬Q ∨ ¬P) ∧ (¬Q ∨ ¬R)"
+            },
+            {
+              "law": "absorbAnd",
+              "result": "¬P ∧ (¬Q ∨ ¬R)"
+            },
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{P}, {¬P}"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 1,
+              "side": 0,
+              "trunkLiteral": "¬P",
+              "sideLiteral": "P"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-025",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "Dos conjunciones en disyunción",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: baja el viento; Q: baja la marea; R: sale el sol; S: se abre la playa.",
+    "tags": [
+      "distributiva",
+      "De Morgan",
+      "4 átomos"
+    ],
+    "hints": [
+      "La premisa y la conclusión negada son disyunciones de conjunciones: aplica la distributiva hasta obtener conjunciones de disyunciones.",
+      "Tras distribuir saldrán cuatro cláusulas por cada fórmula; elige bien cuáles resolver y deja las demás sin usar."
+    ],
+    "explanation": "Si se cumple P ∧ Q o R ∧ S, se cumplen P ∨ R y Q ∨ S: cada rama aporta un literal a cada disyunción. La negación de la conclusión deja ¬P ∧ ¬R o ¬Q ∧ ¬S, incompatible con la premisa. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "(P ∧ Q) ∨ (R ∧ S)"
+      ],
+      "conclusion": "(P ∨ R) ∧ (Q ∨ S)",
+      "atoms": [
+        "P",
+        "Q",
+        "R",
+        "S"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "distribOrAnd",
+                "result": "((R ∧ S) ∨ P) ∧ ((R ∧ S) ∨ Q)"
+              },
+              {
+                "law": "distribOrAnd",
+                "result": "(P ∨ R) ∧ (P ∨ S) ∧ ((R ∧ S) ∨ Q)"
+              },
+              {
+                "law": "distribOrAnd",
+                "result": "(P ∨ R) ∧ (P ∨ S) ∧ (Q ∨ R) ∧ (Q ∨ S)"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "deMorganAnd",
+              "result": "¬(P ∨ R) ∨ ¬(Q ∨ S)"
+            },
+            {
+              "law": "deMorganOr",
+              "result": "(¬P ∧ ¬R) ∨ ¬(Q ∨ S)"
+            },
+            {
+              "law": "deMorganOr",
+              "result": "(¬P ∧ ¬R) ∨ (¬Q ∧ ¬S)"
+            },
+            {
+              "law": "distribOrAnd",
+              "result": "((¬Q ∧ ¬S) ∨ ¬P) ∧ ((¬Q ∧ ¬S) ∨ ¬R)"
+            },
+            {
+              "law": "distribOrAnd",
+              "result": "(¬P ∨ ¬Q) ∧ (¬P ∨ ¬S) ∧ ((¬Q ∧ ¬S) ∨ ¬R)"
+            },
+            {
+              "law": "distribOrAnd",
+              "result": "(¬P ∨ ¬Q) ∧ (¬P ∨ ¬S) ∧ (¬R ∨ ¬Q) ∧ (¬R ∨ ¬S)"
+            },
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 4,
+              "side": 0,
+              "trunkLiteral": "¬P",
+              "sideLiteral": "P"
+            },
+            {
+              "trunk": 8,
+              "side": 2,
+              "trunkLiteral": "¬Q",
+              "sideLiteral": "Q"
+            },
+            {
+              "trunk": 9,
+              "side": 6,
+              "trunkLiteral": "R",
+              "sideLiteral": "¬R"
+            },
+            {
+              "trunk": 10,
+              "side": 3,
+              "trunkLiteral": "¬Q",
+              "sideLiteral": "Q"
+            },
+            {
+              "trunk": 11,
+              "side": 7,
+              "trunkLiteral": "S",
+              "sideLiteral": "¬S"
+            },
+            {
+              "trunk": 12,
+              "side": 9,
+              "trunkLiteral": "¬R",
+              "sideLiteral": "R"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{Q, R}, {Q, S}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-026",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "Dos salidas que coinciden solo a medias",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: se activa la alerta; Q: se corta el gas; R: se corta el agua; S: se evacúa el edificio.",
+    "tags": [
+      "no válido",
+      "dilema",
+      "disyunción"
+    ],
+    "hints": [
+      "Cada condicional se pasa a forma normal con su ley; la primera produce una cláusula de tres literales.",
+      "Antes de buscar el árbol pregúntate si P puede ser falso: ese literal es clave."
+    ],
+    "explanation": "Los dos casos de la disyunción llevan a S, pero nada obliga a que se dé P; con P falso las premisas se cumplen y S puede ser falso. El razonamiento no es válido. Resultado: el razonamiento no es válido, porque el conjunto con la negación de la conclusión es satisfacible y no hay árbol de resolución. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → (Q ∨ R)",
+        "Q → S",
+        "R → S"
+      ],
+      "conclusion": "S",
+      "atoms": [
+        "P",
+        "Q",
+        "R",
+        "S"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ Q ∨ R"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬Q ∨ S"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "¬R ∨ S"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬Q, S}, {¬R, S}, {¬S}"
+            },
+            {
+              "kind": "pure",
+              "result": "{¬R, S}, {¬S}"
+            },
+            {
+              "kind": "pure",
+              "result": "{¬S}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "valid": false,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬Q, S}, {¬R, S}"
+            },
+            {
+              "kind": "pure",
+              "result": "{¬R, S}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "enu-res-027",
+    "blockId": "enunciados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "Modus tollens con condicional anidado",
+    "statement": "Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes. P: se paga la cuota; Q: se renueva el carné; R: se accede a la sala.",
+    "tags": [
+      "modus tollens",
+      "condicional anidado",
+      "doble negación"
+    ],
+    "hints": [
+      "La primera premisa tiene dos condicionales: elimínalos uno por uno antes de marcar FNC.",
+      "La negación de la conclusión es ¬¬Q: resuélvela y busca el resolvente de tres literales."
+    ],
+    "explanation": "Con P se obtiene Q → R, y con ¬R el modus tollens da ¬Q. Resultado: el razonamiento es válido, porque el conjunto con la negación de la conclusión se refuta hasta □. Las premisas son consistentes: por sí solas no se pueden refutar.",
+    "data": {
+      "language": "propositional",
+      "premises": [
+        "P → (Q → R)",
+        "P",
+        "¬R"
+      ],
+      "conclusion": "¬Q",
+      "atoms": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬P ∨ (Q → R)"
+              },
+              {
+                "law": "imp",
+                "result": "¬P ∨ ¬Q ∨ R"
+              },
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fnc",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "doubleNeg",
+              "result": "Q"
+            },
+            {
+              "law": "fnc",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 3,
+              "side": 0,
+              "trunkLiteral": "Q",
+              "sideLiteral": "¬Q"
+            },
+            {
+              "trunk": 4,
+              "side": 1,
+              "trunkLiteral": "¬P",
+              "sideLiteral": "P"
+            },
+            {
+              "trunk": 5,
+              "side": 2,
+              "trunkLiteral": "R",
+              "sideLiteral": "¬R"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{P}, {¬R}"
+            },
+            {
+              "kind": "pure",
+              "result": "{¬R}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  }
+]

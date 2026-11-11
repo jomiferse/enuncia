@@ -1,0 +1,708 @@
+[
+  {
+    "id": "enu-tab-001",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "basica",
+    "title": "Tabla de la conjunción",
+    "statement": "Completa la tabla de verdad de la conjunción de dos átomos.",
+    "data": {
+      "kind": "complete",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "formula": "P ∧ Q"
+    },
+    "tags": [
+      "conjunción",
+      "completar"
+    ],
+    "hints": [
+      "Una conjunción solo es verdadera si ambos miembros lo son.",
+      "Solo la primera fila tiene P y Q verdaderas."
+    ],
+    "explanation": "P ∧ Q es verdadera únicamente cuando P y Q son verdaderas a la vez."
+  },
+  {
+    "id": "enu-tab-002",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "basica",
+    "title": "Tabla de la disyunción",
+    "statement": "Completa la tabla de verdad de la disyunción inclusiva.",
+    "data": {
+      "kind": "complete",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "formula": "P ∨ Q"
+    },
+    "tags": [
+      "disyunción",
+      "completar"
+    ],
+    "hints": [
+      "Una disyunción es falsa solo si ambos miembros son falsos.",
+      "Solo la última fila tiene P y Q falsas."
+    ],
+    "explanation": "P ∨ Q es falsa únicamente cuando P y Q son falsas a la vez."
+  },
+  {
+    "id": "enu-tab-003",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "basica",
+    "title": "Tabla de la implicación",
+    "statement": "Completa la tabla de verdad del condicional.",
+    "data": {
+      "kind": "complete",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "formula": "P → Q"
+    },
+    "tags": [
+      "implicación",
+      "completar"
+    ],
+    "hints": [
+      "Un condicional solo es falso cuando el antecedente es verdadero y el consecuente falso.",
+      "La fila con P verdadera y Q falsa es la única falsa."
+    ],
+    "explanation": "P → Q equivale a ¬P ∨ Q: falla solo con P verdadera y Q falsa."
+  },
+  {
+    "id": "enu-tab-004",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "basica",
+    "title": "Tabla del bicondicional",
+    "statement": "Completa la tabla de verdad del bicondicional.",
+    "data": {
+      "kind": "complete",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "formula": "P ↔ Q"
+    },
+    "tags": [
+      "bicondicional",
+      "completar"
+    ],
+    "hints": [
+      "El bicondicional es verdadero cuando ambos miembros valen lo mismo.",
+      "Las filas donde P y Q coinciden dan verdadero."
+    ],
+    "explanation": "P ↔ Q es verdadera si P y Q tienen el mismo valor de verdad."
+  },
+  {
+    "id": "enu-tab-005",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "basica",
+    "title": "Tautología clásica",
+    "statement": "Clasifica la fórmula P ∨ ¬P.",
+    "data": {
+      "kind": "classify",
+      "atoms": [
+        "P"
+      ],
+      "formula": "P ∨ ¬P"
+    },
+    "tags": [
+      "tautología",
+      "clasificar"
+    ],
+    "hints": [
+      "Evalúa la fórmula cuando P es verdadera y cuando es falsa.",
+      "Siempre hay un miembro de la disyunción verdadero."
+    ],
+    "explanation": "Sea cual sea el valor de P, uno de P o ¬P es verdadero, así que es una tautología."
+  },
+  {
+    "id": "enu-tab-006",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "basica",
+    "title": "Contradicción clásica",
+    "statement": "Clasifica la fórmula P ∧ ¬P.",
+    "data": {
+      "kind": "classify",
+      "atoms": [
+        "P"
+      ],
+      "formula": "P ∧ ¬P"
+    },
+    "tags": [
+      "contradicción",
+      "clasificar"
+    ],
+    "hints": [
+      "Evalúa la fórmula con P verdadera y con P falsa.",
+      "Los dos miembros de la conjunción nunca son verdaderos a la vez."
+    ],
+    "explanation": "P y ¬P nunca coinciden, así que la conjunción siempre es falsa: es una contradicción."
+  },
+  {
+    "id": "enu-tab-007",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "basica",
+    "title": "Contingencia sencilla",
+    "statement": "Clasifica la fórmula P → ¬P.",
+    "data": {
+      "kind": "classify",
+      "atoms": [
+        "P"
+      ],
+      "formula": "P → ¬P"
+    },
+    "tags": [
+      "contingencia",
+      "clasificar"
+    ],
+    "hints": [
+      "Calcula la fórmula para P verdadera y para P falsa.",
+      "Con P verdadera el condicional es falso; con P falsa es verdadero."
+    ],
+    "explanation": "Vale F cuando P es V y V cuando P es F: es una contingencia (equivale a ¬P)."
+  },
+  {
+    "id": "enu-tab-008",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "basica",
+    "title": "Doble negación",
+    "statement": "Decide si P y ¬¬P son equivalentes.",
+    "data": {
+      "kind": "equivalence",
+      "atoms": [
+        "P"
+      ],
+      "formulas": [
+        "P",
+        "¬¬P"
+      ]
+    },
+    "tags": [
+      "equivalencia",
+      "negación"
+    ],
+    "hints": [
+      "Compara las columnas de ambas fórmulas.",
+      "Negar dos veces devuelve el valor original."
+    ],
+    "explanation": "¬¬P toma siempre el mismo valor que P: son equivalentes."
+  },
+  {
+    "id": "enu-tab-009",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "basica",
+    "title": "Modus ponens",
+    "statement": "Decide si el argumento de modus ponens es válido.",
+    "data": {
+      "kind": "validity",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "premises": [
+        "P → Q",
+        "P"
+      ],
+      "conclusion": "Q"
+    },
+    "tags": [
+      "validez",
+      "modus ponens"
+    ],
+    "hints": [
+      "Busca filas donde ambas premisas sean verdaderas.",
+      "Si P y P → Q son verdaderas, Q no puede ser falsa."
+    ],
+    "explanation": "Las únicas filas con P y P → Q verdaderas tienen Q verdadera: el argumento es válido."
+  },
+  {
+    "id": "enu-tab-010",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "basica",
+    "title": "Afirmar el consecuente",
+    "statement": "Decide si este argumento es válido: de P → Q y Q se concluye P.",
+    "data": {
+      "kind": "validity",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "premises": [
+        "P → Q",
+        "Q"
+      ],
+      "conclusion": "P"
+    },
+    "tags": [
+      "validez",
+      "falacia"
+    ],
+    "hints": [
+      "Busca una fila donde las premisas sean verdaderas y la conclusión falsa.",
+      "Prueba con P falsa y Q verdadera."
+    ],
+    "explanation": "Con P falsa y Q verdadera, ambas premisas son verdaderas y P es falsa: es la falacia de afirmar el consecuente, inválido."
+  },
+  {
+    "id": "enu-tab-011",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "media",
+    "title": "Implicación con negación",
+    "statement": "Completa la tabla de verdad de la fórmula dada.",
+    "data": {
+      "kind": "complete",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "formula": "P → ¬Q"
+    },
+    "tags": [
+      "implicación",
+      "negación",
+      "completar"
+    ],
+    "hints": [
+      "Calcula primero ¬Q y después el condicional.",
+      "El condicional es falso solo con P verdadera y ¬Q falsa."
+    ],
+    "explanation": "P → ¬Q es falsa únicamente cuando P y Q son verdaderas."
+  },
+  {
+    "id": "enu-tab-012",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "media",
+    "title": "Negación de una conjunción",
+    "statement": "Completa la tabla de verdad de la fórmula dada.",
+    "data": {
+      "kind": "complete",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "formula": "¬(P ∧ Q)"
+    },
+    "tags": [
+      "De Morgan",
+      "completar"
+    ],
+    "hints": [
+      "Calcula primero P ∧ Q y niega el resultado.",
+      "Es falsa solo cuando P y Q son verdaderas."
+    ],
+    "explanation": "¬(P ∧ Q) solo es falsa si P ∧ Q es verdadera, es decir, en la primera fila."
+  },
+  {
+    "id": "enu-tab-013",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "media",
+    "title": "Tres átomos",
+    "statement": "Completa la tabla de verdad de la fórmula dada.",
+    "data": {
+      "kind": "complete",
+      "atoms": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "formula": "(P ∧ Q) ∨ R"
+    },
+    "tags": [
+      "tres átomos",
+      "completar"
+    ],
+    "hints": [
+      "Hay ocho filas; calcula P ∧ Q y luego la disyunción con R.",
+      "Si R es verdadera, la fórmula es verdadera."
+    ],
+    "explanation": "(P ∧ Q) ∨ R es verdadera cuando R lo es o cuando P y Q lo son a la vez."
+  },
+  {
+    "id": "enu-tab-014",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "media",
+    "title": "Ley de Peirce",
+    "statement": "Clasifica la fórmula ((P → Q) → P) → P.",
+    "data": {
+      "kind": "classify",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "formula": "((P → Q) → P) → P"
+    },
+    "tags": [
+      "Peirce",
+      "tautología",
+      "clasificar"
+    ],
+    "hints": [
+      "Estudia el caso en que P es falsa.",
+      "Con P falsa, (P → Q) es verdadera y (P → Q) → P es falsa."
+    ],
+    "explanation": "En todas las filas el resultado es verdadero: es la ley de Peirce, una tautología."
+  },
+  {
+    "id": "enu-tab-015",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "media",
+    "title": "Silogismo de contraposición",
+    "statement": "Clasifica la fórmula (P → Q) ∧ P ∧ ¬Q.",
+    "data": {
+      "kind": "classify",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "formula": "(P → Q) ∧ P ∧ ¬Q"
+    },
+    "tags": [
+      "contradicción",
+      "clasificar"
+    ],
+    "hints": [
+      "Si P y P → Q son verdaderas, ¿cuánto vale Q?",
+      "Q tendría que ser verdadera y falsa a la vez."
+    ],
+    "explanation": "Con P y P → Q verdaderas, Q es verdadera, lo que choca con ¬Q: es una contradicción."
+  },
+  {
+    "id": "enu-tab-016",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "media",
+    "title": "Contrarrecíproca",
+    "statement": "Decide si P → Q y ¬Q → ¬P son equivalentes.",
+    "data": {
+      "kind": "equivalence",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "formulas": [
+        "P → Q",
+        "¬Q → ¬P"
+      ]
+    },
+    "tags": [
+      "contraposición",
+      "equivalencia"
+    ],
+    "hints": [
+      "Compara las columnas de ambas fórmulas.",
+      "Ambas fallan solo con P verdadera y Q falsa."
+    ],
+    "explanation": "Una implicación y su contrarrecíproca son siempre equivalentes."
+  },
+  {
+    "id": "enu-tab-017",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "media",
+    "title": "Recíproca",
+    "statement": "Decide si P → Q y Q → P son equivalentes.",
+    "data": {
+      "kind": "equivalence",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "formulas": [
+        "P → Q",
+        "Q → P"
+      ]
+    },
+    "tags": [
+      "recíproca",
+      "equivalencia"
+    ],
+    "hints": [
+      "Busca una fila donde las dos fórmulas difieran.",
+      "Prueba con P verdadera y Q falsa."
+    ],
+    "explanation": "Con P verdadera y Q falsa, P → Q es falsa y Q → P verdadera: no son equivalentes."
+  },
+  {
+    "id": "enu-tab-018",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "media",
+    "title": "Silogismo hipotético",
+    "statement": "Decide si el silogismo hipotético es válido.",
+    "data": {
+      "kind": "validity",
+      "atoms": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "premises": [
+        "P → Q",
+        "Q → R"
+      ],
+      "conclusion": "P → R"
+    },
+    "tags": [
+      "validez",
+      "silogismo hipotético"
+    ],
+    "hints": [
+      "Busca filas con las dos premisas verdaderas.",
+      "En esas filas, comprueba si P → R se cumple."
+    ],
+    "explanation": "Siempre que P → Q y Q → R son verdaderas, también lo es P → R: es válido."
+  },
+  {
+    "id": "enu-tab-019",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "media",
+    "title": "Silogismo disyuntivo",
+    "statement": "Decide si el argumento es válido: de P ∨ Q y ¬P se concluye Q.",
+    "data": {
+      "kind": "validity",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "premises": [
+        "P ∨ Q",
+        "¬P"
+      ],
+      "conclusion": "Q"
+    },
+    "tags": [
+      "validez",
+      "silogismo disyuntivo"
+    ],
+    "hints": [
+      "Si ¬P es verdadera, ¿qué ocurre con P ∨ Q?",
+      "Con P falsa, Q debe ser verdadera para que P ∨ Q lo sea."
+    ],
+    "explanation": "Las premisas fuerzan P falsa y Q verdadera: el argumento es válido."
+  },
+  {
+    "id": "enu-tab-020",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "avanzada",
+    "title": "Cuatro átomos",
+    "statement": "Completa la tabla de verdad de la fórmula dada.",
+    "data": {
+      "kind": "complete",
+      "atoms": [
+        "P",
+        "Q",
+        "R",
+        "S"
+      ],
+      "formula": "(P → Q) ∧ (R → S)"
+    },
+    "tags": [
+      "cuatro átomos",
+      "completar"
+    ],
+    "hints": [
+      "Hay dieciséis filas; evalúa por separado cada condicional.",
+      "Los dos condicionales son verdaderos si sus antecedentes son falsos."
+    ],
+    "explanation": "(P → Q) ∧ (R → S) solo falla si algún condicional falla: P V y Q F, o R V y S F."
+  },
+  {
+    "id": "enu-tab-021",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "avanzada",
+    "title": "Exportación",
+    "statement": "Decide si (P ∧ Q) → R y P → (Q → R) son equivalentes.",
+    "data": {
+      "kind": "equivalence",
+      "atoms": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "formulas": [
+        "(P ∧ Q) → R",
+        "P → (Q → R)"
+      ]
+    },
+    "tags": [
+      "exportación",
+      "equivalencia"
+    ],
+    "hints": [
+      "Ambas fórmulas fallan en alguna fila: busca cuáles.",
+      "¿Cuándo falla cada una?"
+    ],
+    "explanation": "Las dos son falsas únicamente con P y Q verdaderas y R falsa: son equivalentes (ley de exportación)."
+  },
+  {
+    "id": "enu-tab-022",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "avanzada",
+    "title": "Distributiva",
+    "statement": "Decide si P ∨ (Q ∧ R) y (P ∨ Q) ∧ (P ∨ R) son equivalentes.",
+    "data": {
+      "kind": "equivalence",
+      "atoms": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "formulas": [
+        "P ∨ (Q ∧ R)",
+        "(P ∨ Q) ∧ (P ∨ R)"
+      ]
+    },
+    "tags": [
+      "distributiva",
+      "equivalencia"
+    ],
+    "hints": [
+      "Completa las ocho filas para ambas fórmulas.",
+      "Si P es verdadera, ambas son verdaderas; si P es falsa, dependen de Q y R."
+    ],
+    "explanation": "Con P verdadera ambas valen V; con P falsa ambas valen Q ∧ R. Son equivalentes."
+  },
+  {
+    "id": "enu-tab-023",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "avanzada",
+    "title": "Condicional y disyunción",
+    "statement": "Decide si P → (Q ∨ R) y (P → Q) ∨ R son equivalentes.",
+    "data": {
+      "kind": "equivalence",
+      "atoms": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "formulas": [
+        "P → (Q ∨ R)",
+        "(P → Q) ∨ R"
+      ]
+    },
+    "tags": [
+      "equivalencia",
+      "condicional"
+    ],
+    "hints": [
+      "Escribe cada condicional como una disyunción con la negación del antecedente.",
+      "Ambas fórmulas solo fallan con P verdadera, Q falsa y R falsa."
+    ],
+    "explanation": "P → (Q ∨ R) equivale a ¬P ∨ Q ∨ R, igual que (P → Q) ∨ R. Ambas son falsas solo con P verdadera, Q falsa y R falsa."
+  },
+  {
+    "id": "enu-tab-024",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "avanzada",
+    "title": "Dilema constructivo",
+    "statement": "Decide si el dilema constructivo es válido.",
+    "data": {
+      "kind": "validity",
+      "atoms": [
+        "P",
+        "Q",
+        "R",
+        "S"
+      ],
+      "premises": [
+        "P → Q",
+        "R → S",
+        "P ∨ R"
+      ],
+      "conclusion": "Q ∨ S"
+    },
+    "tags": [
+      "validez",
+      "dilema"
+    ],
+    "hints": [
+      "Busca filas donde las tres premisas sean verdaderas.",
+      "Con P ∨ R verdadera, al menos uno de Q o S debe serlo."
+    ],
+    "explanation": "Cada caso de P ∨ R lleva a Q o a S, así que Q ∨ S se cumple siempre que las premisas lo hacen."
+  },
+  {
+    "id": "enu-tab-025",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "avanzada",
+    "title": "Negar el antecedente",
+    "statement": "Decide si es válido: de P → Q y ¬P se concluye ¬Q.",
+    "data": {
+      "kind": "validity",
+      "atoms": [
+        "P",
+        "Q"
+      ],
+      "premises": [
+        "P → Q",
+        "¬P"
+      ],
+      "conclusion": "¬Q"
+    },
+    "tags": [
+      "validez",
+      "falacia"
+    ],
+    "hints": [
+      "Prueba con P falsa.",
+      "Si P es falsa, Q puede ser verdadera sin romper P → Q."
+    ],
+    "explanation": "Con P falsa y Q verdadera las premisas son verdaderas y la conclusión es falsa: es la falacia de negar el antecedente."
+  },
+  {
+    "id": "enu-tab-026",
+    "blockId": "enunciados-tablas-verdad",
+    "type": "truth-table",
+    "difficulty": "avanzada",
+    "title": "Argumento con tres premisas",
+    "statement": "Decide si el argumento es válido.",
+    "data": {
+      "kind": "validity",
+      "atoms": [
+        "P",
+        "Q",
+        "R"
+      ],
+      "premises": [
+        "P ∨ Q",
+        "¬Q",
+        "P → R"
+      ],
+      "conclusion": "R"
+    },
+    "tags": [
+      "validez",
+      "tres átomos"
+    ],
+    "hints": [
+      "Busca filas con las tres premisas verdaderas.",
+      "Con P ∨ Q verdadera y ¬Q, P debe serlo; entonces R se cumple por P → R."
+    ],
+    "explanation": "P ∨ Q y ¬Q obligan a P verdadera; con P → R, R es verdadera: el argumento es válido."
+  }
+]

@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowRight, Clock3, Flag } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { exerciseById } from "../../data/catalog";
+import { isAnswered } from "../../domain/exam/grading";
 import { Statement } from "../../shared/components/exercises/Statement";
 import { editorRegistry } from "../../shared/components/exercises/registry";
 import { elapsedLabel } from "../../shared/utils/format";
@@ -14,7 +15,7 @@ export function ExamSessionPanel({ exam }: { exam: ExamSession }) {
   const e = exerciseById[active.exerciseIds[examIndex]];
   const Editor = editorRegistry[e.type].Editor;
   const answered = active.exerciseIds.filter((id) =>
-    active.answers[id]?.trim(),
+    isAnswered(active.answers[id]),
   ).length;
   return (
     <>
@@ -33,9 +34,9 @@ export function ExamSessionPanel({ exam }: { exam: ExamSession }) {
         {active.exerciseIds.map((id, i) => (
           <button
             key={id}
-            aria-label={t("ExamSessionPanel.ejercicioValue1Value2", { value1: i + 1, value2: active.answers[id]?.trim() ? t("ExamSessionPanel.conRespuesta") : "" })}
+            aria-label={t("ExamSessionPanel.ejercicioValue1Value2", { value1: i + 1, value2: isAnswered(active.answers[id]) ? t("ExamSessionPanel.conRespuesta") : "" })}
             aria-current={i === examIndex ? "step" : undefined}
-            className={`${i === examIndex ? "current" : ""} ${active.answers[id]?.trim() ? "answered" : ""}`}
+            className={`${i === examIndex ? "current" : ""} ${isAnswered(active.answers[id]) ? "answered" : ""}`}
             onClick={() => setExamIndex(i)}
           >
             {i + 1}

@@ -1,0 +1,1059 @@
+[
+  {
+    "id": "pre-ded-001",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "basica",
+    "title": "Instanciar un universal",
+    "statement": "Todos los individuos son aplicados. Demuestra que Ana es aplicada.",
+    "tags": [
+      "∀E",
+      "constante"
+    ],
+    "hints": [
+      "∀E permite sustituir la variable cuantificada por cualquier término.",
+      "Cita la línea 1 y escribe la fórmula con la constante a en lugar de x."
+    ],
+    "explanation": "Si todos cumplen P, en particular lo cumple a: ∀E instancia el universal con la constante a.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x P(x)"
+      ],
+      "conclusion": "P(a)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es aplicado"
+          }
+        ],
+        "constants": [
+          {
+            "name": "a",
+            "reading": "Ana"
+          }
+        ]
+      },
+      "rules": [
+        "∀E"
+      ],
+      "proof": [
+        "1. ∀x P(x) ; Premisa",
+        "2. P(a) ; ∀E ; 1"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-002",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "basica",
+    "title": "Generalizar a un existencial",
+    "statement": "Ana es aplicada. Demuestra que alguien es aplicado.",
+    "tags": [
+      "∃I",
+      "constante"
+    ],
+    "hints": [
+      "∃I sustituye un término por una variable y añade ∃.",
+      "Cita la línea 1: ∃x P(x) es la generalización de P(a)."
+    ],
+    "explanation": "Si un individuo concreto (a) cumple P, existe algún x que cumple P: ∃I.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "P(a)"
+      ],
+      "conclusion": "∃x P(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es aplicado"
+          }
+        ],
+        "constants": [
+          {
+            "name": "a",
+            "reading": "Ana"
+          }
+        ]
+      },
+      "rules": [
+        "∃I"
+      ],
+      "proof": [
+        "1. P(a) ; Premisa",
+        "2. ∃x P(x) ; ∃I ; 1"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-003",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "basica",
+    "title": "Modus ponens con un universal",
+    "statement": "Todos los gatos son mamíferos y Tom es un gato. Demuestra que Tom es un mamífero.",
+    "tags": [
+      "∀E",
+      "→E"
+    ],
+    "hints": [
+      "Instancia primero el universal con la constante t.",
+      "Con G(t) → M(t) y G(t), →E da M(t)."
+    ],
+    "explanation": "∀E aplica la regla general a Tom y →E (modus ponens) obtiene la conclusión.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (G(x) → M(x))",
+        "G(t)"
+      ],
+      "conclusion": "M(t)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "G",
+            "arity": 1,
+            "reading": "x es un gato"
+          },
+          {
+            "name": "M",
+            "arity": 1,
+            "reading": "x es un mamífero"
+          }
+        ],
+        "constants": [
+          {
+            "name": "t",
+            "reading": "Tom"
+          }
+        ]
+      },
+      "proof": [
+        "1. ∀x (G(x) → M(x)) ; Premisa",
+        "2. G(t) ; Premisa",
+        "3. G(t) → M(t) ; ∀E ; 1",
+        "4. M(t) ; →E ; 3, 2"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-004",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "basica",
+    "title": "Separar un universal conjuntivo",
+    "statement": "Todo número es positivo y pequeño. Demuestra que todo número es positivo.",
+    "tags": [
+      "∀E",
+      "∀I",
+      "∧E"
+    ],
+    "hints": [
+      "Quita el cuantificador con ∀E (puedes conservar la variable x), separa con ∧E y vuelve a cuantificar.",
+      "∀I generaliza P(x) porque x no es libre en la premisa (está ligada por ∀)."
+    ],
+    "explanation": "x es arbitraria: no aparece libre en la premisa, así que ∀I permite generalizar P(x).",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (P(x) ∧ Q(x))"
+      ],
+      "conclusion": "∀x P(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es positivo"
+          },
+          {
+            "name": "Q",
+            "arity": 1,
+            "reading": "x es pequeño"
+          }
+        ],
+        "constants": []
+      },
+      "proof": [
+        "1. ∀x (P(x) ∧ Q(x)) ; Premisa",
+        "2. P(x) ∧ Q(x) ; ∀E ; 1",
+        "3. P(x) ; ∧E ; 2",
+        "4. ∀x P(x) ; ∀I ; 3"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-005",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "basica",
+    "title": "Un caso del existencial",
+    "statement": "Hay un animal que es gato y negro. Demuestra que hay un gato.",
+    "tags": [
+      "∃E",
+      "∃I",
+      "∧E"
+    ],
+    "hints": [
+      "Para usar ∃ abre una subprueba con una instancia con variable nueva como hipótesis.",
+      "Dentro obtén ∃x P(x) con ∧E y ∃I, y cierra con ∃E citando la premisa y la subprueba."
+    ],
+    "explanation": "Tomamos un x cualquiera que cumple P(x) ∧ Q(x); de él sale ∃x P(x), que no depende de x, así que ∃E la saca de la subprueba.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∃x (P(x) ∧ Q(x))"
+      ],
+      "conclusion": "∃x P(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es un gato"
+          },
+          {
+            "name": "Q",
+            "arity": 1,
+            "reading": "x es negro"
+          }
+        ],
+        "constants": []
+      },
+      "proof": [
+        "1. ∃x (P(x) ∧ Q(x)) ; Premisa",
+        "2. > P(x) ∧ Q(x) ; Hipótesis",
+        "3. > P(x) ; ∧E ; 2",
+        "4. > ∃x P(x) ; ∃I ; 3",
+        "5. ∃x P(x) ; ∃E ; 1, 2-4"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-006",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "basica",
+    "title": "Un universal implica un existencial",
+    "statement": "Todo es interesante. Demuestra que hay algo interesante.",
+    "tags": [
+      "∀E",
+      "∃I"
+    ],
+    "hints": [
+      "Instancia el universal con la variable x y luego generaliza existencialmente.",
+      "∀E sobre la línea 1 y ∃I sobre el resultado."
+    ],
+    "explanation": "En lógica clásica el dominio no es vacío: lo que vale para todos vale para alguno.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x P(x)"
+      ],
+      "conclusion": "∃x P(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es interesante"
+          }
+        ],
+        "constants": []
+      },
+      "proof": [
+        "1. ∀x P(x) ; Premisa",
+        "2. P(x) ; ∀E ; 1",
+        "3. ∃x P(x) ; ∃I ; 2"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-007",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "basica",
+    "title": "Un universal y una constante",
+    "statement": "Todo lo que es primo es impar y 7 es primo. Demuestra que existe algún impar.",
+    "tags": [
+      "∀E",
+      "∃I",
+      "→E"
+    ],
+    "hints": [
+      "Primero instancia con s y aplica modus ponens.",
+      "Con I(s) ya puedes generalizar con ∃I."
+    ],
+    "explanation": "∀E y →E dan I(s); ∃I generaliza el 7 a «algún número».",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (P(x) → I(x))",
+        "P(s)"
+      ],
+      "conclusion": "∃x I(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es primo"
+          },
+          {
+            "name": "I",
+            "arity": 1,
+            "reading": "x es impar"
+          }
+        ],
+        "constants": [
+          {
+            "name": "s",
+            "reading": "el número 7"
+          }
+        ]
+      },
+      "proof": [
+        "1. ∀x (P(x) → I(x)) ; Premisa",
+        "2. P(s) ; Premisa",
+        "3. P(s) → I(s) ; ∀E ; 1",
+        "4. I(s) ; →E ; 3, 2",
+        "5. ∃x I(x) ; ∃I ; 4"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-008",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "media",
+    "title": "Cuantificador universal y condicional",
+    "statement": "Todos los pájaros son animales y todo es pájaro. Demuestra que todo es animal.",
+    "tags": [
+      "∀I",
+      "∀E",
+      "→E"
+    ],
+    "hints": [
+      "Quita los dos universales con ∀E usando la misma variable.",
+      "Aplica →E y generaliza con ∀I: x no aparece libre en las premisas."
+    ],
+    "explanation": "Con una x arbitraria se obtiene Q(x); como x no es libre en las premisas, ∀I concluye ∀x Q(x).",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x P(x)",
+        "∀x (P(x) → Q(x))"
+      ],
+      "conclusion": "∀x Q(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es un pájaro"
+          },
+          {
+            "name": "Q",
+            "arity": 1,
+            "reading": "x es un animal"
+          }
+        ],
+        "constants": []
+      },
+      "proof": [
+        "1. ∀x P(x) ; Premisa",
+        "2. ∀x (P(x) → Q(x)) ; Premisa",
+        "3. P(x) ; ∀E ; 1",
+        "4. P(x) → Q(x) ; ∀E ; 2",
+        "5. Q(x) ; →E ; 4, 3",
+        "6. ∀x Q(x) ; ∀I ; 5"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-009",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "media",
+    "title": "Intercambiar cuantificadores universales",
+    "statement": "Para todo par de números x, y se cumple la relación R(x, y). Demuestra que se cumple también para todo par en el orden y, x.",
+    "tags": [
+      "∀I",
+      "∀E",
+      "variables"
+    ],
+    "hints": [
+      "Elimina los dos cuantificadores con ∀E y reintrodúcelos en el orden contrario.",
+      "Primero generaliza x (∀I sobre R(x, y)) y después y."
+    ],
+    "explanation": "Tras ∀E dos veces queda R(x, y) con x e y arbitrarios; ∀I puede reintroducir los cuantificadores en cualquier orden.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x ∀y R(x, y)"
+      ],
+      "conclusion": "∀y ∀x R(x, y)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "R",
+            "arity": 2,
+            "reading": "x es menor o igual que y"
+          }
+        ],
+        "constants": []
+      },
+      "proof": [
+        "1. ∀x ∀y R(x, y) ; Premisa",
+        "2. ∀y R(x, y) ; ∀E ; 1",
+        "3. R(x, y) ; ∀E ; 2",
+        "4. ∀x R(x, y) ; ∀I ; 3",
+        "5. ∀y ∀x R(x, y) ; ∀I ; 4"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-010",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "media",
+    "title": "Existencial con condicional universal",
+    "statement": "Todos los perros son animales y hay un perro. Demuestra que hay un animal.",
+    "tags": [
+      "∃E",
+      "∀E",
+      "∃I"
+    ],
+    "hints": [
+      "Abre una subprueba con P(x) como hipótesis (x nueva) para usar ∃x P(x).",
+      "Dentro, instancia el universal, aplica →E y concluye ∃x Q(x) con ∃I; cierra con ∃E."
+    ],
+    "explanation": "Tomamos un perro x; es un animal; luego existe un animal. La conclusión no menciona x, así que ∃E la libera.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (P(x) → Q(x))",
+        "∃x P(x)"
+      ],
+      "conclusion": "∃x Q(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es un perro"
+          },
+          {
+            "name": "Q",
+            "arity": 1,
+            "reading": "x es un animal"
+          }
+        ],
+        "constants": []
+      },
+      "proof": [
+        "1. ∀x (P(x) → Q(x)) ; Premisa",
+        "2. ∃x P(x) ; Premisa",
+        "3. > P(x) ; Hipótesis",
+        "4. > P(x) → Q(x) ; ∀E ; 1",
+        "5. > Q(x) ; →E ; 4, 3",
+        "6. > ∃x Q(x) ; ∃I ; 5",
+        "7. ∃x Q(x) ; ∃E ; 2, 3-6"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-011",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "media",
+    "title": "Distribuir ∀ sobre ∧",
+    "statement": "Todos son jóvenes y sanos. Demuestra que todos son jóvenes y todos son sanos.",
+    "tags": [
+      "∀I",
+      "∀E",
+      "∧I"
+    ],
+    "hints": [
+      "Instancia, separa P(x) y Q(x) y generaliza cada una por separado.",
+      "Une los dos universales con ∧I."
+    ],
+    "explanation": "Con x arbitraria se obtienen P(x) y Q(x); ∀I las generaliza por separado y ∧I las une.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (P(x) ∧ Q(x))"
+      ],
+      "conclusion": "∀x P(x) ∧ ∀x Q(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es joven"
+          },
+          {
+            "name": "Q",
+            "arity": 1,
+            "reading": "x es sano"
+          }
+        ],
+        "constants": []
+      },
+      "proof": [
+        "1. ∀x (P(x) ∧ Q(x)) ; Premisa",
+        "2. P(x) ∧ Q(x) ; ∀E ; 1",
+        "3. P(x) ; ∧E ; 2",
+        "4. Q(x) ; ∧E ; 2",
+        "5. ∀x P(x) ; ∀I ; 3",
+        "6. ∀x Q(x) ; ∀I ; 4",
+        "7. ∀x P(x) ∧ ∀x Q(x) ; ∧I ; 5, 6"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-012",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "media",
+    "title": "Reunir dos universales",
+    "statement": "Todos son jóvenes y todos son sanos. Demuestra que todos son jóvenes y sanos.",
+    "tags": [
+      "∀I",
+      "∀E",
+      "∧E"
+    ],
+    "hints": [
+      "Separa los dos universales con ∧E e instancia ambos con la misma variable.",
+      "Une P(x) y Q(x) con ∧I y generaliza con ∀I."
+    ],
+    "explanation": "Ambas instancias se hacen con la misma x arbitraria, de modo que ∧I e ∀I dan el universal de la conjunción.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x P(x) ∧ ∀x Q(x)"
+      ],
+      "conclusion": "∀x (P(x) ∧ Q(x))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es joven"
+          },
+          {
+            "name": "Q",
+            "arity": 1,
+            "reading": "x es sano"
+          }
+        ],
+        "constants": []
+      },
+      "proof": [
+        "1. ∀x P(x) ∧ ∀x Q(x) ; Premisa",
+        "2. ∀x P(x) ; ∧E ; 1",
+        "3. ∀x Q(x) ; ∧E ; 1",
+        "4. P(x) ; ∀E ; 2",
+        "5. Q(x) ; ∀E ; 3",
+        "6. P(x) ∧ Q(x) ; ∧I ; 4, 5",
+        "7. ∀x (P(x) ∧ Q(x)) ; ∀I ; 6"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-013",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "media",
+    "title": "No existe, luego ninguno cumple",
+    "statement": "No existe ningún unicornio. Demuestra que nada es un unicornio.",
+    "tags": [
+      "∀I",
+      "∃I",
+      "¬I"
+    ],
+    "hints": [
+      "Para ¬P(x) supón P(x) y busca una contradicción con la premisa.",
+      "Con ∃I forma ∃x P(x), que contradice la premisa; cierra con ¬I y generaliza con ∀I."
+    ],
+    "explanation": "Suponer P(x) permite probar ∃x P(x), contradictoria con la premisa. La subprueba está cerrada, así que x sigue siendo arbitraria para ∀I.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "¬∃x P(x)"
+      ],
+      "conclusion": "∀x ¬P(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es un unicornio"
+          }
+        ],
+        "constants": []
+      },
+      "proof": [
+        "1. ¬∃x P(x) ; Premisa",
+        "2. > P(x) ; Hipótesis",
+        "3. > ∃x P(x) ; ∃I ; 2",
+        "4. > ⊥ ; ¬E ; 3, 1",
+        "5. ¬P(x) ; ¬I ; 2-4",
+        "6. ∀x ¬P(x) ; ∀I ; 5"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-014",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "media",
+    "title": "Silogismo universal",
+    "statement": "Todos los griegos son humanos y todos los humanos son mortales. Demuestra que todos los griegos son mortales.",
+    "tags": [
+      "∀I",
+      "∀E",
+      "→I"
+    ],
+    "hints": [
+      "Con una x arbitraria, supón G(x) en una subprueba y encadena los dos condicionales.",
+      "Cierra con →I y generaliza con ∀I: la hipótesis ya está cerrada, así que x no es libre en ninguna hipótesis abierta."
+    ],
+    "explanation": "Es el silogismo clásico «Barbara»: se prueba G(x) → M(x) para una x arbitraria y luego se generaliza.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (G(x) → H(x))",
+        "∀x (H(x) → M(x))"
+      ],
+      "conclusion": "∀x (G(x) → M(x))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "G",
+            "arity": 1,
+            "reading": "x es griego"
+          },
+          {
+            "name": "H",
+            "arity": 1,
+            "reading": "x es humano"
+          },
+          {
+            "name": "M",
+            "arity": 1,
+            "reading": "x es mortal"
+          }
+        ],
+        "constants": []
+      },
+      "proof": [
+        "1. ∀x (G(x) → H(x)) ; Premisa",
+        "2. ∀x (H(x) → M(x)) ; Premisa",
+        "3. > G(x) ; Hipótesis",
+        "4. > G(x) → H(x) ; ∀E ; 1",
+        "5. > H(x) ; →E ; 4, 3",
+        "6. > H(x) → M(x) ; ∀E ; 2",
+        "7. > M(x) ; →E ; 6, 5",
+        "8. G(x) → M(x) ; →I ; 3-7",
+        "9. ∀x (G(x) → M(x)) ; ∀I ; 8"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-015",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "media",
+    "title": "Relación simétrica",
+    "statement": "La relación «ser amigo de» es simétrica y Ana es amiga de Berta. Demuestra que Berta es amiga de Ana.",
+    "tags": [
+      "∀E",
+      "→E",
+      "constantes"
+    ],
+    "hints": [
+      "Instancia los dos universales con las constantes a y b, en ese orden.",
+      "Con R(a, b) → R(b, a) y R(a, b), →E da R(b, a)."
+    ],
+    "explanation": "Dos veces ∀E (x := a, y := b) y modus ponens dan la conclusión.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x ∀y (R(x, y) → R(y, x))",
+        "R(a, b)"
+      ],
+      "conclusion": "R(b, a)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "R",
+            "arity": 2,
+            "reading": "x es amigo de y"
+          }
+        ],
+        "constants": [
+          {
+            "name": "a",
+            "reading": "Ana"
+          },
+          {
+            "name": "b",
+            "reading": "Berta"
+          }
+        ]
+      },
+      "proof": [
+        "1. ∀x ∀y (R(x, y) → R(y, x)) ; Premisa",
+        "2. R(a, b) ; Premisa",
+        "3. ∀y (R(a, y) → R(y, a)) ; ∀E ; 1",
+        "4. R(a, b) → R(b, a) ; ∀E ; 3",
+        "5. R(b, a) ; →E ; 4, 2"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-016",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "avanzada",
+    "title": "Negación de un existencial",
+    "statement": "Todo carece de la propiedad P. Demuestra que no existe nada con la propiedad P.",
+    "tags": [
+      "∃E",
+      "∀E",
+      "¬I"
+    ],
+    "hints": [
+      "Supón ∃x P(x) y úsalo con una subprueba de ∃E cuya hipótesis sea P(x).",
+      "Dentro obtén ⊥ (P(x) contra ¬P(x), esta última por ∀E); ∃E saca ⊥ y ¬I cierra."
+    ],
+    "explanation": "Si existiera un x con P(x), chocaría con ¬P(x) obtenida por ∀E; ∃E extrae la contradicción y ¬I concluye.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x ¬P(x)"
+      ],
+      "conclusion": "¬∃x P(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es un dragón"
+          }
+        ],
+        "constants": []
+      },
+      "proof": [
+        "1. ∀x ¬P(x) ; Premisa",
+        "2. > ∃x P(x) ; Hipótesis",
+        "3. > > P(x) ; Hipótesis",
+        "4. > > ¬P(x) ; ∀E ; 1",
+        "5. > > ⊥ ; ¬E ; 3, 4",
+        "6. > ⊥ ; ∃E ; 2, 3-5",
+        "7. ¬∃x P(x) ; ¬I ; 2-6"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-017",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "avanzada",
+    "title": "Cambiar el orden ∃∀ por ∀∃",
+    "statement": "Hay alguien que es amigo de todos. Demuestra que todos tienen algún amigo.",
+    "tags": [
+      "∃E",
+      "∀I",
+      "∃I"
+    ],
+    "hints": [
+      "Abre la subprueba de ∃E con ∀y R(x, y) como hipótesis.",
+      "Dentro: ∀E, ∃I y ∀I (y no es libre en la hipótesis, donde está ligada); cierra con ∃E."
+    ],
+    "explanation": "Con el amigo universal x, cada y tiene a x como amigo; la conclusión no menciona x, así que ∃E la libera.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∃x ∀y R(x, y)"
+      ],
+      "conclusion": "∀y ∃x R(x, y)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "R",
+            "arity": 2,
+            "reading": "x es amigo de y"
+          }
+        ],
+        "constants": []
+      },
+      "proof": [
+        "1. ∃x ∀y R(x, y) ; Premisa",
+        "2. > ∀y R(x, y) ; Hipótesis",
+        "3. > R(x, y) ; ∀E ; 2",
+        "4. > ∃x R(x, y) ; ∃I ; 3",
+        "5. > ∀y ∃x R(x, y) ; ∀I ; 4",
+        "6. ∀y ∃x R(x, y) ; ∃E ; 1, 2-5"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-018",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "avanzada",
+    "title": "Existencial sobre una disyunción",
+    "statement": "Existe alguien que es músico o pintor. Demuestra que existe un músico o existe un pintor.",
+    "tags": [
+      "∃E",
+      "∨E",
+      "∃I"
+    ],
+    "hints": [
+      "Combina ∃E (hipótesis P(x) ∨ Q(x)) con ∨E (casos P(x) y Q(x)).",
+      "En cada caso usa ∃I y ∨I; cierra primero ∨E y después ∃E."
+    ],
+    "explanation": "∃E fija un x con P(x) ∨ Q(x); por casos se llega en ambos a la disyunción de existenciales, que no menciona x.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∃x (P(x) ∨ Q(x))"
+      ],
+      "conclusion": "∃x P(x) ∨ ∃x Q(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es músico"
+          },
+          {
+            "name": "Q",
+            "arity": 1,
+            "reading": "x es pintor"
+          }
+        ],
+        "constants": []
+      },
+      "proof": [
+        "1. ∃x (P(x) ∨ Q(x)) ; Premisa",
+        "2. > P(x) ∨ Q(x) ; Hipótesis",
+        "3. > > P(x) ; Hipótesis",
+        "4. > > ∃x P(x) ; ∃I ; 3",
+        "5. > > ∃x P(x) ∨ ∃x Q(x) ; ∨I ; 4",
+        "6. > > Q(x) ; Hipótesis",
+        "7. > > ∃x Q(x) ; ∃I ; 6",
+        "8. > > ∃x P(x) ∨ ∃x Q(x) ; ∨I ; 7",
+        "9. > ∃x P(x) ∨ ∃x Q(x) ; ∨E ; 2, 3-5, 6-8",
+        "10. ∃x P(x) ∨ ∃x Q(x) ; ∃E ; 1, 2-9"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-019",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "avanzada",
+    "title": "Condicional entre existenciales",
+    "statement": "Todo gato es felino. Demuestra que si existe un gato, entonces existe un felino.",
+    "tags": [
+      "∃E",
+      "∀E",
+      "→I"
+    ],
+    "hints": [
+      "Supón ∃x P(x) en una subprueba y úsalo abriendo otra con P(x).",
+      "Cierra la interior con ∃E y la exterior con →I."
+    ],
+    "explanation": "Bajo el supuesto ∃x P(x), un gato x es felino, luego existe un felino; →I cierra el condicional.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (P(x) → Q(x))"
+      ],
+      "conclusion": "∃x P(x) → ∃x Q(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es un gato"
+          },
+          {
+            "name": "Q",
+            "arity": 1,
+            "reading": "x es un felino"
+          }
+        ],
+        "constants": []
+      },
+      "proof": [
+        "1. ∀x (P(x) → Q(x)) ; Premisa",
+        "2. > ∃x P(x) ; Hipótesis",
+        "3. > > P(x) ; Hipótesis",
+        "4. > > P(x) → Q(x) ; ∀E ; 1",
+        "5. > > Q(x) ; →E ; 4, 3",
+        "6. > > ∃x Q(x) ; ∃I ; 5",
+        "7. > ∃x Q(x) ; ∃E ; 2, 3-6",
+        "8. ∃x P(x) → ∃x Q(x) ; →I ; 2-7"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-020",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "avanzada",
+    "title": "Existe uno que no cumple",
+    "statement": "Hay algo que no es fiel. Demuestra que no todo es fiel.",
+    "tags": [
+      "∃E",
+      "∀E",
+      "¬I"
+    ],
+    "hints": [
+      "Supón ∀x P(x) para llegar a ⊥.",
+      "Usa ∃E con la hipótesis ¬P(x); ∀E sobre tu suposición da P(x), que choca con ella."
+    ],
+    "explanation": "Con un x que cumple ¬P(x), el supuesto ∀x P(x) da P(x): contradicción. ¬I concluye ¬∀x P(x).",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∃x ¬P(x)"
+      ],
+      "conclusion": "¬∀x P(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es fiel"
+          }
+        ],
+        "constants": []
+      },
+      "proof": [
+        "1. ∃x ¬P(x) ; Premisa",
+        "2. > ∀x P(x) ; Hipótesis",
+        "3. > > ¬P(x) ; Hipótesis",
+        "4. > > P(x) ; ∀E ; 2",
+        "5. > > ⊥ ; ¬E ; 4, 3",
+        "6. > ⊥ ; ∃E ; 1, 3-5",
+        "7. ¬∀x P(x) ; ¬I ; 2-6"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-021",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "avanzada",
+    "title": "No todos cumplen, luego alguno no",
+    "statement": "No todo es fiel. Demuestra que hay algo que no es fiel.",
+    "tags": [
+      "RAA",
+      "∀I",
+      "∃I"
+    ],
+    "hints": [
+      "Usa RAA global suponiendo ¬∃x ¬P(x).",
+      "Dentro, prueba P(x) por otra RAA (supón ¬P(x) y usa ∃I), generaliza con ∀I y contradice la premisa."
+    ],
+    "explanation": "Si no hubiera ningún x con ¬P(x), P(x) valdría para todo x, contra la premisa; RAA concluye ∃x ¬P(x).",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "¬∀x P(x)"
+      ],
+      "conclusion": "∃x ¬P(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es fiel"
+          }
+        ],
+        "constants": []
+      },
+      "proof": [
+        "1. ¬∀x P(x) ; Premisa",
+        "2. > ¬∃x ¬P(x) ; Hipótesis",
+        "3. > > ¬P(x) ; Hipótesis",
+        "4. > > ∃x ¬P(x) ; ∃I ; 3",
+        "5. > > ⊥ ; ¬E ; 4, 2",
+        "6. > P(x) ; RAA ; 3-5",
+        "7. > ∀x P(x) ; ∀I ; 6",
+        "8. > ⊥ ; ¬E ; 7, 1",
+        "9. ∃x ¬P(x) ; RAA ; 2-8"
+      ]
+    }
+  },
+  {
+    "id": "pre-ded-022",
+    "blockId": "predicados-deduccion-natural",
+    "type": "natural-deduction",
+    "difficulty": "avanzada",
+    "title": "Cuantificar sobre una proposición",
+    "statement": "Para todo x, P(x) o hace calor. Demuestra que todo cumple P o hace calor.",
+    "tags": [
+      "RAA",
+      "∀E",
+      "∨E"
+    ],
+    "hints": [
+      "Razona por reducción al absurdo; primero demuestra ¬Q dentro de esa hipótesis.",
+      "Instancia el universal, razona por casos sobre P(x) ∨ Q (el caso Q contradice ¬Q), generaliza con ∀I y contradice la hipótesis."
+    ],
+    "explanation": "Negada la conclusión, ¬Q se sigue; entonces P(x) vale para cualquier x, así que ∀x P(x), lo que contradice la hipótesis. La hipótesis no contiene x libre, por eso ∀I es legítima.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (P(x) ∨ Q)"
+      ],
+      "conclusion": "∀x P(x) ∨ Q",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x lleva abrigo"
+          },
+          {
+            "name": "Q",
+            "arity": 0,
+            "reading": "hace calor"
+          }
+        ],
+        "constants": []
+      },
+      "proof": [
+        "1. ∀x (P(x) ∨ Q) ; Premisa",
+        "2. > ¬(∀x P(x) ∨ Q) ; Hipótesis",
+        "3. > > Q ; Hipótesis",
+        "4. > > ∀x P(x) ∨ Q ; ∨I ; 3",
+        "5. > > ⊥ ; ¬E ; 4, 2",
+        "6. > ¬Q ; ¬I ; 3-5",
+        "7. > P(x) ∨ Q ; ∀E ; 1",
+        "8. > > P(x) ; Hipótesis",
+        "9. > > P(x) ; Reiteración ; 8",
+        "10. > > Q ; Hipótesis",
+        "11. > > ⊥ ; ¬E ; 10, 6",
+        "12. > > P(x) ; ⊥E ; 11",
+        "13. > P(x) ; ∨E ; 7, 8-9, 10-12",
+        "14. > ∀x P(x) ; ∀I ; 13",
+        "15. > ∀x P(x) ∨ Q ; ∨I ; 14",
+        "16. > ⊥ ; ¬E ; 15, 2",
+        "17. ∀x P(x) ∨ Q ; RAA ; 2-16"
+      ]
+    }
+  }
+]

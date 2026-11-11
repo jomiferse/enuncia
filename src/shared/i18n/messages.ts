@@ -3,7 +3,7 @@ import type { Grade } from "../../domain/logic/grading";
 import { translate } from "./config";
 
 export function translateMessage(code: MessageCode, params: MessageParams = {}): string {
-  return translate(`errors.${code}`, params);
+  return translate(`errors.${code}` as "errors.invalidJson", params);
 }
 
 export function translateError(error: unknown): string {

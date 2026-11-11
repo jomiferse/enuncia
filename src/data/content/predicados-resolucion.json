@@ -1,0 +1,3091 @@
+[
+  {
+    "id": "pre-res-001",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "basica",
+    "title": "Un gato ágil",
+    "statement": "Todos los gatos son ágiles y Garfield es un gato. ¿Se sigue que Garfield es ágil? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "instanciación",
+      "modus ponens"
+    ],
+    "hints": [
+      "Pasa a FNS las premisas y la negación de la conclusión: el condicional se convierte en una disyunción con imp.",
+      "Al resolver, la variable de la cláusula universal se sustituye por la constante que aparece en el otro literal."
+    ],
+    "explanation": "La negación de la conclusión es ¬A(g). Con la cláusula {¬G(x), A(x)} se obtiene ¬G(g) (x/g) y con el hecho G(g) se llega a □. Las premisas tienen modelo, así que son consistentes.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (G(x) → A(x))",
+        "G(g)"
+      ],
+      "conclusion": "A(g)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "G",
+            "arity": 1,
+            "reading": "x es un gato"
+          },
+          {
+            "name": "A",
+            "arity": 1,
+            "reading": "x es ágil"
+          }
+        ],
+        "constants": [
+          {
+            "name": "g",
+            "reading": "Garfield"
+          }
+        ]
+      },
+      "valid": true,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "∀x (¬G(x) ∨ A(x))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "¬A(g)",
+              "sideLiteral": "A(x)"
+            },
+            {
+              "trunk": 3,
+              "side": 1,
+              "trunkLiteral": "¬G(g)",
+              "sideLiteral": "G(g)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{G(g)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-002",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "basica",
+    "title": "Sin carné no hay matrícula",
+    "statement": "Todo alumno matriculado tiene carné. Marta no tiene carné. ¿Se sigue que Marta no está matriculada? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "instanciación",
+      "modus tollens"
+    ],
+    "hints": [
+      "La negación de ¬M(m) se simplifica con la doble negación: queda M(m).",
+      "Empieza el árbol por la cláusula de la conclusión negada y resuelve con la cláusula universal."
+    ],
+    "explanation": "La negación de la conclusión da M(m). Con {¬M(x), C(x)} se obtiene C(m), que choca con ¬C(m). El conjunto de premisas es satisfacible.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (M(x) → C(x))",
+        "¬C(m)"
+      ],
+      "conclusion": "¬M(m)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "M",
+            "arity": 1,
+            "reading": "x está matriculado"
+          },
+          {
+            "name": "C",
+            "arity": 1,
+            "reading": "x tiene carné"
+          }
+        ],
+        "constants": [
+          {
+            "name": "m",
+            "reading": "Marta"
+          }
+        ]
+      },
+      "valid": true,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "∀x (¬M(x) ∨ C(x))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "doubleNeg",
+              "result": "M(m)"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "M(m)",
+              "sideLiteral": "¬M(x)"
+            },
+            {
+              "trunk": 3,
+              "side": 1,
+              "trunkLiteral": "C(m)",
+              "sideLiteral": "¬C(m)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬C(m)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-003",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "basica",
+    "title": "Si todos, alguien",
+    "statement": "Todos los planetas del modelo son esféricos. ¿Se sigue que algún planeta del modelo es esférico? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "∀ implica ∃",
+      "negación de ∃"
+    ],
+    "hints": [
+      "La conclusión es ∃x E(x): su negación se transforma con la ley ¬∃x A = ∀x ¬A.",
+      "Las dos cláusulas resultantes, {E(x)} y {¬E(x)}, se resuelven con el unificador identidad."
+    ],
+    "explanation": "Se trabaja con dominios no vacíos. La negación de la conclusión es ∀x ¬E(x); junto con ∀x E(x) produce {E(x)} y {¬E(x)}, que resuelven a □.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x E(x)"
+      ],
+      "conclusion": "∃x E(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "E",
+            "arity": 1,
+            "reading": "x es esférico"
+          }
+        ],
+        "constants": []
+      },
+      "valid": true,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "notExists",
+              "result": "∀x ¬E(x)"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 1,
+              "side": 0,
+              "trunkLiteral": "¬E(x)",
+              "sideLiteral": "E(x)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-004",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "basica",
+    "title": "De un caso a algún caso",
+    "statement": "Lucía aprobó el examen. ¿Se sigue que alguien aprobó el examen? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "generalización",
+      "negación de ∃"
+    ],
+    "hints": [
+      "Niega la conclusión ∃x A(x) con la ley de negación del existencial.",
+      "Tras la transformación basta una sola resolución, unificando x con una constante."
+    ],
+    "explanation": "¬∃x A(x) pasa a ∀x ¬A(x). Con la cláusula {A(l)} se unifica x con l y se llega a □.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "A(l)"
+      ],
+      "conclusion": "∃x A(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "A",
+            "arity": 1,
+            "reading": "x aprobó el examen"
+          }
+        ],
+        "constants": [
+          {
+            "name": "l",
+            "reading": "Lucía"
+          }
+        ]
+      },
+      "valid": true,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "notExists",
+              "result": "∀x ¬A(x)"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 1,
+              "side": 0,
+              "trunkLiteral": "¬A(x)",
+              "sideLiteral": "A(l)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-005",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "basica",
+    "title": "Un testigo para el existencial",
+    "statement": "Hay alguien que es jugador y titular. ¿Se sigue que hay algún jugador? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "Skolem",
+      "constante"
+    ],
+    "hints": [
+      "En la premisa hay un ∃ sin ∀ delante: aplica Skolem y sustitúyelo por una constante nueva (c1).",
+      "Tras Skolem, la premisa es una conjunción: da lugar a dos cláusulas unitarias."
+    ],
+    "explanation": "La premisa pasa a J(c1) ∧ T(c1) y la negación de la conclusión a ∀x ¬J(x). Resolviendo {¬J(x)} con {J(c1)} se llega a □.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∃x (J(x) ∧ T(x))"
+      ],
+      "conclusion": "∃x J(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "J",
+            "arity": 1,
+            "reading": "x es jugador"
+          },
+          {
+            "name": "T",
+            "arity": 1,
+            "reading": "x es titular"
+          }
+        ],
+        "constants": []
+      },
+      "valid": true,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "skolem",
+                "result": "J(c1) ∧ T(c1)"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "notExists",
+              "result": "∀x ¬J(x)"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{J(c1)}, {¬J(x)}"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 1,
+              "side": 0,
+              "trunkLiteral": "¬J(x)",
+              "sideLiteral": "J(c1)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{T(c1)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-006",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "basica",
+    "title": "Alguien no es todos",
+    "statement": "Alguien lleva paraguas. ¿Se sigue que todos llevan paraguas? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "∃ no implica ∀",
+      "no válido"
+    ],
+    "hints": [
+      "La negación de ∀x U(x) es ∃x ¬U(x): usa la ley ¬∀ y después Skolem con otra constante nueva.",
+      "Tras simplificar, comprueba si queda algún literal sin complementario en el conjunto."
+    ],
+    "explanation": "Las cláusulas son {U(c1)} y {¬U(c2)}: con constantes de Skolem distintas no hay literales unificables, así que no hay árbol y el razonamiento no es válido. Las premisas por sí solas son consistentes. Contramodelo: dominio {1, 2}; U = {1}.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∃x U(x)"
+      ],
+      "conclusion": "∀x U(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "U",
+            "arity": 1,
+            "reading": "x lleva paraguas"
+          }
+        ],
+        "constants": []
+      },
+      "valid": false,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "skolem",
+                "result": "U(c1)"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "notForall",
+              "result": "∃x ¬U(x)"
+            },
+            {
+              "law": "skolem",
+              "result": "¬U(c2)"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬U(c2)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "valid": false,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-007",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "basica",
+    "title": "Afirmar el consecuente",
+    "statement": "Todo hongo es un ser vivo y el roble es un ser vivo. ¿Se sigue que el roble es un hongo? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "falacia",
+      "no válido"
+    ],
+    "hints": [
+      "Trata la conclusión H(r) como una fórmula cualquiera: su negación es ¬H(r).",
+      "Mira si existe algún literal complementario de H(r) en el conjunto antes de intentar el árbol."
+    ],
+    "explanation": "Las cláusulas {¬H(x), V(x)}, {V(r)} y {¬H(r)} no se pueden refutar: basta un modelo donde el roble sea un ser vivo que no es hongo. El razonamiento no es válido. Contramodelo: dominio {1, 2}; r = 1; H = {}; V = {1}.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (H(x) → V(x))",
+        "V(r)"
+      ],
+      "conclusion": "H(r)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "H",
+            "arity": 1,
+            "reading": "x es un hongo"
+          },
+          {
+            "name": "V",
+            "arity": 1,
+            "reading": "x es un ser vivo"
+          }
+        ],
+        "constants": [
+          {
+            "name": "r",
+            "reading": "el roble"
+          }
+        ]
+      },
+      "valid": false,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "∀x (¬H(x) ∨ V(x))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{V(r)}, {¬H(r)}"
+            },
+            {
+              "kind": "pure",
+              "result": "{¬H(r)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "valid": false,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{V(r)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-008",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Silogismo con cuadrados",
+    "statement": "Todo cuadrado es rectángulo y todo rectángulo tiene ángulos rectos. ¿Se sigue que todo cuadrado tiene ángulos rectos? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "silogismo",
+      "negación de ∀"
+    ],
+    "hints": [
+      "Para negar ∀x (A → B) usa imp primero y después ¬∀, De Morgan y doble negación hasta llegar a ∃x (A ∧ ¬B).",
+      "Skolem convierte la negación de la conclusión en dos cláusulas unitarias sobre una misma constante; resuélvelas con las premisas."
+    ],
+    "explanation": "La negación de la conclusión es ∃x (C(x) ∧ ¬R(x)); con Skolem da C(c1) y ¬R(c1). Se encadena C(c1) con {¬C(x), Q(x)} y luego con {¬Q(x), R(x)} hasta chocar con ¬R(c1).",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (C(x) → Q(x))",
+        "∀x (Q(x) → R(x))"
+      ],
+      "conclusion": "∀x (C(x) → R(x))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "C",
+            "arity": 1,
+            "reading": "x es un cuadrado"
+          },
+          {
+            "name": "Q",
+            "arity": 1,
+            "reading": "x es un rectángulo"
+          },
+          {
+            "name": "R",
+            "arity": 1,
+            "reading": "x tiene ángulos rectos"
+          }
+        ],
+        "constants": []
+      },
+      "valid": true,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "∀x (¬C(x) ∨ Q(x))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "∀x (¬Q(x) ∨ R(x))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "imp",
+              "result": "¬∀x (¬C(x) ∨ R(x))"
+            },
+            {
+              "law": "notForall",
+              "result": "∃x ¬(¬C(x) ∨ R(x))"
+            },
+            {
+              "law": "deMorganOr",
+              "result": "∃x (¬¬C(x) ∧ ¬R(x))"
+            },
+            {
+              "law": "doubleNeg",
+              "result": "∃x (C(x) ∧ ¬R(x))"
+            },
+            {
+              "law": "skolem",
+              "result": "C(c1) ∧ ¬R(c1)"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "C(c1)",
+              "sideLiteral": "¬C(x)"
+            },
+            {
+              "trunk": 4,
+              "side": 1,
+              "trunkLiteral": "Q(c1)",
+              "sideLiteral": "¬Q(x)"
+            },
+            {
+              "trunk": 5,
+              "side": 3,
+              "trunkLiteral": "R(c1)",
+              "sideLiteral": "¬R(c1)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬Q(x), R(x)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-009",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Un velero con quilla",
+    "statement": "Todo velero tiene quilla y existe algún velero. ¿Se sigue que existe algo con quilla? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "modus ponens",
+      "Skolem"
+    ],
+    "hints": [
+      "El ∃ de la premisa 2 se elimina con Skolem; la conclusión negada será un universal.",
+      "Resuelve la conclusión negada con la cláusula de la quilla y el resultado con el hecho Skolemizado."
+    ],
+    "explanation": "Las cláusulas son {¬V(x), K(x)}, {V(c1)} y {¬K(y)}. Se resuelve ¬K(y) con K(x) (queda ¬V(x)) y después con V(c1).",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (V(x) → K(x))",
+        "∃x V(x)"
+      ],
+      "conclusion": "∃x K(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "V",
+            "arity": 1,
+            "reading": "x es un velero"
+          },
+          {
+            "name": "K",
+            "arity": 1,
+            "reading": "x tiene quilla"
+          }
+        ],
+        "constants": []
+      },
+      "valid": true,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "∀x (¬V(x) ∨ K(x))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "skolem",
+                "result": "V(c1)"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "notExists",
+              "result": "∀x ¬K(x)"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "¬K(x)",
+              "sideLiteral": "K(x)"
+            },
+            {
+              "trunk": 3,
+              "side": 1,
+              "trunkLiteral": "¬V(x')",
+              "sideLiteral": "V(c1)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{V(c1)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-010",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Fichas rojas o azules",
+    "statement": "Cada ficha es roja o azul y ninguna es roja. ¿Se sigue que todas son azules? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "silogismo disyuntivo",
+      "negación de ∀"
+    ],
+    "hints": [
+      "La negación de ∀x A(x) es ∃x ¬A(x): después Skolem con una constante.",
+      "Resuelve la cláusula de la constante con {R(x), A(x)} y el resultado con {¬R(x)}."
+    ],
+    "explanation": "Con la conclusión negada se obtiene ¬A(c1). Resolviendo con {R(x), A(x)} sale R(c1), que choca con {¬R(x)}.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (R(x) ∨ A(x))",
+        "∀x ¬R(x)"
+      ],
+      "conclusion": "∀x A(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "R",
+            "arity": 1,
+            "reading": "x es roja"
+          },
+          {
+            "name": "A",
+            "arity": 1,
+            "reading": "x es azul"
+          }
+        ],
+        "constants": []
+      },
+      "valid": true,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "notForall",
+              "result": "∃x ¬A(x)"
+            },
+            {
+              "law": "skolem",
+              "result": "¬A(c1)"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "¬A(c1)",
+              "sideLiteral": "A(x)"
+            },
+            {
+              "trunk": 3,
+              "side": 1,
+              "trunkLiteral": "R(c1)",
+              "sideLiteral": "¬R(x)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬R(x)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-011",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Propuestas no urgentes",
+    "statement": "Alguna propuesta no se aprobó y todo lo urgente se aprobó. ¿Se sigue que alguna propuesta no es urgente? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "∃ con negación",
+      "Skolem"
+    ],
+    "hints": [
+      "La negación de la conclusión empieza por ¬∃: aplica la ley y después De Morgan sobre la conjunción negada.",
+      "La premisa 1 aporta dos cláusulas unitarias sobre la misma constante de Skolem."
+    ],
+    "explanation": "Se obtienen {P(c1)}, {¬Q(c1)}, {¬U(x), Q(x)} y {¬P(y), U(y)}. Desde ¬Q(c1) se llega a ¬U(c1), luego a ¬P(c1) y a □.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∃x (P(x) ∧ ¬Q(x))",
+        "∀x (U(x) → Q(x))"
+      ],
+      "conclusion": "∃x (P(x) ∧ ¬U(x))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es una propuesta"
+          },
+          {
+            "name": "Q",
+            "arity": 1,
+            "reading": "x se aprobó"
+          },
+          {
+            "name": "U",
+            "arity": 1,
+            "reading": "x es urgente"
+          }
+        ],
+        "constants": []
+      },
+      "valid": true,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "skolem",
+                "result": "P(c1) ∧ ¬Q(c1)"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "∀x (¬U(x) ∨ Q(x))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "notExists",
+              "result": "∀x ¬(P(x) ∧ ¬U(x))"
+            },
+            {
+              "law": "deMorganAnd",
+              "result": "∀x (¬P(x) ∨ ¬¬U(x))"
+            },
+            {
+              "law": "doubleNeg",
+              "result": "∀x (¬P(x) ∨ U(x))"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 3,
+              "side": 0,
+              "trunkLiteral": "¬P(x)",
+              "sideLiteral": "P(c1)"
+            },
+            {
+              "trunk": 4,
+              "side": 2,
+              "trunkLiteral": "U(c1)",
+              "sideLiteral": "¬U(x)"
+            },
+            {
+              "trunk": 5,
+              "side": 1,
+              "trunkLiteral": "Q(c1)",
+              "sideLiteral": "¬Q(c1)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬Q(c1)}, {Q(x), ¬U(x)}"
+            },
+            {
+              "kind": "pure",
+              "result": "{¬Q(c1)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-012",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Tutores y profesores",
+    "statement": "Todo alumno tiene algún tutor y todo tutor de alguien es profesor. ¿Se sigue que, para cualquier alumno, hay algún profesor? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "Skolem de función",
+      "negación de cuantificadores"
+    ],
+    "hints": [
+      "Para ¬∀x ∃y A usa ¬∀ y después ¬∃: queda ∃x ∀y ¬A, que se Skolemiza con una constante.",
+      "En la premisa ∀x ∃y el ∃ queda dentro de un ∀: la función de Skolem depende de x."
+    ],
+    "explanation": "La premisa 1 pasa a R(x, f1(x)); la negación de la conclusión a ¬S(y). Se resuelve ¬S(y) con la premisa 2 y después con R(x, f1(x)).",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x ∃y R(x, y)",
+        "∀x ∀y (R(x, y) → S(y))"
+      ],
+      "conclusion": "∀x ∃y S(y)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "R",
+            "arity": 2,
+            "reading": "y es tutor de x"
+          },
+          {
+            "name": "S",
+            "arity": 1,
+            "reading": "x es profesor"
+          }
+        ],
+        "constants": []
+      },
+      "valid": true,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "skolem",
+                "result": "∀x R(x, f1(x))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "∀x ∀y (¬R(x, y) ∨ S(y))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "notForall",
+              "result": "∃x ¬∃y S(y)"
+            },
+            {
+              "law": "notExists",
+              "result": "∃x ∀y ¬S(y)"
+            },
+            {
+              "law": "skolem",
+              "result": "∀y ¬S(y)"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 1,
+              "trunkLiteral": "¬S(y)",
+              "sideLiteral": "S(y)"
+            },
+            {
+              "trunk": 3,
+              "side": 0,
+              "trunkLiteral": "¬R(x, y')",
+              "sideLiteral": "R(x, f1(x))"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{R(x, f1(x))}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-013",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Todos quieren a alguien",
+    "statement": "Todos quieren a alguien. ¿Se sigue que hay alguien a quien todos quieren? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "orden de cuantificadores",
+      "no válido",
+      "Skolem de función"
+    ],
+    "hints": [
+      "Niega ∃y ∀x A con ¬∃ y después ¬∀: queda ∀y ∃x ¬A y la función de Skolem depende de y.",
+      "Con funciones de Skolem distintas los términos no llegan a unificar de forma que se cierre el árbol."
+    ],
+    "explanation": "Las cláusulas son {R(x, f1(x))} y {¬R(f2(y), y)}: no hay refutación porque en un modelo donde cada elemento se quiere a sí mismo nadie es querido por todos. El razonamiento no es válido. Contramodelo: dominio {1, 2}; R = {(1, 2), (2, 1)}.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x ∃y R(x, y)"
+      ],
+      "conclusion": "∃y ∀x R(x, y)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "R",
+            "arity": 2,
+            "reading": "x quiere a y"
+          }
+        ],
+        "constants": []
+      },
+      "valid": false,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "skolem",
+                "result": "∀x R(x, f1(x))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "notExists",
+              "result": "∀y ¬∀x R(x, y)"
+            },
+            {
+              "law": "notForall",
+              "result": "∀y ∃x ¬R(x, y)"
+            },
+            {
+              "law": "skolem",
+              "result": "∀y ¬R(f2(y), y)"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬R(f2(y), y)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "valid": false,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-014",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Un asesor para cada cliente",
+    "statement": "Todo cliente tiene un asesor asignado y Ana es cliente. ¿Se sigue que Ana tiene un asesor? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "Skolem de función",
+      "condicional"
+    ],
+    "hints": [
+      "El ∃ queda dentro de ∀x (… → ∃y …): aplica imp y luego Skolem con una función de x.",
+      "La negación de ∃y R(a, y) es ∀y ¬R(a, y): resuélvela con la cláusula de la función de Skolem."
+    ],
+    "explanation": "La premisa 1 da {¬C(x), R(x, f1(x))}. Con ¬R(a, y) se obtiene ¬C(a) y con C(a) se llega a □.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (C(x) → ∃y R(x, y))",
+        "C(a)"
+      ],
+      "conclusion": "∃y R(a, y)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "C",
+            "arity": 1,
+            "reading": "x es cliente"
+          },
+          {
+            "name": "R",
+            "arity": 2,
+            "reading": "y es el asesor de x"
+          }
+        ],
+        "constants": [
+          {
+            "name": "a",
+            "reading": "Ana"
+          }
+        ]
+      },
+      "valid": true,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "∀x (¬C(x) ∨ (∃y R(x, y)))"
+              },
+              {
+                "law": "skolem",
+                "result": "∀x (¬C(x) ∨ R(x, f1(x)))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "notExists",
+              "result": "∀y ¬R(a, y)"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "¬R(a, y)",
+              "sideLiteral": "R(x, f1(x))"
+            },
+            {
+              "trunk": 3,
+              "side": 1,
+              "trunkLiteral": "¬C(a)",
+              "sideLiteral": "C(a)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{C(a)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-015",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Todos mayores y alguien voluntario",
+    "statement": "Todos son mayores de edad y alguien es voluntario. ¿Se sigue que algún voluntario es mayor de edad? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "renombrar variable",
+      "mover ∀"
+    ],
+    "hints": [
+      "La premisa usa x en dos cuantificadores: renombra una de las variables ligadas antes de aplicar Skolem.",
+      "Mueve ∀ a la izquierda para que el prefijo sea solo universal y la matriz quede en FNC."
+    ],
+    "explanation": "Tras renombrar, Skolemizar y sacar el ∀ se obtienen {M(y)} y {V(c1)}. La conclusión negada es ∀x (¬M(x) ∨ ¬V(x)): se resuelve con M(y) (queda ¬V(y)) y luego con V(c1).",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x M(x) ∧ ∃x V(x)"
+      ],
+      "conclusion": "∃x (M(x) ∧ V(x))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "M",
+            "arity": 1,
+            "reading": "x es mayor de edad"
+          },
+          {
+            "name": "V",
+            "arity": 1,
+            "reading": "x es voluntario"
+          }
+        ],
+        "constants": []
+      },
+      "valid": true,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "renameForall",
+                "result": "(∀y M(y)) ∧ (∃x V(x))"
+              },
+              {
+                "law": "skolem",
+                "result": "(∀y M(y)) ∧ V(c1)"
+              },
+              {
+                "law": "moveForall",
+                "result": "∀y (M(y) ∧ V(c1))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "notExists",
+              "result": "∀x ¬(M(x) ∧ V(x))"
+            },
+            {
+              "law": "deMorganAnd",
+              "result": "∀x (¬M(x) ∨ ¬V(x))"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "¬M(x)",
+              "sideLiteral": "M(y)"
+            },
+            {
+              "trunk": 3,
+              "side": 1,
+              "trunkLiteral": "¬V(y)",
+              "sideLiteral": "V(c1)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{V(c1)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-016",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "media",
+    "title": "Premisas que se contradicen",
+    "statement": "Todo vehículo con alarma avisa, la moto tiene alarma y la moto no avisa. ¿Se sigue que la moto es ecológica? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "inconsistencia",
+      "ex falso"
+    ],
+    "hints": [
+      "Estudia primero las premisas: ¿se puede refutar el conjunto sin usar la conclusión?",
+      "Si las premisas son inconsistentes, cualquier conclusión es válida; la inconsistencia se ve en la fase de consistencia."
+    ],
+    "explanation": "De {¬A(x), V(x)}, {A(m)} y {¬V(m)} se llega a □ sin usar la conclusión: las premisas son inconsistentes y por eso el razonamiento es válido.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (A(x) → V(x))",
+        "A(m)",
+        "¬V(m)"
+      ],
+      "conclusion": "E(m)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "A",
+            "arity": 1,
+            "reading": "x tiene alarma"
+          },
+          {
+            "name": "V",
+            "arity": 1,
+            "reading": "x avisa"
+          },
+          {
+            "name": "E",
+            "arity": 1,
+            "reading": "x es ecológico"
+          }
+        ],
+        "constants": [
+          {
+            "name": "m",
+            "reading": "la moto"
+          }
+        ]
+      },
+      "valid": true,
+      "consistent": false,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "∀x (¬A(x) ∨ V(x))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬A(x), V(x)}, {A(m)}, {¬V(m)}"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 0,
+              "side": 1,
+              "trunkLiteral": "¬A(x)",
+              "sideLiteral": "A(m)"
+            },
+            {
+              "trunk": 3,
+              "side": 2,
+              "trunkLiteral": "V(m)",
+              "sideLiteral": "¬V(m)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 0,
+              "side": 1,
+              "trunkLiteral": "¬A(x)",
+              "sideLiteral": "A(m)"
+            },
+            {
+              "trunk": 3,
+              "side": 2,
+              "trunkLiteral": "V(m)",
+              "sideLiteral": "¬V(m)"
+            }
+          ]
+        },
+        "consistent": false
+      }
+    }
+  },
+  {
+    "id": "pre-res-017",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "Si alguien aprueba, todos celebran",
+    "statement": "Si alguien aprueba, todos celebran. Ana aprueba. ¿Se sigue que Beto celebra? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "∃ en el antecedente",
+      "mover ∀"
+    ],
+    "hints": [
+      "En ∃x A → ∀y B primero aplica imp; después ¬∃ convierte el antecedente en un universal.",
+      "Ahora hay dos ∀ dentro de una disyunción: muévelos a la izquierda hasta obtener un prefijo universal."
+    ],
+    "explanation": "La premisa 1 queda como ∀x ∀y (¬A(x) ∨ C(y)). Con ¬C(b) se llega a ¬A(x') y con A(a) a □.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∃x A(x) → ∀y C(y)",
+        "A(a)"
+      ],
+      "conclusion": "C(b)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "A",
+            "arity": 1,
+            "reading": "x aprueba"
+          },
+          {
+            "name": "C",
+            "arity": 1,
+            "reading": "x celebra"
+          }
+        ],
+        "constants": [
+          {
+            "name": "a",
+            "reading": "Ana"
+          },
+          {
+            "name": "b",
+            "reading": "Beto"
+          }
+        ]
+      },
+      "valid": true,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "¬∃x A(x) ∨ (∀y C(y))"
+              },
+              {
+                "law": "notExists",
+                "result": "(∀x ¬A(x)) ∨ (∀y C(y))"
+              },
+              {
+                "law": "moveForall",
+                "result": "∀x (¬A(x) ∨ (∀y C(y)))"
+              },
+              {
+                "law": "moveForall",
+                "result": "∀x ∀y (C(y) ∨ ¬A(x))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "¬C(b)",
+              "sideLiteral": "C(y)"
+            },
+            {
+              "trunk": 3,
+              "side": 1,
+              "trunkLiteral": "¬A(x)",
+              "sideLiteral": "A(a)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{A(a)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-018",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "Un revisor titulado",
+    "statement": "Toda solicitud tiene un revisor que la revisa y es titulado. Hay una solicitud. ¿Se sigue que hay algún revisor titulado? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "Skolem de función",
+      "distributiva"
+    ],
+    "hints": [
+      "Tras imp y Skolem con una función de x, el consecuente es una conjunción dentro de una disyunción: distribuye.",
+      "La conclusión negada ∀y ¬T(y) se resuelve con una cláusula en la que T lleva el término de Skolem."
+    ],
+    "explanation": "La premisa 1 da {¬S(x), R(x, f1(x))} y {¬S(x), T(f1(x))}. Con ¬T(y) se obtiene ¬S(x') y con S(a) se llega a □.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (S(x) → ∃y (R(x, y) ∧ T(y)))",
+        "S(a)"
+      ],
+      "conclusion": "∃y T(y)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "S",
+            "arity": 1,
+            "reading": "x es una solicitud"
+          },
+          {
+            "name": "R",
+            "arity": 2,
+            "reading": "y revisa x"
+          },
+          {
+            "name": "T",
+            "arity": 1,
+            "reading": "x es un revisor titulado"
+          }
+        ],
+        "constants": [
+          {
+            "name": "a",
+            "reading": "la solicitud A"
+          }
+        ]
+      },
+      "valid": true,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "∀x (¬S(x) ∨ (∃y (R(x, y) ∧ T(y))))"
+              },
+              {
+                "law": "skolem",
+                "result": "∀x (¬S(x) ∨ (R(x, f1(x)) ∧ T(f1(x))))"
+              },
+              {
+                "law": "distribOrAnd",
+                "result": "∀x ((¬S(x) ∨ R(x, f1(x))) ∧ (¬S(x) ∨ T(f1(x))))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "notExists",
+              "result": "∀y ¬T(y)"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬S(x), T(f1(x))}, {S(a)}, {¬T(y)}"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "¬T(y)",
+              "sideLiteral": "T(f1(x))"
+            },
+            {
+              "trunk": 3,
+              "side": 1,
+              "trunkLiteral": "¬S(x)",
+              "sideLiteral": "S(a)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{¬S(x), T(f1(x))}, {S(a)}"
+            },
+            {
+              "kind": "pure",
+              "result": "{S(a)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-019",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "Ningún peligroso sin jaula",
+    "statement": "No existe ningún animal peligroso que esté fuera de la jaula. El león es peligroso. ¿Se sigue que el león está en la jaula? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "negación de ∃",
+      "De Morgan"
+    ],
+    "hints": [
+      "En la premisa 1 aplica ¬∃, luego De Morgan y la doble negación para dejar ∀x (¬P(x) ∨ J(x)).",
+      "La conclusión negada es ¬J(l): resuélvela con la cláusula universal y después con P(l)."
+    ],
+    "explanation": "La premisa 1 pasa a {¬P(x), J(x)}. Con ¬J(l) sale ¬P(l), que choca con P(l).",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "¬∃x (P(x) ∧ ¬J(x))",
+        "P(l)"
+      ],
+      "conclusion": "J(l)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es peligroso"
+          },
+          {
+            "name": "J",
+            "arity": 1,
+            "reading": "x está en la jaula"
+          }
+        ],
+        "constants": [
+          {
+            "name": "l",
+            "reading": "el león"
+          }
+        ]
+      },
+      "valid": true,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "notExists",
+                "result": "∀x ¬(P(x) ∧ ¬J(x))"
+              },
+              {
+                "law": "deMorganAnd",
+                "result": "∀x (¬P(x) ∨ ¬¬J(x))"
+              },
+              {
+                "law": "doubleNeg",
+                "result": "∀x (¬P(x) ∨ J(x))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 2,
+              "side": 0,
+              "trunkLiteral": "¬J(l)",
+              "sideLiteral": "J(x)"
+            },
+            {
+              "trunk": 3,
+              "side": 1,
+              "trunkLiteral": "¬P(l)",
+              "sideLiteral": "P(l)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{P(l)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-020",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "Dilema de pago",
+    "statement": "Cada cliente compra en línea o en tienda, y en ambos casos paga con tarjeta. ¿Se sigue que alguien paga con tarjeta? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "dilema",
+      "refutación lineal"
+    ],
+    "hints": [
+      "La conclusión negada ∀x ¬T(x) es la troncal natural: la usarás en varios pasos.",
+      "Resuelve con las dos implicaciones para eliminar la tarjeta y después usa la disyunción para cerrar."
+    ],
+    "explanation": "Con {O(x), E(x)}, {¬O(x), T(x)}, {¬E(x), T(x)} y {¬T(x)} se obtienen sucesivamente {¬O(x)}, {E(x)}, {T(x)} y □.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (O(x) ∨ E(x))",
+        "∀x (O(x) → T(x))",
+        "∀x (E(x) → T(x))"
+      ],
+      "conclusion": "∃x T(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "O",
+            "arity": 1,
+            "reading": "x compra en línea"
+          },
+          {
+            "name": "E",
+            "arity": 1,
+            "reading": "x compra en tienda"
+          },
+          {
+            "name": "T",
+            "arity": 1,
+            "reading": "x paga con tarjeta"
+          }
+        ],
+        "constants": []
+      },
+      "valid": true,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "∀x (¬O(x) ∨ T(x))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "imp",
+                "result": "∀x (¬E(x) ∨ T(x))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "notExists",
+              "result": "∀x ¬T(x)"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 0,
+              "side": 1,
+              "trunkLiteral": "O(x)",
+              "sideLiteral": "¬O(x)"
+            },
+            {
+              "trunk": 4,
+              "side": 2,
+              "trunkLiteral": "E(x')",
+              "sideLiteral": "¬E(x)"
+            },
+            {
+              "trunk": 5,
+              "side": 3,
+              "trunkLiteral": "T(x)",
+              "sideLiteral": "¬T(x)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{E(x), O(x)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-021",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "Todos conocen y nadie conoce",
+    "statement": "Todos conocen a alguien, pero nadie conoce a nadie. ¿Se sigue que Pablo es puntual? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "inconsistencia",
+      "Skolem de función",
+      "negación de ∃"
+    ],
+    "hints": [
+      "Aplica ¬∃ dos veces en la premisa 2 para obtener un doble universal.",
+      "Fíjate en si las premisas se contradicen entre sí: la clave está en la fase de consistencia."
+    ],
+    "explanation": "La premisa 1 da R(x, f1(x)) y la premisa 2 da ¬R(x, y): resolviendo se llega a □ sin usar la conclusión. Las premisas son inconsistentes y el razonamiento es válido.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x ∃y R(x, y)",
+        "¬∃x ∃y R(x, y)"
+      ],
+      "conclusion": "P(p)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "R",
+            "arity": 2,
+            "reading": "x conoce a y"
+          },
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es puntual"
+          }
+        ],
+        "constants": [
+          {
+            "name": "p",
+            "reading": "Pablo"
+          }
+        ]
+      },
+      "valid": true,
+      "consistent": false,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "skolem",
+                "result": "∀x R(x, f1(x))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "notExists",
+                "result": "∀x ¬∃y R(x, y)"
+              },
+              {
+                "law": "notExists",
+                "result": "∀x ∀y ¬R(x, y)"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{R(x, f1(x))}, {¬R(x, y)}"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 0,
+              "side": 1,
+              "trunkLiteral": "R(x, f1(x))",
+              "sideLiteral": "¬R(x, y)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 0,
+              "side": 1,
+              "trunkLiteral": "R(x, f1(x))",
+              "sideLiteral": "¬R(x, y)"
+            }
+          ]
+        },
+        "consistent": false
+      }
+    }
+  },
+  {
+    "id": "pre-res-022",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "El participante descalificado",
+    "statement": "Hay un participante tal que todos los participantes quedan descalificados, y nadie queda descalificado. ¿Se sigue que todo es un participante? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "inconsistencia",
+      "Skolem",
+      "mover ∀"
+    ],
+    "hints": [
+      "En la premisa 1 hay un ∀ dentro de una conjunción: tras Skolem, muévelo a la izquierda.",
+      "Estudia si las premisas por sí solas llevan a □ antes de preocuparte por la conclusión."
+    ],
+    "explanation": "La premisa 1 da {P(c1)} y {¬P(y), D(y)}; la premisa 2 da {¬D(x)}. De ahí P(c1) lleva a D(c1) y a □: las premisas son inconsistentes y el razonamiento es válido.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∃x (P(x) ∧ ∀y (P(y) → D(y)))",
+        "∀x ¬D(x)"
+      ],
+      "conclusion": "∀x P(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es participante"
+          },
+          {
+            "name": "D",
+            "arity": 1,
+            "reading": "x queda descalificado"
+          }
+        ],
+        "constants": []
+      },
+      "valid": true,
+      "consistent": false,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "∃x (P(x) ∧ (∀y (¬P(y) ∨ D(y))))"
+              },
+              {
+                "law": "skolem",
+                "result": "P(c1) ∧ (∀y (¬P(y) ∨ D(y)))"
+              },
+              {
+                "law": "moveForall",
+                "result": "∀y ((¬P(y) ∨ D(y)) ∧ P(c1))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "notForall",
+              "result": "∃x ¬P(x)"
+            },
+            {
+              "law": "skolem",
+              "result": "¬P(c2)"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{D(y), ¬P(y)}, {P(c1)}, {¬D(x)}"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 0,
+              "side": 1,
+              "trunkLiteral": "¬P(y)",
+              "sideLiteral": "P(c1)"
+            },
+            {
+              "trunk": 3,
+              "side": 2,
+              "trunkLiteral": "D(c1)",
+              "sideLiteral": "¬D(x)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 0,
+              "side": 1,
+              "trunkLiteral": "¬P(y)",
+              "sideLiteral": "P(c1)"
+            },
+            {
+              "trunk": 3,
+              "side": 2,
+              "trunkLiteral": "D(c1)",
+              "sideLiteral": "¬D(x)"
+            }
+          ]
+        },
+        "consistent": false
+      }
+    }
+  },
+  {
+    "id": "pre-res-023",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "Condicional entre universales",
+    "statement": "Todo sensor calibrado funciona bien. ¿Se sigue que, si todos los sensores están calibrados, todos funcionan bien? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "negación de →",
+      "renombrar variable",
+      "mover ∀"
+    ],
+    "hints": [
+      "Para negar un condicional entre universales: imp, De Morgan, doble negación y ¬∀.",
+      "En la fórmula ∀x A(x) ∧ ∃x ¬B(x) la variable x se repite: renómbrala antes de Skolem y mueve ∀ a la izquierda."
+    ],
+    "explanation": "La negación de la conclusión da {K(x)} y {¬F(c1)}. Con {K(y)} y {¬K(x), F(x)} se obtiene {F(x)}, que choca con {¬F(c1)}.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (K(x) → F(x))"
+      ],
+      "conclusion": "∀x K(x) → ∀x F(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "K",
+            "arity": 1,
+            "reading": "x está calibrado"
+          },
+          {
+            "name": "F",
+            "arity": 1,
+            "reading": "x funciona bien"
+          }
+        ],
+        "constants": []
+      },
+      "valid": true,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "∀x (¬K(x) ∨ F(x))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "imp",
+              "result": "¬(¬∀x K(x) ∨ (∀x F(x)))"
+            },
+            {
+              "law": "notForall",
+              "result": "¬((∃x ¬K(x)) ∨ (∀x F(x)))"
+            },
+            {
+              "law": "deMorganOr",
+              "result": "¬∃x ¬K(x) ∧ ¬∀x F(x)"
+            },
+            {
+              "law": "notForall",
+              "result": "¬∃x ¬K(x) ∧ (∃x ¬F(x))"
+            },
+            {
+              "law": "notExists",
+              "result": "(∀x ¬¬K(x)) ∧ (∃x ¬F(x))"
+            },
+            {
+              "law": "doubleNeg",
+              "result": "(∀x K(x)) ∧ (∃x ¬F(x))"
+            },
+            {
+              "law": "renameForall",
+              "result": "(∀y K(y)) ∧ (∃x ¬F(x))"
+            },
+            {
+              "law": "skolem",
+              "result": "(∀y K(y)) ∧ ¬F(c1)"
+            },
+            {
+              "law": "moveForall",
+              "result": "∀y (K(y) ∧ ¬F(c1))"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": true,
+          "tree": [
+            {
+              "trunk": 1,
+              "side": 0,
+              "trunkLiteral": "K(y)",
+              "sideLiteral": "¬K(x)"
+            },
+            {
+              "trunk": 3,
+              "side": 2,
+              "trunkLiteral": "F(x)",
+              "sideLiteral": "¬F(c1)"
+            }
+          ]
+        },
+        "valid": true,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-024",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "Un asesor para todos",
+    "statement": "Todo cliente tiene asesor y hay clientes. ¿Se sigue que existe un asesor de todos? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "orden de cuantificadores",
+      "no válido"
+    ],
+    "hints": [
+      "Niega ∃y ∀x R(x, y) con ¬∃ y ¬∀; la función de Skolem de la conclusión negada depende de y.",
+      "Con los términos de Skolem distintos no se cierra ninguna refutación: piensa en un modelo pequeño."
+    ],
+    "explanation": "Las cláusulas son {¬C(x), R(x, f1(x))}, {C(c1)} y {¬R(f2(y), y)}: no se refuta. En un modelo de dos elementos donde cada cliente es su propio asesor nadie asesora a todos. El razonamiento no es válido. Contramodelo: dominio {1, 2}; C = {1}; R = {(1, 1)}.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (C(x) → ∃y R(x, y))",
+        "∃x C(x)"
+      ],
+      "conclusion": "∃y ∀x R(x, y)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "C",
+            "arity": 1,
+            "reading": "x es cliente"
+          },
+          {
+            "name": "R",
+            "arity": 2,
+            "reading": "y es asesor de x"
+          }
+        ],
+        "constants": []
+      },
+      "valid": false,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "imp",
+                "result": "∀x (¬C(x) ∨ (∃y R(x, y)))"
+              },
+              {
+                "law": "skolem",
+                "result": "∀x (¬C(x) ∨ R(x, f1(x)))"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ],
+            [
+              {
+                "law": "skolem",
+                "result": "C(c1)"
+              },
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "notExists",
+              "result": "∀y ¬∀x R(x, y)"
+            },
+            {
+              "law": "notForall",
+              "result": "∀y ∃x ¬R(x, y)"
+            },
+            {
+              "law": "skolem",
+              "result": "∀y ¬R(f2(y), y)"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{C(c1)}, {¬R(f2(y), y)}"
+            },
+            {
+              "kind": "pure",
+              "result": "{¬R(f2(y), y)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "valid": false,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "{C(c1)}"
+            },
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  },
+  {
+    "id": "pre-res-025",
+    "blockId": "predicados-resolucion",
+    "type": "resolution",
+    "difficulty": "avanzada",
+    "title": "Pares o impares",
+    "statement": "Todo número es par o impar. ¿Se sigue que todos son pares o todos son impares? Estudia con el método de resolución si el razonamiento es válido y si las premisas son consistentes.",
+    "tags": [
+      "no válido",
+      "renombrar variable",
+      "mover ∀"
+    ],
+    "hints": [
+      "Niega la disyunción de universales con De Morgan y ¬∀; la fórmula resultante repite x en dos ∃.",
+      "Renombra para que cada ∃ lleve su propia variable y Skolemiza con dos constantes distintas."
+    ],
+    "explanation": "Se obtienen {P(x), I(x)}, {¬P(c1)} y {¬I(c2)}: no se puede cerrar un árbol porque el conjunto es satisfacible (basta un modelo de dos elementos, uno par y otro impar). El razonamiento no es válido. Contramodelo: dominio {1, 2}; P = {2}; I = {1}.",
+    "data": {
+      "language": "predicate",
+      "premises": [
+        "∀x (P(x) ∨ I(x))"
+      ],
+      "conclusion": "∀x P(x) ∨ ∀x I(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es par"
+          },
+          {
+            "name": "I",
+            "arity": 1,
+            "reading": "x es impar"
+          }
+        ],
+        "constants": []
+      },
+      "valid": false,
+      "consistent": true,
+      "reference": {
+        "nf": {
+          "premises": [
+            [
+              {
+                "law": "fns",
+                "result": ""
+              }
+            ]
+          ],
+          "negConclusion": [
+            {
+              "law": "deMorganOr",
+              "result": "¬∀x P(x) ∧ ¬∀x I(x)"
+            },
+            {
+              "law": "notForall",
+              "result": "(∃x ¬P(x)) ∧ ¬∀x I(x)"
+            },
+            {
+              "law": "notForall",
+              "result": "(∃x ¬P(x)) ∧ (∃x ¬I(x))"
+            },
+            {
+              "law": "renameExists",
+              "result": "(∃y ¬P(y)) ∧ (∃x ¬I(x))"
+            },
+            {
+              "law": "skolem",
+              "result": "¬P(c1) ∧ (∃x ¬I(x))"
+            },
+            {
+              "law": "skolem",
+              "result": "¬P(c1) ∧ ¬I(c2)"
+            },
+            {
+              "law": "fns",
+              "result": ""
+            }
+          ]
+        },
+        "refute": {
+          "simplify": [
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "valid": false,
+        "premisesPhase": {
+          "simplify": [
+            {
+              "kind": "pure",
+              "result": "∅"
+            },
+            {
+              "kind": "none",
+              "result": ""
+            }
+          ],
+          "possible": false,
+          "tree": []
+        },
+        "consistent": true
+      }
+    }
+  }
+]

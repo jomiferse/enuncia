@@ -24,6 +24,13 @@ export function Feedback({
         )}
         <strong>{translateGrade(result)}</strong>
       </div>
+      {result.details && result.details.length > 0 && (
+        <ul className="feedback-details">
+          {result.details.map((line) => (
+            <li key={line}>{line}</li>
+          ))}
+        </ul>
+      )}
       {result.counterexample && (
         <>
           <p>{t("Feedback.conEstosValoresLasDosFormulasDan")}</p>

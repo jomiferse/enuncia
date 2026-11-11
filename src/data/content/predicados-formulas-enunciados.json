@@ -1,0 +1,1255 @@
+[
+  {
+    "id": "pre-fen-001",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "basica",
+    "title": "Todos aprueban",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "universal",
+      "condicional"
+    ],
+    "hints": [
+      "Identifica el cuantificador y, después, qué conectiva une E(x) y A(x).",
+      "Un ∀ con → habla de «todos los que cumplen la condición»."
+    ],
+    "explanation": "∀x (E(x) → A(x)) dice que, para cualquier individuo, si es estudiante entonces aprueba: es la forma habitual de «todo estudiante aprueba».",
+    "data": {
+      "formula": "∀x (E(x) → A(x))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "E",
+            "arity": 1,
+            "reading": "x es estudiante"
+          },
+          {
+            "name": "A",
+            "arity": 1,
+            "reading": "x aprueba"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Todo estudiante aprueba.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Algún estudiante aprueba.",
+          "why": "Eso sería ∃x (E(x) ∧ A(x)): la fórmula afirma que aprueban todos los estudiantes, no solo alguno."
+        },
+        {
+          "id": "c",
+          "text": "Todo el mundo es estudiante y aprueba.",
+          "why": "Eso sería ∀x (E(x) ∧ A(x)): usa una conjunción dentro del ∀ y obliga a que cualquier individuo sea estudiante."
+        },
+        {
+          "id": "d",
+          "text": "Todo el que aprueba es estudiante.",
+          "why": "Invierte el condicional: eso sería ∀x (A(x) → E(x)). En la fórmula, ser estudiante es la condición y aprobar la consecuencia."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-002",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "basica",
+    "title": "Alguno aprueba",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "existencial",
+      "conjunción"
+    ],
+    "hints": [
+      "El ∃ afirma que existe al menos un individuo.",
+      "Ese individuo debe cumplir las dos cosas a la vez."
+    ],
+    "explanation": "∃x (E(x) ∧ A(x)) exige un individuo concreto que sea estudiante y apruebe. Con ∃ se usa ∧, no →.",
+    "data": {
+      "formula": "∃x (E(x) ∧ A(x))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "E",
+            "arity": 1,
+            "reading": "x es estudiante"
+          },
+          {
+            "name": "A",
+            "arity": 1,
+            "reading": "x aprueba"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Todo estudiante aprueba.",
+          "why": "Eso sería ∀x (E(x) → A(x)). La fórmula solo asegura que existe al menos un caso."
+        },
+        {
+          "id": "b",
+          "text": "Ningún estudiante aprueba.",
+          "why": "Eso sería ¬∃x (E(x) ∧ A(x)): afirma exactamente lo contrario."
+        },
+        {
+          "id": "c",
+          "text": "Algún estudiante aprueba.",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Existe alguien que, si es estudiante, aprueba.",
+          "why": "Eso sería ∃x (E(x) → A(x)), que se cumple con cualquier individuo que no sea estudiante, aunque no haya estudiantes que aprueben."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-003",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "basica",
+    "title": "Ninguno aprueba",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "negación",
+      "existencial"
+    ],
+    "hints": [
+      "La negación afecta a todo el cuantificador ∃.",
+      "Negar «existe alguien que...» es decir que no hay nadie que..."
+    ],
+    "explanation": "¬∃x (E(x) ∧ A(x)) niega que exista algún estudiante que apruebe: no hay ninguno.",
+    "data": {
+      "formula": "¬∃x (E(x) ∧ A(x))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "E",
+            "arity": 1,
+            "reading": "x es estudiante"
+          },
+          {
+            "name": "A",
+            "arity": 1,
+            "reading": "x aprueba"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "No todos los estudiantes aprueban.",
+          "why": "Eso sería ¬∀x (E(x) → A(x)), que equivale a «algún estudiante no aprueba»: es mucho más débil que «ninguno aprueba»."
+        },
+        {
+          "id": "b",
+          "text": "Ningún estudiante aprueba.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Todo estudiante aprueba.",
+          "why": "Eso sería ∀x (E(x) → A(x)): es lo contrario de lo que dice la fórmula."
+        },
+        {
+          "id": "d",
+          "text": "Algún estudiante aprueba.",
+          "why": "Eso sería ∃x (E(x) ∧ A(x)), la fórmula sin la negación inicial."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-004",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "basica",
+    "title": "Admiración no recíproca",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "constantes",
+      "conjunción"
+    ],
+    "hints": [
+      "El orden de los argumentos importa en un predicado binario.",
+      "Fíjate en qué parte lleva la negación."
+    ],
+    "explanation": "H(a, b) significa «Ana admira a Berta» y ¬H(b, a) que Berta no admira a Ana.",
+    "data": {
+      "formula": "H(a, b) ∧ ¬H(b, a)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "H",
+            "arity": 2,
+            "reading": "x admira a y"
+          }
+        ],
+        "constants": [
+          {
+            "name": "a",
+            "reading": "Ana"
+          },
+          {
+            "name": "b",
+            "reading": "Berta"
+          }
+        ]
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Berta admira a Ana, pero Ana no admira a Berta.",
+          "why": "Intercambia los argumentos. En H(a, b) el primer argumento es quien admira: Ana."
+        },
+        {
+          "id": "b",
+          "text": "Ni Ana admira a Berta ni Berta admira a Ana.",
+          "why": "La fórmula afirma H(a, b); no la niega."
+        },
+        {
+          "id": "c",
+          "text": "Ana y Berta se admiran mutuamente.",
+          "why": "Eso sería H(a, b) ∧ H(b, a): la fórmula niega la segunda parte."
+        },
+        {
+          "id": "d",
+          "text": "Ana admira a Berta, pero Berta no admira a Ana.",
+          "correct": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-005",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "basica",
+    "title": "Nadie llega tarde",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "negación",
+      "universal"
+    ],
+    "hints": [
+      "La negación está dentro del ∀, no delante.",
+      "Para cada individuo, no llega tarde."
+    ],
+    "explanation": "∀x ¬L(x) dice que todo individuo cumple «no llega tarde», es decir, nadie llega tarde. Equivale a ¬∃x L(x).",
+    "data": {
+      "formula": "∀x ¬L(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "L",
+            "arity": 1,
+            "reading": "x llega tarde"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "No todos llegan tarde.",
+          "why": "Eso sería ¬∀x L(x): permite que algunos lleguen tarde. La fórmula prohíbe a todos."
+        },
+        {
+          "id": "b",
+          "text": "Nadie llega tarde.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Alguien llega tarde.",
+          "why": "Eso sería ∃x L(x), lo contrario de lo que dice la fórmula."
+        },
+        {
+          "id": "d",
+          "text": "Todos llegan tarde.",
+          "why": "Eso sería ∀x L(x): falta la negación dentro del cuantificador."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-006",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "basica",
+    "title": "No todos llegan tarde",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "negación",
+      "universal"
+    ],
+    "hints": [
+      "La negación está delante del cuantificador.",
+      "¬∀x equivale a «existe alguien que no...»."
+    ],
+    "explanation": "¬∀x L(x) equivale a ∃x ¬L(x): hay al menos una persona que no llega tarde.",
+    "data": {
+      "formula": "¬∀x L(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "L",
+            "arity": 1,
+            "reading": "x llega tarde"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Nadie llega tarde.",
+          "why": "Eso sería ∀x ¬L(x). La fórmula solo niega que lleguen todos: algunos pueden llegar tarde."
+        },
+        {
+          "id": "b",
+          "text": "Todos llegan tarde.",
+          "why": "Eso sería ∀x L(x), la fórmula sin la negación."
+        },
+        {
+          "id": "c",
+          "text": "No todos llegan tarde.",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Alguien llega tarde.",
+          "why": "Eso sería ∃x L(x). Es compatible con que todos lleguen tarde, cosa que la fórmula excluye."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-007",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "basica",
+    "title": "Ningún pájaro",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "universal",
+      "negación"
+    ],
+    "hints": [
+      "Lee primero el ∀ y después el condicional.",
+      "Para todo individuo, si es pájaro entonces no es mamífero."
+    ],
+    "explanation": "∀x (P(x) → ¬M(x)) equivale a ¬∃x (P(x) ∧ M(x)): no hay pájaros que sean mamíferos.",
+    "data": {
+      "formula": "∀x (P(x) → ¬M(x))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es un pájaro"
+          },
+          {
+            "name": "M",
+            "arity": 1,
+            "reading": "x es un mamífero"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Ningún pájaro es mamífero.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Algún pájaro no es mamífero.",
+          "why": "Eso sería ∃x (P(x) ∧ ¬M(x)). La fórmula afirma que ningún pájaro es mamífero, no solo uno."
+        },
+        {
+          "id": "c",
+          "text": "Todo lo que no es pájaro es mamífero.",
+          "why": "Cambia la condición: eso sería ∀x (¬P(x) → M(x))."
+        },
+        {
+          "id": "d",
+          "text": "No todo pájaro es mamífero.",
+          "why": "Eso sería ¬∀x (P(x) → M(x)), mucho más débil que la fórmula."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-008",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "basica",
+    "title": "Trabajador sin cobrar",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "existencial",
+      "negación"
+    ],
+    "hints": [
+      "Hay un individuo concreto que cumple dos condiciones.",
+      "Una de ellas está negada."
+    ],
+    "explanation": "∃x (T(x) ∧ ¬C(x)) afirma la existencia de alguien que trabaja y no cobra.",
+    "data": {
+      "formula": "∃x (T(x) ∧ ¬C(x))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "T",
+            "arity": 1,
+            "reading": "x trabaja"
+          },
+          {
+            "name": "C",
+            "arity": 1,
+            "reading": "x cobra"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Nadie que trabaje cobra.",
+          "why": "Eso sería ∀x (T(x) → ¬C(x)): habla de todos los que trabajan, no de uno."
+        },
+        {
+          "id": "b",
+          "text": "Todos los que trabajan cobran.",
+          "why": "Eso sería ∀x (T(x) → C(x)), que contradice la fórmula."
+        },
+        {
+          "id": "c",
+          "text": "Existe alguien que, si trabaja, no cobra.",
+          "why": "Eso sería ∃x (T(x) → ¬C(x)): se cumple con cualquier individuo que no trabaje y no dice nada sobre trabajadores sin cobrar."
+        },
+        {
+          "id": "d",
+          "text": "Hay alguien que trabaja y no cobra.",
+          "correct": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-009",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "media",
+    "title": "Todo estudiante tiene libro",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "alcance",
+      "anidados"
+    ],
+    "hints": [
+      "El ∃y está dentro del ∀x: el libro puede depender del estudiante.",
+      "Cuando ∃ va después de ∀, el valor elegido puede cambiar para cada caso."
+    ],
+    "explanation": "Como ∃y queda dentro del alcance de ∀x, cada estudiante puede tener un libro distinto.",
+    "data": {
+      "formula": "∀x (E(x) → ∃y (L(y) ∧ T(x, y)))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "E",
+            "arity": 1,
+            "reading": "x es estudiante"
+          },
+          {
+            "name": "L",
+            "arity": 1,
+            "reading": "y es un libro"
+          },
+          {
+            "name": "T",
+            "arity": 2,
+            "reading": "x tiene y"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Hay un libro que tienen todos los estudiantes.",
+          "why": "Eso sería ∃y (L(y) ∧ ∀x (E(x) → T(x, y))): el ∃ cambia de sitio y el libro sería el mismo para todos."
+        },
+        {
+          "id": "b",
+          "text": "Todo estudiante tiene algún libro.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Todo estudiante tiene todos los libros.",
+          "why": "Eso sería ∀x ∀y ((E(x) ∧ L(y)) → T(x, y)): la fórmula solo exige un libro por estudiante."
+        },
+        {
+          "id": "d",
+          "text": "Algún estudiante tiene algún libro.",
+          "why": "Eso sería ∃x ∃y (E(x) ∧ L(y) ∧ T(x, y)): la fórmula habla de todos los estudiantes."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-010",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "media",
+    "title": "Un libro para todos",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "alcance",
+      "anidados"
+    ],
+    "hints": [
+      "El ∃y está fuera: el libro se elige primero.",
+      "Después, todos los estudiantes deben tener ese mismo libro."
+    ],
+    "explanation": "Al colocar ∃y delante, se fija un único libro y se afirma que todos los estudiantes lo tienen.",
+    "data": {
+      "formula": "∃y (L(y) ∧ ∀x (E(x) → T(x, y)))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "E",
+            "arity": 1,
+            "reading": "x es estudiante"
+          },
+          {
+            "name": "L",
+            "arity": 1,
+            "reading": "y es un libro"
+          },
+          {
+            "name": "T",
+            "arity": 2,
+            "reading": "x tiene y"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Todo estudiante tiene algún libro.",
+          "why": "Eso sería ∀x (E(x) → ∃y (L(y) ∧ T(x, y))): con el orden de cuantificadores cambiado, cada estudiante puede tener un libro diferente."
+        },
+        {
+          "id": "b",
+          "text": "Algún estudiante tiene todos los libros.",
+          "why": "Eso sería ∃x (E(x) ∧ ∀y (L(y) → T(x, y))): intercambia los papeles de estudiantes y libros."
+        },
+        {
+          "id": "c",
+          "text": "Hay un libro que tienen todos los estudiantes.",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Todos los estudiantes tienen todos los libros.",
+          "why": "Es más fuerte: la fórmula solo exige un libro común."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-011",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "media",
+    "title": "Amistad simétrica",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "universal",
+      "relaciones"
+    ],
+    "hints": [
+      "Fíjate en que los argumentos se intercambian entre antecedente y consecuente.",
+      "Esta propiedad se llama simetría."
+    ],
+    "explanation": "∀x ∀y (A(x, y) → A(y, x)) expresa que la relación de amistad es simétrica.",
+    "data": {
+      "formula": "∀x ∀y (A(x, y) → A(y, x))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "A",
+            "arity": 2,
+            "reading": "x es amigo de y"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Todas las personas son amigas entre sí.",
+          "why": "Eso sería ∀x ∀y A(x, y). La fórmula solo exige reciprocidad cuando ya existe amistad."
+        },
+        {
+          "id": "b",
+          "text": "Toda persona es amiga de sí misma.",
+          "why": "Eso sería ∀x A(x, x): usa el mismo individuo en ambos argumentos."
+        },
+        {
+          "id": "c",
+          "text": "Toda persona tiene algún amigo.",
+          "why": "Eso sería ∀x ∃y A(x, y): no habla de reciprocidad."
+        },
+        {
+          "id": "d",
+          "text": "Si una persona es amiga de otra, esta también es amiga de la primera.",
+          "correct": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-012",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "media",
+    "title": "Todos tienen un amigo",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "alcance",
+      "relaciones"
+    ],
+    "hints": [
+      "Lee los cuantificadores de izquierda a derecha.",
+      "Para cada x, existe un y (que puede depender de x)."
+    ],
+    "explanation": "En ∀x ∃y A(x, y) el amigo y puede variar con x; cada persona tiene al menos un amigo.",
+    "data": {
+      "formula": "∀x ∃y A(x, y)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "A",
+            "arity": 2,
+            "reading": "x es amigo de y"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Toda persona tiene algún amigo.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Hay alguien de quien todas las personas son amigas.",
+          "why": "Eso sería ∃y ∀x A(x, y): cambia el orden de los cuantificadores y fija un único amigo para todos."
+        },
+        {
+          "id": "c",
+          "text": "Hay alguien que es amigo de todo el mundo.",
+          "why": "Eso sería ∃x ∀y A(x, y): quien tiene el amigo y quien es amigo se intercambian."
+        },
+        {
+          "id": "d",
+          "text": "Todo el mundo es amigo de todo el mundo.",
+          "why": "Eso sería ∀x ∀y A(x, y), mucho más fuerte."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-013",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "media",
+    "title": "Atiende a todos los pacientes",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "alcance",
+      "anidados"
+    ],
+    "hints": [
+      "El ∃x va delante: se elige a una persona concreta.",
+      "Esa persona debe atender a cada paciente."
+    ],
+    "explanation": "∃x ∀y (...) afirma que existe un único x que sirve para todos los y.",
+    "data": {
+      "formula": "∃x ∀y (P(y) → R(x, y))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "y es paciente"
+          },
+          {
+            "name": "R",
+            "arity": 2,
+            "reading": "x atiende a y"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Todo paciente es atendido por alguien.",
+          "why": "Eso sería ∀y (P(y) → ∃x R(x, y)): cada paciente podría tener un atendedor distinto."
+        },
+        {
+          "id": "b",
+          "text": "Alguien atiende a algún paciente.",
+          "why": "Eso sería ∃x ∃y (P(y) ∧ R(x, y)): es mucho más débil."
+        },
+        {
+          "id": "c",
+          "text": "Hay alguien que atiende a todos los pacientes.",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Todo el mundo atiende a todos los pacientes.",
+          "why": "Eso sería ∀x ∀y (P(y) → R(x, y))."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-014",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "media",
+    "title": "Cuota o exención",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "alcance",
+      "disyunción"
+    ],
+    "hints": [
+      "El ∨ está dentro del ∀, junto al condicional.",
+      "Cada socio puede elegir una opción distinta."
+    ],
+    "explanation": "El ∀ abarca toda la condición: para cada socio se cumple Q o X, pudiendo ser distinto en cada uno.",
+    "data": {
+      "formula": "∀x (S(x) → (Q(x) ∨ X(x)))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "S",
+            "arity": 1,
+            "reading": "x es socio"
+          },
+          {
+            "name": "Q",
+            "arity": 1,
+            "reading": "x paga la cuota"
+          },
+          {
+            "name": "X",
+            "arity": 1,
+            "reading": "x está exento"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Todo socio paga la cuota y está exento.",
+          "why": "Cambia ∨ por ∧: exigiría las dos cosas a la vez."
+        },
+        {
+          "id": "b",
+          "text": "Todo socio paga la cuota o está exento.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "O todos los socios pagan la cuota, o todos están exentos.",
+          "why": "Eso sería ∀x (S(x) → Q(x)) ∨ ∀x (S(x) → X(x)): el ∨ quedaría fuera del ∀ y todos tendrían que elegir lo mismo."
+        },
+        {
+          "id": "d",
+          "text": "Todas las personas son socias y pagan la cuota o están exentas.",
+          "why": "Eso sería ∀x (S(x) ∧ (Q(x) ∨ X(x))): obliga a que cualquier individuo sea socio."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-015",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "media",
+    "title": "Condicional con existencia",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "alcance",
+      "condicional"
+    ],
+    "hints": [
+      "La conectiva principal es →, no un cuantificador.",
+      "Los dos cuantificadores tienen alcance independiente."
+    ],
+    "explanation": "∃x E(x) → ∀y A(y): el antecedente es «hay algún estudiante» y el consecuente «todos aprueban».",
+    "data": {
+      "formula": "∃x E(x) → ∀y A(y)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "E",
+            "arity": 1,
+            "reading": "x es estudiante"
+          },
+          {
+            "name": "A",
+            "arity": 1,
+            "reading": "x aprueba"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Todo estudiante aprueba.",
+          "why": "Eso sería ∀x (E(x) → A(x)). En la fórmula, la consecuencia habla de todos los individuos, no solo de estudiantes."
+        },
+        {
+          "id": "b",
+          "text": "Hay un estudiante y todo el mundo aprueba.",
+          "why": "Eso sería ∃x E(x) ∧ ∀y A(y): la fórmula es un condicional, no afirma que existan estudiantes."
+        },
+        {
+          "id": "c",
+          "text": "Si algún estudiante aprueba, todos los estudiantes aprueban.",
+          "why": "Eso mezcla E y A en ambas partes; la fórmula separa «hay estudiantes» de «todos aprueban»."
+        },
+        {
+          "id": "d",
+          "text": "Si hay algún estudiante, todo el mundo aprueba.",
+          "correct": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-016",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "media",
+    "title": "Uno mayor que otro",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "existencial",
+      "relaciones"
+    ],
+    "hints": [
+      "Los dos cuantificadores son existenciales.",
+      "Se piden dos alumnos concretos y una relación entre ellos."
+    ],
+    "explanation": "Con ∃x ∃y se eligen dos alumnos, y M(x, y) dice que el primero es mayor que el segundo.",
+    "data": {
+      "formula": "∃x ∃y (A(x) ∧ A(y) ∧ M(x, y))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "A",
+            "arity": 1,
+            "reading": "x es alumno"
+          },
+          {
+            "name": "M",
+            "arity": 2,
+            "reading": "x es mayor que y"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Hay dos alumnos tales que uno es mayor que el otro.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Hay un alumno que es mayor que todos los alumnos.",
+          "why": "Eso sería ∃x (A(x) ∧ ∀y (A(y) → M(x, y))): usa un ∀ que la fórmula no tiene."
+        },
+        {
+          "id": "c",
+          "text": "Todo alumno es mayor que algún alumno.",
+          "why": "Eso sería ∀x (A(x) → ∃y (A(y) ∧ M(x, y))): usa un ∀ que la fórmula no tiene."
+        },
+        {
+          "id": "d",
+          "text": "Algún alumno es mayor que sí mismo.",
+          "why": "Eso sería ∃x (A(x) ∧ M(x, x)): usa el mismo individuo en ambos argumentos."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-017",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "avanzada",
+    "title": "Quien escribe es escritor",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "alcance",
+      "condicional"
+    ],
+    "hints": [
+      "El ∃y está en el antecedente: «x ha escrito algo».",
+      "Lee el antecedente como «x ha escrito algo» y el consecuente como una propiedad de ese mismo x."
+    ],
+    "explanation": "El antecedente ∃y W(x, y) significa «x ha escrito algo»; entonces S(x): es escritor.",
+    "data": {
+      "formula": "∀x (∃y W(x, y) → S(x))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "W",
+            "arity": 2,
+            "reading": "x ha escrito y"
+          },
+          {
+            "name": "S",
+            "arity": 1,
+            "reading": "x es escritor"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Todo escritor ha escrito algo.",
+          "why": "Eso sería ∀x (S(x) → ∃y W(x, y)): invierte el condicional."
+        },
+        {
+          "id": "b",
+          "text": "Todo el que ha escrito algo es escritor.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Si alguien ha escrito algo, todo el mundo es escritor.",
+          "why": "Eso sería ∃x ∃y W(x, y) → ∀x S(x): el ∃ y el ∀ quedarían fuera y sin relación con x."
+        },
+        {
+          "id": "d",
+          "text": "Todo el mundo ha escrito algo y es escritor.",
+          "why": "Eso sería ∀x (∃y W(x, y) ∧ S(x)): sustituye el condicional por una conjunción."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-018",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "avanzada",
+    "title": "Nadie admira a todos",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "negación",
+      "alcance"
+    ],
+    "hints": [
+      "Lee primero lo que hay dentro de ¬∃x.",
+      "Dentro: existe alguien que admira a todos los famosos."
+    ],
+    "explanation": "Negar «existe alguien que admira a todos los famosos» es decir que nadie los admira a todos; cada persona deja de admirar a algún famoso.",
+    "data": {
+      "formula": "¬∃x ∀y (F(y) → A(x, y))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "F",
+            "arity": 1,
+            "reading": "y es famoso"
+          },
+          {
+            "name": "A",
+            "arity": 2,
+            "reading": "x admira a y"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Nadie admira a ningún famoso.",
+          "why": "Eso sería ¬∃x ∃y (F(y) ∧ A(x, y)): mucho más fuerte, prohíbe cualquier admiración."
+        },
+        {
+          "id": "b",
+          "text": "Ningún famoso es admirado por todos.",
+          "why": "Eso sería ¬∃y (F(y) ∧ ∀x A(x, y)): intercambia quién admira y quién es admirado."
+        },
+        {
+          "id": "c",
+          "text": "Nadie admira a todos los famosos.",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Todo el mundo admira a todos los famosos.",
+          "why": "Eso sería ∀x ∀y (F(y) → A(x, y)): lo contrario de lo que dice la fórmula."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-019",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "avanzada",
+    "title": "Transitividad",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "universal",
+      "relaciones"
+    ],
+    "hints": [
+      "Hay tres variables encadenadas.",
+      "El y aparece en las dos premisas y desaparece en la conclusión."
+    ],
+    "explanation": "La fórmula expresa que la relación «ser mayor que» es transitiva.",
+    "data": {
+      "formula": "∀x ∀y ∀z ((M(x, y) ∧ M(y, z)) → M(x, z))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "M",
+            "arity": 2,
+            "reading": "x es mayor que y"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Si una persona es mayor que otra y esta es mayor que una tercera, la primera es mayor que la tercera.",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Si una persona es mayor que otra y esta es mayor que una tercera, la tercera es mayor que la primera.",
+          "why": "Invierte la conclusión: eso sería M(z, x) en lugar de M(x, z)."
+        },
+        {
+          "id": "c",
+          "text": "Toda persona es mayor que alguna otra.",
+          "why": "Eso sería ∀x ∃y M(x, y): no relaciona tres individuos."
+        },
+        {
+          "id": "d",
+          "text": "Todas las personas son mayores que todas las demás.",
+          "why": "Eso sería ∀x ∀y M(x, y): mucho más fuerte, y absurdo para esta relación."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-020",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "avanzada",
+    "title": "El mejor estudiante",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "alcance",
+      "relaciones"
+    ],
+    "hints": [
+      "El ∃x elige a un estudiante concreto.",
+      "Ese estudiante se compara con todos los estudiantes."
+    ],
+    "explanation": "∃x ∀y fija al estudiante con la nota más alta (o empatada) frente a todos.",
+    "data": {
+      "formula": "∃x (E(x) ∧ ∀y (E(y) → N(x, y)))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "E",
+            "arity": 1,
+            "reading": "x es estudiante"
+          },
+          {
+            "name": "N",
+            "arity": 2,
+            "reading": "x tiene al menos la nota de y"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Todo estudiante tiene la nota de algún estudiante como mínimo.",
+          "why": "Eso sería ∀x (E(x) → ∃y (E(y) ∧ N(x, y))): el orden ∀∃ no fija a un único estudiante."
+        },
+        {
+          "id": "b",
+          "text": "Algún estudiante tiene al menos la nota de algún estudiante.",
+          "why": "Eso sería ∃x ∃y (E(x) ∧ E(y) ∧ N(x, y)): es mucho más débil."
+        },
+        {
+          "id": "c",
+          "text": "Todo estudiante tiene al menos la nota de cualquier estudiante.",
+          "why": "Eso sería ∀x ∀y ((E(x) ∧ E(y)) → N(x, y)): exigiría que todos tuvieran la misma nota."
+        },
+        {
+          "id": "d",
+          "text": "Hay un estudiante cuya nota es al menos la de cualquier estudiante.",
+          "correct": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-021",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "avanzada",
+    "title": "Todos o todos",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "alcance",
+      "disyunción"
+    ],
+    "hints": [
+      "Hay dos cuantificadores y la conectiva principal es ∨.",
+      "Cada ∀ tiene alcance solo sobre su propio predicado."
+    ],
+    "explanation": "∀x P(x) ∨ ∀x Q(x) es una disyunción entre dos fórmulas universales independientes; no equivale a ∀x (P(x) ∨ Q(x)).",
+    "data": {
+      "formula": "∀x P(x) ∨ ∀x Q(x)",
+      "signature": {
+        "predicates": [
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "x es puntual"
+          },
+          {
+            "name": "Q",
+            "arity": 1,
+            "reading": "x es amable"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Cada persona es puntual o amable.",
+          "why": "Eso sería ∀x (P(x) ∨ Q(x)): el ∨ quedaría dentro del ∀ y cada persona podría elegir una cualidad distinta."
+        },
+        {
+          "id": "b",
+          "text": "Alguien es puntual y alguien es amable.",
+          "why": "Eso sería ∃x P(x) ∧ ∃x Q(x): usa ∃ y ∧ en lugar de ∀ y ∨."
+        },
+        {
+          "id": "c",
+          "text": "Todo el mundo es puntual o todo el mundo es amable.",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Todo el mundo es puntual y amable.",
+          "why": "Eso sería ∀x (P(x) ∧ Q(x)): exige las dos cualidades a la vez."
+        }
+      ]
+    }
+  },
+  {
+    "id": "pre-fen-022",
+    "blockId": "predicados-formulas-enunciados",
+    "type": "formula-to-statement",
+    "difficulty": "avanzada",
+    "title": "Todo estudiante aprobado",
+    "statement": "Elige el enunciado que expresa la fórmula según el diccionario.",
+    "tags": [
+      "negación",
+      "alcance"
+    ],
+    "hints": [
+      "Dentro del ¬∃ hay un estudiante a quien ningún profesor ha aprobado.",
+      "Niega eso: no existe ningún estudiante así."
+    ],
+    "explanation": "No existe un estudiante a quien no haya aprobado ningún profesor; es decir, cada estudiante ha sido aprobado por algún profesor.",
+    "data": {
+      "formula": "¬∃x (E(x) ∧ ∀y (P(y) → ¬A(x, y)))",
+      "signature": {
+        "predicates": [
+          {
+            "name": "E",
+            "arity": 1,
+            "reading": "x es estudiante"
+          },
+          {
+            "name": "P",
+            "arity": 1,
+            "reading": "y es profesor"
+          },
+          {
+            "name": "A",
+            "arity": 2,
+            "reading": "x ha sido aprobado por y"
+          }
+        ],
+        "constants": []
+      },
+      "options": [
+        {
+          "id": "a",
+          "text": "Hay un profesor que ha aprobado a todos los estudiantes.",
+          "why": "Eso sería ∃y (P(y) ∧ ∀x (E(x) → A(x, y))): el profesor sería el mismo para todos."
+        },
+        {
+          "id": "b",
+          "text": "Todo estudiante ha sido aprobado por algún profesor.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Ningún estudiante ha sido aprobado por ningún profesor.",
+          "why": "Eso sería ¬∃x ∃y (E(x) ∧ P(y) ∧ A(x, y)): lo contrario de lo que dice la fórmula."
+        },
+        {
+          "id": "d",
+          "text": "Algún estudiante ha sido aprobado por algún profesor.",
+          "why": "Eso sería ∃x ∃y (E(x) ∧ P(y) ∧ A(x, y)): es mucho más débil."
+        }
+      ]
+    }
+  }
+]
